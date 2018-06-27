@@ -26,9 +26,6 @@ public class ShopbagService {
 	void addShopbag(String memberEmail) {}
 	void deleteShopbag(String shopbagId) {}
 	
-	public void main(String[] args) throws ClassNotFoundException, SQLException {
-		
-	}
 	
 	
 	public String getName() {
