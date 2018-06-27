@@ -12,13 +12,6 @@ public class ShopbagService {
 	private String regEmail;
 	private String buyDay;
 	
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		ShopbagService a = new ShopbagService();
-		
-		a.getShopbagList();
-		
-	}
-	
 	public void ShopbagService() {
 		this.name = null;
 		this.regEmail = null;
@@ -28,17 +21,20 @@ public class ShopbagService {
 		this.regEmail = regEmail;
 	}
 	
-	void getShopbagList() throws ClassNotFoundException, SQLException{
+	void getShopbagList(ShopbagService shopbagservice) throws ClassNotFoundException, SQLException{
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
 		String password = "skdy0514";
-		//String sql = "SELECT * FROM MEMBER WHERE NAME LIKE '%"+search+"%'";
-		String sql = "SELECT * FROM SHOPBAG";
+
+		String sql = "SELECT * FROM SHOPBAG WHERE REG_EMAIL = ?";
+		
 		
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, user, password);
-		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery(sql);
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, shopbagservice.regEmail);
+		ResultSet rs = pstmt.executeQuery(sql);
+		
 		
 		while(rs.next()){
 			
