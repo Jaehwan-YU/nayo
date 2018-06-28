@@ -29,7 +29,7 @@ public class ShopbagService {
 	}
 
 	
-	public List<ShopbagService> getShopbagList(ShopbagService shopbagservice) throws ClassNotFoundException, SQLException{
+	public List<ShopbagService> getShopbagList(String regEmail) throws ClassNotFoundException, SQLException{
 		List<ShopbagService> list = new ArrayList<ShopbagService>();
 		
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
@@ -41,7 +41,7 @@ public class ShopbagService {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, user, password);
 		PreparedStatement pstmt = con.prepareStatement(sql);
-		pstmt.setString(1, shopbagservice.regEmail);
+		pstmt.setString(1, regEmail);
 		ResultSet rs = pstmt.executeQuery(sql);
 			
 		while(rs.next()) {		
@@ -49,7 +49,7 @@ public class ShopbagService {
 													rs.getString("REG_EMAIL"),
 													rs.getString("BUY_DAY"));
 			System.out.println(shop);
-			list = shop.getShopbagList(shopbagservice);
+			list = shop.getShopbagList(regEmail);
 		}
 		return list;		
 	}
