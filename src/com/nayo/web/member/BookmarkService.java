@@ -64,7 +64,7 @@ public class BookmarkService {
 		
 	}
 
-	void deleteBookMark(String memberEmail, String RecipeId) {
+	void deleteBookMark(String memberEmail) {
 		
 	}
 	
