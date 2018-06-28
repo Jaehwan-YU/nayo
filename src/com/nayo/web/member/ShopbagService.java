@@ -73,7 +73,7 @@ public class ShopbagService {
 		String user = "c##nayoadmin";
 		String password = "skdy0514";
 
-		String sql = "DELETE FROM SHOPBAG WHERE NAME = ?, REG_EMAIL = ?";
+		String sql = "DELETE FROM SHOPBAG WHERE NAME = ? AND REG_EMAIL = ?";
 			
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, user, password);
