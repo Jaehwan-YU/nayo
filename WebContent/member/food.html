@@ -7,125 +7,128 @@
 
 
 <body>
-	
-	<!-- 헤더영역 -->
-	<div>
 	<h1>나요</h1>
-		<div>
-			<h2>상단 메뉴</h2>
-			<div>
-				<h3>로고</h3>
-				<a href="../index.html">home</a>
-			</div>
-			<div>
-				<h3>검색 창</h3>
-				<form>
-					<fieldset>
-						<legend> 전체 검색 창 </legend>
-						<input type="text" value="재료명, 레시피 검색" /> <input type="button"
-							value="검색" />
-					</fieldset>
-				</form>
-			</div>
-			<div>
-				<h3>고객 메뉴</h3>
-				<h4>목록</h4>
-				<ul>
-					<li>로그아웃</li>
-					<li><a href="../notice/list.html">고객센터</a></li>
-					<li><a href="recipe/list.html">마이페이지</a></li>
-				</ul>
-			</div>
-		</div>
+	<!-- 헤더영역 -->
+	<section>
+		<h2>상단 메뉴</h2>
+		<nav>
+			<h3>로고</h3>
+			<a href="../index.html">home</a>
+		</nav>
 
-		<div>
+		<nav>
+			<h3>검색 창</h3>
+			<form>
+				<fieldset>
+					<legend> 전체 검색 창 </legend>
+					<input type="text" value="재료명, 레시피 검색" /> <input type="button"
+						value="검색" />
+				</fieldset>
+			</form>
+		</nav>
+		<nav>
+			<h3>고객 메뉴</h3>
+			<ul>
+				<li>로그아웃</li>
+				<li><a href="../notice/list.html">고객센터</a></li>
+				<li><a href="recipe/list.html">마이페이지</a></li>
+			</ul>
+		</nav>
+		</nav>
+
+		<nav>
 			<h2>메인메뉴</h2>
-			<h3>목록</h3>
 			<ul>
 				<li><a href="recipe/reg.html">나의 식재료</a></li>
 				<li><a href="../recipe/list.html">레시피</a></li>
 				<li><a href="shopbag.html">장바구니</a></li>
 				<li><a href="menu.html">나의 식단</a></li>
 			</ul>
-		</div>
-	</div>
+		</nav>
+		</nav>
+	</section>
+	<br>
 	<!-- 메인영역 -->
-	<div>
+
+	<section>
 		<h2>서비스 영역</h2>
-		<div>
+		<nav>
+			<h3>지금 바로 조리 가능한 레시피</h3>
 			<fieldset>
-				<h3>지금 바로 조리 가능한 레시피</h3>
 				<ul>
 					<li>콩나물국</li>
 					<li>삼겹살 볶음밥</li>
 					<li>닭 김치찜</li>
 				</ul>
 			</fieldset>
-		</div>
-		<div>
-			<h3>식재료 서비스 버튼</h3>
-			<input type="button" value="선택 식재료를 이용한 레시피" /> <input type="button"
-				value="선택 식재료 사용완료" /> <input type="button" value="선택 식재료 버리기" />
-		</div>
-		<div>
-			<h3>식재료 카테고리 영역</h3>
-			<form>
-				<fieldset>
-					<h4>목록</h4>
-					<ul>
-						<li>채소/과일</li>
-						<li>육류</li>
-						<li>수산물</li>
-						<li>곡물/견과류</li>
-						<li>양념소스</li>
-						<li>가공식품</li>
-						<li>유제품</li>
-						<li>기타</li>
-					</ul>
-				</fieldset>
-			</form>
-		</div>
-		<div>
-			<h3>보유 식재료 출력 영역</h3>
-			<form>
-				<fieldset>
-					<h4>냉장</h4>
-					<ul>
-						<li>삼겹살</li>
-						<li>닭고기 볶음용</li>
-						<li>콩나물</li>
-						<li>대파</li>
-						<li>양파</li>
-						<li>마늘</li>
-						<li>배추김치</li>
-					</ul>
-					<input type="button" value="보유 식재료 추가" />
-				</fieldset>
-			</form>
+		</nav>
+		</nav>
+	</section>
 
-			<form>
-				<fieldset>
-					<h4>냉동</h4>
-					<ul>
+	<nav>
+		<h3>식재료 서비스 버튼</h3>
+		<input type="button" value="선택 식재료를 이용한 레시피" /> <input type="button"
+			value="선택 식재료 사용완료" /> <input type="button" value="선택 식재료 버리기" />
+	</nav>
+	<div>
+		<h3>식재료 카테고리 영역</h3>
+		<form>
+			<fieldset>
+				<h4>목록</h4>
+				<ul>
+					<li>채소/과일</li>
+					<li>육류</li>
+					<li>수산물</li>
+					<li>곡물/견과류</li>
+					<li>양념소스</li>
+					<li>가공식품</li>
+					<li>유제품</li>
+					<li>기타</li>
+				</ul>
+			</fieldset>
+		</form>
+	</div>
+	<div>
+		<h3>보유 식재료 출력 영역</h3>
+		<form>
+			<fieldset>
+				<h4>냉장</h4>
+				<ul>
+					<li>삼겹살</li>
+					<li>닭고기 볶음용</li>
+					<li>콩나물</li>
+					<li>대파</li>
+					<li>양파</li>
+					<li>마늘</li>
+					<li>배추김치</li>
+				</ul>
+				<input type="button" value="보유 식재료 추가" />
+			</fieldset>
+		</form>
+
+		<form>
+			<fieldset>
+				<h4>냉동</h4>
+				<ul>
 					<li>등록된 식재료가 없습니다. 식재료를 등록해주세요.</li>
-					</ul>
-				</fieldset>
-			</form>
+				</ul>
+			</fieldset>
+		</form>
 
-			<form>
-				<fieldset>
-					<h4>상온</h4>
-					<ul>
-						<li>감자</li>
-						<li>소금</li>
-						<li>굴소스</li>
-						<li>설탕</li>
-						<li>간장</li>
-					</ul>
-					<input type="button" value="보유 식재료 추가" />
-				</fieldset>
-			</form>
-		</div>
+		<form>
+			<fieldset>
+				<h4>상온</h4>
+				<ul>
+					<li>감자</li>
+					<li>소금</li>
+					<li>굴소스</li>
+					<li>설탕</li>
+					<li>간장</li>
+				</ul>
+				<input type="button" value="보유 식재료 추가" />
+			</fieldset>
+		</form>
+	</div>
 	</div>
 </body>
 
