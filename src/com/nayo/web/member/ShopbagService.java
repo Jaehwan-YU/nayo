@@ -14,9 +14,9 @@ public class ShopbagService {
 	private String regEmail;
 	private String buyDay;
 	
-	public ShopbagService(String name, String regEmail, String buyDay) {
+	public ShopbagService(String name, String memberEmail, String buyDay) {
 		this.name = name;
-		this.regEmail = regEmail;
+		this.regEmail = memberEmail;
 		this.buyDay = buyDay;
 	}
 	public void ShopbagService() {
@@ -24,12 +24,12 @@ public class ShopbagService {
 		this.regEmail = null;
 		this.buyDay = null;
 	}
-	public void ShopbagService(String regEmail) {
-		this.regEmail = regEmail;
+	public void ShopbagService(String memberEmail) {
+		this.regEmail = memberEmail;
 	}
 
 	
-	public List<ShopbagService> getShopbagList(String regEmail) throws ClassNotFoundException, SQLException{
+	public List<ShopbagService> getShopbagList(String memberEmail) throws ClassNotFoundException, SQLException{
 		List<ShopbagService> list = new ArrayList<ShopbagService>();
 		
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
@@ -41,7 +41,7 @@ public class ShopbagService {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, user, password);
 		PreparedStatement pstmt = con.prepareStatement(sql);
-		pstmt.setString(1, regEmail);
+		pstmt.setString(1, memberEmail);
 		ResultSet rs = pstmt.executeQuery(sql);
 			
 		while(rs.next()) {		
@@ -49,12 +49,12 @@ public class ShopbagService {
 													rs.getString("REG_EMAIL"),
 													rs.getString("BUY_DAY"));
 			System.out.println(shop);
-			list = shop.getShopbagList(regEmail);
+			list.add(shop);
 		}
 		return list;		
 	}
 	
-	void addShopbag(String name, String regEmail) throws ClassNotFoundException, SQLException {
+	void addShopbag(String name, String memberEmail) throws ClassNotFoundException, SQLException {
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
 		String password = "skdy0514";
@@ -65,10 +65,10 @@ public class ShopbagService {
 		Connection con = DriverManager.getConnection(url, user, password);
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, name);
-		pstmt.setString(2, regEmail);
+		pstmt.setString(2, memberEmail);
 		ResultSet rs = pstmt.executeQuery(sql);
 	}
-	void deleteShopbag(String name) throws ClassNotFoundException, SQLException {
+	void deleteShopbag(String name, String memberEmail) throws ClassNotFoundException, SQLException {
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
 		String password = "skdy0514";
@@ -79,7 +79,7 @@ public class ShopbagService {
 		Connection con = DriverManager.getConnection(url, user, password);
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, name);
-		pstmt.setString(2, regEmail);
+		pstmt.setString(2, memberEmail);
 		ResultSet rs = pstmt.executeQuery(sql);
 	}
 	
@@ -94,8 +94,8 @@ public class ShopbagService {
 	public String getRegEmail() {
 		return regEmail;
 	}
-	public void setRegEmail(String regEmail) {
-		this.regEmail = regEmail;
+	public void setRegEmail(String memberEmail) {
+		this.regEmail = memberEmail;
 	}
 	public String getBuyDay() {
 		return buyDay;

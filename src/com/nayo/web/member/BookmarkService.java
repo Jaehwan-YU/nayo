@@ -20,18 +20,17 @@ public class BookmarkService {
 		this.regEmail = null;
 	}
 	
-	public void BookmarkService(String regEmail) {
-		this.regEmail = regEmail;
+	public void BookmarkService(String memberEmail) {
+		this.regEmail = memberEmail;
 	} 
 	
-	public BookmarkService(String recipeId, String regEmail) {
-		//여기 원래 레시피타이틀이랑 심플인트로 가지고 와야하는데..
-		//연결 어떻게 하나유?ㅋㅋㅋㅋㅋㅋㅋㅋ 고민해봅시다
+	public BookmarkService(String recipeId, String memberEmail) {
+		
 		this.recipeId = recipeId;
-		this.regEmail = regEmail;
+		this.regEmail = memberEmail;
 	}
 
-	public List<BookmarkService> getBookMarkList(String regEmail) throws ClassNotFoundException, SQLException {
+	public List<BookmarkService> getBookMarkList(String memberEmail) throws ClassNotFoundException, SQLException {
 		List<BookmarkService> list = new ArrayList<BookmarkService>();
 		
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
@@ -48,24 +47,46 @@ public class BookmarkService {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, user, password);
 		PreparedStatement pstmt = con.prepareStatement(sql);
-		pstmt.setString(1, regEmail );
+		pstmt.setString(1, memberEmail );
 		ResultSet rs = pstmt.executeQuery(sql);
 			
 		while(rs.next()) {		
 			BookmarkService bookmark = new BookmarkService(rs.getString("TITLE"),
 													rs.getString("SIMPLE_INTRO"));
 			//System.out.println(shop);
-			list = bookmark.getBookMarkList(regEmail);
+			list.add(bookmark);
 	}
 		return list;
 	}
 
-	void addBookMark(String memberEmail, String RecipeId) {
+	void addBookMark(String memberEmail, String RecipeId) throws SQLException, ClassNotFoundException {
+		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		String user = "c##nayoadmin";
+		String password = "skdy0514";
 		
+		String sql = "INSERT INTO BOOKMARK(RECIPE_ID, REG_EMAIL) VALUES(?,?)";
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, user, password);
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, memberEmail );
+		pstmt.setString(2, recipeId );
+		ResultSet rs = pstmt.executeQuery(sql);
 	}
 
-	void deleteBookMark(String memberEmail) {
+	void deleteBookMark(String memberEmail, String recipeId) throws ClassNotFoundException, SQLException {
+		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		String user = "c##nayoadmin";
+		String password = "skdy0514";
 		
+		String sql = "DELETE FROM BOOKMARK WHERE REG_EMAIL = ? AND RECIPE_ID = ?";
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, user, password);
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, memberEmail );
+		pstmt.setString(2, recipeId );
+		ResultSet rs = pstmt.executeQuery(sql);
 	}
 	
 	
@@ -79,7 +100,7 @@ public class BookmarkService {
 	public String getRegEmail() {
 		return regEmail;
 	}
-	public void setRegEmail(String regEmail) {
-		this.regEmail = regEmail;
+	public void setRegEmail(String memberEmail) {
+		this.regEmail = memberEmail;
 	}
 }

@@ -1,7 +1,46 @@
 package com.nayo.web.member;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.nayo.web.entity.Food;
+
 public class FoodService {
-	void getFoodList(String memberEmail)	{}	
+	
+	Food food;
+	
+	public void FoodService() {
+		food = new Food();
+	}
+	
+	public List<Food> getFoodList(String memberEmail) throws ClassNotFoundException, SQLException	{
+		List<Food> list = new ArrayList<Food>();
+		
+		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		String user = "c##nayoadmin";
+		String password = "skdy0514";
+
+		String sql = "SELECT * FROM FOOD WHERE REG_EMAIL = ?";
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, user, password);
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, memberEmail );
+		ResultSet rs = pstmt.executeQuery(sql);
+			
+		while(rs.next()) {		
+			food = new Food(rs.getString("NAME"),rs.getString("SELL_LIFE"));
+			//System.out.println(shop);
+			list.add(food);		
+			}
+		
+		return list;
+	}	
 	void addFood(String memberEmail){}
 	void setFood(String foodId){}
 	void deleteFood(String foodId){}

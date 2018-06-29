@@ -12,6 +12,13 @@ public class Food {
 	private String foodCate;
 	private String keepArea;
 	
+	public Food() {
+		
+	}
+	public Food(String name, String sellLife) {
+		this.name = name;
+		this.sellLife = sellLife;
+	}
 	public Food(String id, String name, int foodLife, String sellLife, String regDate, String useDate, String regEmail,
 			String foodCate, String keepArea) {
 		super();
