@@ -9,6 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nayo.web.entity.Recipe;
+
 public class RecipeService {
 
 	private List<Recipe> recipeList;

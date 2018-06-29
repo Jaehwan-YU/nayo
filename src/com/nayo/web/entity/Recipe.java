@@ -1,4 +1,4 @@
-package com.nayo.web;
+package com.nayo.web.entity;
 
 public class Recipe {
 		

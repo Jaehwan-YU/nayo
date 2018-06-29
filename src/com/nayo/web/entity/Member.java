@@ -1,4 +1,4 @@
-package com.nayo.web.member;
+package com.nayo.web.entity;
 
 public class Member {
 	
