@@ -10,6 +10,9 @@ public class Notice {
 	private String noticeCate;
 	
 	
+	public Notice() {
+		
+	}
 	
 	public Notice(String id, String title, String content, String regDate, String regId, String noticeCate) {
 		this.id = id;

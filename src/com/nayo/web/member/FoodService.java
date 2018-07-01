@@ -41,7 +41,19 @@ public class FoodService {
 		
 		return list;
 	}	
-	void addFood(String memberEmail){}
-	void setFood(String foodId){}
-	void deleteFood(String foodId){}
+	void addFood(String memberEmail){
+		
+	}
+	void setFood(String foodId){
+		
+	}
+	void deleteFood(String foodId){
+		
+	}
+	
+	public Food getFoodDetail() {
+		
+		
+		return food;
+	}
 }

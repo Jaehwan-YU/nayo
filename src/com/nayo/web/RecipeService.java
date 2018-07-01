@@ -94,16 +94,16 @@ public class RecipeService {
 	
 	void printRecipeList() {
 		
-		for(int i=0; i<this.recipeList.size();i++) {
-		System.out.print(this.recipeList.get(i).getId()
-				+this.recipeList.get(i).getTitle()
-				+this.recipeList.get(i).getSimpleIntro()
-				+this.recipeList.get(i).getKcalory()
-				+this.recipeList.get(i).getNational()
-				+this.recipeList.get(i).getSituation()
-				+this.recipeList.get(i).getRecipeType()
-				+this.recipeList.get(i).getRegEmail()
-				+this.recipeList.get(i).getProcess()
+		for(int i=0; i<recipeList.size();i++) {
+		System.out.print(recipeList.get(i).getId()
+				+recipeList.get(i).getTitle()
+				+recipeList.get(i).getSimpleIntro()
+				+recipeList.get(i).getKcalory()
+				+recipeList.get(i).getNational()
+				+recipeList.get(i).getSituation()
+				+recipeList.get(i).getRecipeType()
+				+recipeList.get(i).getRegEmail()
+				+recipeList.get(i).getProcess()
 				);
 		}
 	}	

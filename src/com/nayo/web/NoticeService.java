@@ -8,38 +8,36 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nayo.web.entity.Notice;
 import com.nayo.web.member.ShopbagService;
 
 public class NoticeService {
 	
-	private String id;
-	private String title;
-	private String content;
-	private String regDate;
-	private String regId;
-	private String cateName;
+	private Notice notice;
+	private List<Notice> noticeList;
 
 	public void NoticeService() {
-		this.id = null;
-		this.title = null;
-		this.content = null;
-		this.regDate = null;
-		this.regId = null;
-		this.cateName = null;
+		
+		notice = new Notice();
+		noticeList = new ArrayList<Notice>();
+		
+		
 	}
 	
-	public NoticeService(String cateName, String id, String title,
-			String content, String regId,String regDate) {
-		this.cateName = cateName;
-		this.id = id;
-		this.title = title;
-		this.content = content;
-		this.regId = regId;
-		this.regDate = regDate;
+	public NoticeService(Notice notice) {
+		this.notice = notice;
+		this.noticeList = new ArrayList<Notice>();
+		
 	}
 	
-	public List<NoticeService> getNoticeList(NoticeService noticeService) throws ClassNotFoundException, SQLException {
-		List<NoticeService> list = new ArrayList<NoticeService>();
+	public NoticeService(List<Notice> noticeList) {
+		this.notice = new Notice();
+		this.noticeList = noticeList;
+	}
+	
+	public List<Notice> getNoticeList() throws ClassNotFoundException, SQLException {
+		
+		List<Notice> tempList = new ArrayList<Notice>();
 		
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
@@ -56,64 +54,29 @@ public class NoticeService {
 		ResultSet rs = pstmt.executeQuery(sql);
 			
 		while(rs.next()) {		
-			NoticeService notice = new NoticeService(rs.getString("CATE_NAME"),
-													rs.getString("ID"),
-													rs.getString("TITLE"),
-													rs.getString("CONTENT"),
-													rs.getString("REG_ID"),
-													rs.getString("REG_DATE"));
-			//System.out.println(shop);
-			list = notice.getNoticeList(noticeService);
+			Notice notice = new Notice(rs.getString("ID"),
+									   rs.getString("TITLE"),
+									   rs.getString("CONTENT"),
+									   rs.getString("REG_DATE"),
+									   rs.getString("REG_ID"),
+									   rs.getString("NAME"));
+			
+			tempList.add(notice);
 		}
-		
-		return list;
+		return tempList;
+
 	}
 	
-	public String getId() {
-		return id;
+	public Notice getNotice() {
+		return notice;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setNotice(Notice notice) {
+		this.notice = notice;
 	}
 
-	public String getTitle() {
-		return title;
+	public void setNoticeList(List<Notice> noticeList) {
+		this.noticeList = noticeList;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
-	public String getRegDate() {
-		return regDate;
-	}
-
-	public void setRegDate(String regDate) {
-		this.regDate = regDate;
-	}
-
-	public String getRegId() {
-		return regId;
-	}
-
-	public void setRegId(String regId) {
-		this.regId = regId;
-	}
-
-	public String getCateName() {
-		return cateName;
-	}
-
-	public void setCateName(String cateName) {
-		this.cateName = cateName;
-	}
 }
