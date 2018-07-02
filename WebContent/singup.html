@@ -21,8 +21,10 @@
 				<tr>
 					<th>이메일</th>
 					<td><input type="text" required="required"
-						placeholder="ex)E-mail@nayo.com" /> <input type="button"
-						value="중복확인" /></td>
+						placeholder="ex)E-mail@nayo.com" 
+						pattern="^[0-9a-zA-Z][0-9a-zA-Z\_\-\.\+]+[0-9a-zA-Z]@[0-9a-zA-Z][0-9a-zA-Z\_\-]*[0-9a-zA-Z](\.[a-zA-Z]{2,6}){1,2}$"/> 
+						<input type="button" value="중복확인" />
+						</td>
 				</tr>
 				<tr>
 					<th>비밀번호</th>
