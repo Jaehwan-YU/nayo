@@ -14,7 +14,7 @@ public class FoodService {
 	
 	Food food;
 	
-	public void FoodService() {
+	public FoodService() {
 		food = new Food();
 	}
 	

@@ -15,12 +15,12 @@ public class BookmarkService {
 	private String recipeId;
 	private String regEmail;	
 
-	public void BookmarkService() {
+	public BookmarkService() {
 		this.recipeId = null;
 		this.regEmail = null;
 	}
 	
-	public void BookmarkService(String memberEmail) {
+	public BookmarkService(String memberEmail) {
 		this.regEmail = memberEmail;
 	} 
 	
