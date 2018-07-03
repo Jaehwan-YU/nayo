@@ -68,7 +68,9 @@ public class ShopbagService {
 		pstmt.setString(2, memberEmail);
 		ResultSet rs = pstmt.executeQuery(sql);
 	}
+	
 	void deleteShopbag(String name, String memberEmail) throws ClassNotFoundException, SQLException {
+		
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
 		String password = "skdy0514";
@@ -81,6 +83,7 @@ public class ShopbagService {
 		pstmt.setString(1, name);
 		pstmt.setString(2, memberEmail);
 		ResultSet rs = pstmt.executeQuery(sql);
+		
 	}
 	
 	

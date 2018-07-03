@@ -21,7 +21,7 @@ public class RecipeService {
 		
 		test.recipeList = new ArrayList<Recipe>();
 		
-		test.getRecipeList();
+		test.setRecipeList();
 		
 		test.printRecipeList();
 		
@@ -32,7 +32,9 @@ public class RecipeService {
 	}
 	
 
-	void getRecipeList() throws SQLException, ClassNotFoundException {
+	List<Recipe> getRecipeList() throws SQLException, ClassNotFoundException {
+		
+		List<Recipe> tempList = new ArrayList<Recipe>();
 		
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
@@ -75,9 +77,10 @@ public class RecipeService {
 				);
 	
 		
-		this.recipeList.add(temp);
+		tempList.add(temp);
 		
 		}
+		return tempList;
 	}
 	
 	void getRecipe() {
@@ -85,11 +88,19 @@ public class RecipeService {
 	}
 	
 	void addRecipe() {
+		//웹에서 입력 받은 값을 저장
+		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		String user = "c##nayoadmin";
+		String password = "skdy0514";
 		
 	}
 	
 	void setRecipe() {
 		
+	}
+	
+	void setRecipeList() throws ClassNotFoundException, SQLException {
+		this.recipeList = getRecipeList();
 	}
 	
 	void printRecipeList() {

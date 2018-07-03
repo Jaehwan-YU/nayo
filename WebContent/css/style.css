@@ -1,0 +1,60 @@
+/*-----reset--------------------------------------------*/
+body{
+	margin: 0px;
+}
+
+h1{
+	margin: 0px;
+}
+
+footer{
+	margin: 0px;
+}
+
+
+
+/*-----styling------------------------------------------*/
+
+#header{
+	height:50px;
+	background: #E8B200;
+}
+
+	#header .content-container{
+		height: 100%;
+		width: 960px;
+		margin-left: auto;
+		margin-right: auto;
+		background: rgba(255,0,0,0.5);
+	}
+
+#main-menu{
+	height: 100px;
+	background: white;
+}
+	#main-menu .content-container{
+		height: 100%;
+		width: 960px;
+		margin-left: auto;
+		margin-right: auto;
+		background: rgba(55,200,0,0.5);
+	
+	}
+
+#main{
+	height: 800px;
+	background: green;
+	
+}
+	#main .content-container{
+		height: 100%;
+		width: 960px;
+		margin-left: auto;
+		margin-right: auto;
+		background: rgba(0,200,55,0.5);
+	}
+	
+#footer{
+	height: 200px;
+	background: gray;
+}
