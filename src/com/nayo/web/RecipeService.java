@@ -1,5 +1,6 @@
 package com.nayo.web;
 
+import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.*;
 
 import com.nayo.web.entity.Recipe;
 
@@ -22,9 +24,7 @@ public class RecipeService {
 		test.recipeList = new ArrayList<Recipe>();
 		
 		test.setRecipeList();
-		
-		test.printRecipeList();
-		
+
 	}
 	
 	void RecipeService() {
@@ -103,10 +103,10 @@ public class RecipeService {
 		this.recipeList = getRecipeList();
 	}
 	
-	void printRecipeList() {
+	void printRecipeList(PrintWriter out) {
 		
 		for(int i=0; i<recipeList.size();i++) {
-		System.out.print(recipeList.get(i).getId()
+		out.print(recipeList.get(i).getId()
 				+recipeList.get(i).getTitle()
 				+recipeList.get(i).getSimpleIntro()
 				+recipeList.get(i).getKcalory()
