@@ -24,7 +24,8 @@ public class RecipeService {
 		test.recipeList = new ArrayList<Recipe>();
 		
 		test.setRecipeList();
-
+		
+		test.printRecipeList();
 	}
 	
 	void RecipeService() {
@@ -32,7 +33,9 @@ public class RecipeService {
 	}
 	
 
-	List<Recipe> getRecipeList() throws SQLException, ClassNotFoundException {
+	public List<Recipe> getRecipeList(){
+		
+		
 		
 		List<Recipe> tempList = new ArrayList<Recipe>();
 		
@@ -57,29 +60,42 @@ public class RecipeService {
 				+"INNER JOIN RECIPE_TYPE T "
 				+"ON T.ID = R.RECIPE_TYPE_ID";
 		
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection con = DriverManager.getConnection(url, user, password);
-		Statement stmt = con.createStatement();
-		ResultSet rs = stmt.executeQuery(sql);
-	
-		while(rs.next()) {
-		
-		Recipe temp = new Recipe(
-				rs.getString("게시번호"),
-				rs.getString("음식명"),
-				rs.getString("한줄소개"), 
-				rs.getString("조리과정"),
-				rs.getString("등록자"),
-				rs.getInt("열량"),
-				rs.getString("국가"),
-				rs.getString("상황"), 
-				rs.getString("종류")
-				);
-	
-		
-		tempList.add(temp);
-		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		Connection con;
+		ResultSet rs = null;
+		Statement stmt = null;
+		try {
+			con = DriverManager.getConnection(url, user, password);
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				
+				Recipe temp = new Recipe(
+						rs.getString("게시번호"),
+						rs.getString("음식명"),
+						rs.getString("한줄소개"), 
+						rs.getString("조리과정"),
+						rs.getString("등록자"),
+						rs.getInt("열량"),
+						rs.getString("국가"),
+						rs.getString("상황"), 
+						rs.getString("종류")
+						);
+				
+				
+				tempList.add(temp);
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
 		return tempList;
 	}
 	
@@ -99,14 +115,14 @@ public class RecipeService {
 		
 	}
 	
-	void setRecipeList() throws ClassNotFoundException, SQLException {
+	public void setRecipeList() throws ClassNotFoundException, SQLException {
 		this.recipeList = getRecipeList();
 	}
 	
-	void printRecipeList(PrintWriter out) {
+	public void printRecipeList() {
 		
 		for(int i=0; i<recipeList.size();i++) {
-		out.print(recipeList.get(i).getId()
+		System.out.println(recipeList.get(i).getId()
 				+recipeList.get(i).getTitle()
 				+recipeList.get(i).getSimpleIntro()
 				+recipeList.get(i).getKcalory()

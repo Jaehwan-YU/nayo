@@ -2,6 +2,7 @@ package com.nayo.web;
 
 import java.io.*;
 import java.sql.SQLException;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -23,16 +24,24 @@ public class RecipeList extends HttpServlet{
 		OutputStream os = arg1.getOutputStream();
 		PrintWriter out = new PrintWriter(os,true);
 		
-		try {
-			
-			service.setRecipeList();
+		List<Recipe> tempList = service.getRecipeList();
+		for (Recipe recipe : tempList) {
+			out.println(recipe.getId()+"\n");
+			out.println(recipe.getKcalory());
+		}
+		
+		/*try {
+
+			for(int i=0; i<service.getRecipeList().size(); i++) {
+				out.print(service.getRecipeList().get(i).getId());
+			}
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
-		
-		service.printRecipeList(out);
+		*/
+	
 	}
 	
 }
