@@ -19,12 +19,12 @@ public class ShopbagService {
 		this.regEmail = memberEmail;
 		this.buyDay = buyDay;
 	}
-	public void ShopbagService() {
+	public ShopbagService() {
 		this.name = null;
 		this.regEmail = null;
 		this.buyDay = null;
 	}
-	public void ShopbagService(String memberEmail) {
+	public ShopbagService(String memberEmail) {
 		this.regEmail = memberEmail;
 	}
 

@@ -16,7 +16,7 @@ public class NoticeService {
 	private Notice notice;
 	private List<Notice> noticeList;
 
-	public void NoticeService() {
+	public NoticeService() {
 		
 		notice = new Notice();
 		noticeList = new ArrayList<Notice>();
