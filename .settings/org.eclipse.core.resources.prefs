@@ -1,5 +1,16 @@
 eclipse.preferences.version=1
+encoding//WebContent/admin/index.jsp=UTF-8
+encoding//WebContent/admin/keeptip.jsp=UTF-8
+encoding//WebContent/admin/notice=UTF-8
+encoding//WebContent/admin/notice/detail.jsp=UTF-8
+encoding//WebContent/admin/notice/edit.jsp=UTF-8
+encoding//WebContent/admin/notice/list.jsp=UTF-8
+encoding//WebContent/admin/report.jsp=UTF-8
 encoding//WebContent/css/style.css=UTF-8
+<<<<<<< HEAD
+=======
+encoding//WebContent/faq/list.jsp=UTF-8
+>>>>>>> refs/remotes/origin/master
 encoding//WebContent/index.jsp=UTF-8
 encoding//WebContent/login.jsp=UTF-8
 encoding//WebContent/member/bookmark.jsp=UTF-8
@@ -10,4 +21,8 @@ encoding//WebContent/member/myinfo.jsp=UTF-8
 encoding//WebContent/member/recipe/list.jsp=UTF-8
 encoding//WebContent/member/recipe/reg.jsp=UTF-8
 encoding//WebContent/member/shopbag.jsp=UTF-8
+encoding//WebContent/notice/list.jsp=UTF-8
+encoding//WebContent/recipe/detail.jsp=UTF-8
+encoding//WebContent/recipe/list.jsp=UTF-8
+encoding//WebContent/singup.jsp=UTF-8
 encoding/<project>=UTF-8
