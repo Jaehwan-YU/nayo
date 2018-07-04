@@ -41,16 +41,16 @@ public class RecipeService {
 		String user = "c##nayoadmin";
 		String password = "skdy0514";
 		
-		String sql = "SELECT R.ID °Ô½Ã¹øÈ£"
-				+", TITLE À½½Ä¸í"
-				+", SIMPLE_INTRO ÇÑÁÙ¼Ò°³"
-				+", PROCESS Á¶¸®°úÁ¤"
-				+", REG_EMAIL µî·ÏÀÚ"
-				+", KCALORY ¿­·®"
-				+", N.NAME ±¹°¡"
-				+", S.NAME »óÈ²"
-				+", T.NAME Á¾·ù "
-				+"FROM RECIPE R "
+		String sql = "SELECT R.ID "
+				+", TITLE "
+				+", SIMPLE_INTRO "
+				+", PROCESS "
+				+", REG_EMAIL "
+				+", KCALORY "
+				+", N.NAME N"
+				+", S.NAME S"
+				+", T.NAME T"
+				+" FROM RECIPE R "
 				+"INNER JOIN NATIONAL N "
 				+"ON N.ID = R.NATIONAL_ID "
 				+"INNER JOIN SITUATION S "
@@ -74,15 +74,15 @@ public class RecipeService {
 			while(rs.next()) {
 				
 				Recipe temp = new Recipe(
-						rs.getString("°Ô½Ã¹øÈ£"),
-						rs.getString("À½½Ä¸í"),
-						rs.getString("ÇÑÁÙ¼Ò°³"), 
-						rs.getString("Á¶¸®°úÁ¤"),
-						rs.getString("µî·ÏÀÚ"),
-						rs.getInt("¿­·®"),
-						rs.getString("±¹°¡"),
-						rs.getString("»óÈ²"), 
-						rs.getString("Á¾·ù")
+						rs.getString("ID"),
+						rs.getString("TITLE"),
+						rs.getString("SIMPLE_INTRO"), 
+						rs.getString("PROCESS"),
+						rs.getString("REG_EMAIL"),
+						rs.getInt("KCALORY"),
+						rs.getString("N"),
+						rs.getString("S"), 
+						rs.getString("T")
 						);
 				
 				
@@ -102,7 +102,7 @@ public class RecipeService {
 	}
 	
 	void addRecipe() {
-		//À¥¿¡¼­ ÀÔ·Â ¹ÞÀº °ªÀ» ÀúÀå
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
 		String password = "skdy0514";
