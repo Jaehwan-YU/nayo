@@ -20,7 +20,7 @@
   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
   version="4.0"
-  metadata-complete="true">
+  metadata-complete="false">
 
   <display-name>Welcome to Tomcat</display-name>
   <description>
@@ -28,13 +28,12 @@
   </description>
 
 <servlet>
-     <servlet-name>na</servlet-name>
-     <servlet-class>com.nayo.web.RecipeList</servlet-class>
+     <servlet-name>sum</servlet-name>
+     <servlet-class>com.nayo.web</servlet-class>
   </servlet>
-
   <servlet-mapping>
-     <servlet-name>na</servlet-name>
-     <url-pattern>/recipelist</url-pattern>
+     <servlet-name>sum</servlet-name>
+     <url-pattern>/yami</url-pattern>
   </servlet-mapping>
 
 

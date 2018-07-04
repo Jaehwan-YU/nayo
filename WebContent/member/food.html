@@ -13,35 +13,46 @@
 	<!-- 헤더영역 -->
 	<header id="header">
 		<div class="content-container">
-			<h1>나요</h1>
-			<h2>상단 메뉴</h2>
-			<nav>
-				<h1>로고</h1>
-				<a href="../index.html">home</a>
-			</nav>
+		<!-- <h1 id="test">
+		동해물과 백두산이<br/>
+		냉짬뽕이 먹고싶다<br/>
+		나는지금 배고프다<br/>
+		집에가서 쉬고싶다<br/>
+		얄리얄리 얄라셩 얄라리얄라<br/>
+		어머님은 짜장면이 싫다고 하셨어<br/>
+		</h1> -->
+			<section>
+				<h1>나요</h1>
+				<h2>상단 메뉴</h2>
+				<nav>
+					<h1>로고</h1>
+					<a href="../index.html">home</a>
+				</nav>
 
-			<div>
-				<h1>검색 창</h1>
-				<form>
-					<fieldset>
-						<legend> 전체 검색 창 </legend>
-						<input type="text" placeholder="재료명, 레시피명 검색" /> <input
-							type="button" value="검색" />
-					</fieldset>
-				</form>
-			</div>
+				<div>
+					<h1>검색 창</h1>
+					<form>
+						<fieldset>
+							<legend> 전체 검색 창 </legend>
+							<input type="text" placeholder="재료명, 레시피명 검색" /> <input
+								type="button" value="검색" />
+						</fieldset>
+					</form>
+				</div>
 
-			<nav>
-				<h1>고객 메뉴</h1>
-				<ul>
-					<li class="first">로그아웃</li>
-					<li><a href="../notice/list.html">고객센터</a></li>
-					<li class="last"><a href="recipe/list.html">마이페이지</a></li>
-				</ul>
-			</nav>
+				<nav>
+					<h1>고객 메뉴</h1>
+					<ul>
+						<li class="first">로그아웃</li>
+						<li><a href="../notice/list.html">고객센터</a></li>
+						<li class="last"><a href="recipe/list.html">마이페이지</a></li>
+					</ul>
+				</nav>
+			</section>
 		</div>
 	</header>
 	<!--메인메뉴 영역-->
+	<div id="visual"></div>
 	<section id="main-menu">
 		<div class="content-container">
 			<h1>메인 메뉴</h1>
@@ -58,7 +69,7 @@
 	</section>
 	<!-- 메인영역 -->
 
-	<main id="main">
+	<main id="main" class="clearfix">
 	<div class="content-container">
 		<h1>서비스 영역</h1>
 		<nav>
@@ -97,44 +108,48 @@
 		</div>
 		<div>
 			<h3>보유 식재료 출력 영역</h3>
-			<form>
-				<fieldset>
-					<h4>냉장</h4>
-					<ul>
-						<li>삼겹살</li>
-						<li>닭고기 볶음용</li>
-						<li>콩나물</li>
-						<li>대파</li>
-						<li>양파</li>
-						<li>마늘</li>
-						<li>배추김치</li>
-					</ul>
-					<input type="button" value="보유 식재료 추가" />
-				</fieldset>
-			</form>
-
-			<form>
-				<fieldset>
-					<h4>냉동</h4>
-					<ul>
-						<li>등록된 식재료가 없습니다. 식재료를 등록해주세요.</li>
-					</ul>
-				</fieldset>
-			</form>
-
-			<form>
-				<fieldset>
-					<h4>상온</h4>
-					<ul>
-						<li>감자</li>
-						<li>소금</li>
-						<li>굴소스</li>
-						<li>설탕</li>
-						<li>간장</li>
-					</ul>
-					<input type="button" value="보유 식재료 추가" />
-				</fieldset>
-			</form>
+			<div class="food-container">
+				<form>
+					<fieldset>
+						<h4>냉장</h4>
+						<ul>
+							<li>삼겹살</li>
+							<li>닭고기 볶음용</li>
+							<li>콩나물</li>
+							<li>대파</li>
+							<li>양파</li>
+							<li>마늘</li>
+							<li>배추김치</li>
+						</ul>
+						<input type="button" value="보유 식재료 추가" />
+					</fieldset>
+				</form>
+			</div>
+			<div class="food-container">
+				<form>
+					<fieldset>
+						<h4>냉동</h4>
+						<ul>
+							<li>등록된 식재료가 없습니다. 식재료를 등록해주세요.</li>
+						</ul>
+					</fieldset>
+				</form>
+			</div>
+			<div class="food-container">
+				<form>
+					<fieldset>
+						<h4>상온</h4>
+						<ul>
+							<li>감자</li>
+							<li>소금</li>
+							<li>굴소스</li>
+							<li>설탕</li>
+							<li>간장</li>
+						</ul>
+						<input type="button" value="보유 식재료 추가" />
+					</fieldset>
+				</form>
+			</div>
 		</div>
 	</div>
 	</main>

@@ -10,51 +10,70 @@ h1{
 footer{
 	margin: 0px;
 }
+p{
+	margin: 0px;
+}
 
-
-
+/*-----Common style------------------------------------------*/
+.content-container {
+	height: 100%;
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.clearfix::after{
+		content:".";
+		height:0px;
+		display: block;
+		clear:left;
+		overflow:hidden;
+	}
 /*-----styling------------------------------------------*/
 
 #header{
 	height:50px;
-	background: #E8B200;
 }
 
-	#header .content-container{
-		height: 100%;
-		width: 960px;
-		margin-left: auto;
-		margin-right: auto;
-		background: rgba(255,0,0,0.5);
-	}
+/* #test{
+	height: 200px;
+	width: 200px;
+	background: yellow url(../images/logo.png) no-repeat left top;
+	background-size: contain;
+	background-attachment: local;
+	overflow: scroll;
+	
+	position: fixed;
+	left: 600px;
+	top: 200px;
+} */
+
+#visual{
+	height:171px;
+	background:#313131 url('../images/bg-visual.png') no-repeat center;
+	border-top:3px solid #8cba34;
+	
+}
 
 #main-menu{
 	height: 100px;
-	background: white;
+	border-top:5px solid #8cba34;
+	margin-top:1px
+
 }
-	#main-menu .content-container{
-		height: 100%;
-		width: 960px;
-		margin-left: auto;
-		margin-right: auto;
-		background: rgba(55,200,0,0.5);
-	
-	}
 
 #main{
 	height: 800px;
-	background: green;
 	
 }
-	#main .content-container{
-		height: 100%;
-		width: 960px;
-		margin-left: auto;
-		margin-right: auto;
-		background: rgba(0,200,55,0.5);
+
+	.food-container{
+		min-height: inherit;
+		width: 320px;
+		margin: 0px;
+		float:left;
 	}
 	
 #footer{
 	height: 200px;
-	background: gray;
+	background: #313131;
 }
