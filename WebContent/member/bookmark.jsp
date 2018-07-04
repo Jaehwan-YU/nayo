@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,8 +72,9 @@
 			</ol>
 		</nav>
 	</section>
-
-	</select> [즐겨먹기 페이지]
+	<p>
+	[즐겨먹기 페이지]
+	</p>
 </body>
 
 </html>
