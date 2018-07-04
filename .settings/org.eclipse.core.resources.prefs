@@ -1,3 +1,11 @@
 eclipse.preferences.version=1
 encoding//WebContent/css/style.css=UTF-8
+encoding//WebContent/member/bookmark.jsp=UTF-8
+encoding//WebContent/member/food.jsp=UTF-8
+encoding//WebContent/member/infocheck.jsp=UTF-8
+encoding//WebContent/member/menu.jsp=UTF-8
+encoding//WebContent/member/myinfo.jsp=UTF-8
+encoding//WebContent/member/recipe/list.jsp=UTF-8
+encoding//WebContent/member/recipe/reg.jsp=UTF-8
+encoding//WebContent/member/shopbag.jsp=UTF-8
 encoding/<project>=UTF-8
