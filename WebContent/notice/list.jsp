@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,12 +10,12 @@
 	<div>
 		<ul>
 			<li><a href="../index.html">home</a>
-			<li><a href="list.html">FAQ</a>
+			<li><a href="../faq/list.html">FAQ</a>
 		</ul>
 	</div>
 	
 	[공지사항]
-	게스트의 공지사항
-	페이지가 안만들어져있어요 있다가 오후시간에 페이지 만들어놓을게유
+	모두가 볼 수 있는 공지사항
+	
 </body>
 </html>
