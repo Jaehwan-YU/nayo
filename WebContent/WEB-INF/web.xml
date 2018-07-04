@@ -29,7 +29,7 @@
 
 <servlet>
      <servlet-name>sum</servlet-name>
-     <servlet-class>com.nayo.web</servlet-class>
+     <servlet-class>com.nayo.web.servlet.RecipeList</servlet-class>
   </servlet>
   <servlet-mapping>
      <servlet-name>sum</servlet-name>
