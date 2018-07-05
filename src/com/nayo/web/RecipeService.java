@@ -51,6 +51,7 @@ public class RecipeService {
 				+", S.NAME S"
 				+", T.NAME T"
 				+" FROM RECIPE R "
+
 				+"INNER JOIN NATIONAL N "
 				+"ON N.ID = R.NATIONAL_ID "
 				+"INNER JOIN SITUATION S "
@@ -84,13 +85,11 @@ public class RecipeService {
 						rs.getString("S"), 
 						rs.getString("T")
 						);
-				
-				
+							
 				tempList.add(temp);
 				
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	
@@ -102,7 +101,6 @@ public class RecipeService {
 	}
 	
 	void addRecipe() {
-		//������ �Է� ���� ���� ����
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
 		String password = "skdy0514";
@@ -115,7 +113,7 @@ public class RecipeService {
 	
 	public void setRecipeList() throws ClassNotFoundException, SQLException {
 		this.recipeList = getRecipeList();
-	}
+	}	
 	
 	public void printRecipeList() {
 		
