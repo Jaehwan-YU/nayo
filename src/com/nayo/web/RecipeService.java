@@ -41,16 +41,17 @@ public class RecipeService {
 		String user = "c##nayoadmin";
 		String password = "skdy0514";
 		
-		String sql = "SELECT R.ID �Խù�ȣ"
-				+", TITLE ���ĸ�"
-				+", SIMPLE_INTRO ���ټҰ�"
-				+", PROCESS ��������"
-				+", REG_EMAIL �����"
-				+", KCALORY ����"
-				+", N.NAME ����"
-				+", S.NAME ��Ȳ"
-				+", T.NAME ���� "
-				+"FROM RECIPE R "
+		String sql = "SELECT R.ID "
+				+", TITLE "
+				+", SIMPLE_INTRO "
+				+", PROCESS "
+				+", REG_EMAIL "
+				+", KCALORY "
+				+", N.NAME N"
+				+", S.NAME S"
+				+", T.NAME T"
+				+" FROM RECIPE R "
+
 				+"INNER JOIN NATIONAL N "
 				+"ON N.ID = R.NATIONAL_ID "
 				+"INNER JOIN SITUATION S "
@@ -74,23 +75,21 @@ public class RecipeService {
 			while(rs.next()) {
 				
 				Recipe temp = new Recipe(
-						rs.getString("�Խù�ȣ"),
-						rs.getString("���ĸ�"),
-						rs.getString("���ټҰ�"), 
-						rs.getString("��������"),
-						rs.getString("�����"),
-						rs.getInt("����"),
-						rs.getString("����"),
-						rs.getString("��Ȳ"), 
-						rs.getString("����")
+						rs.getString("ID"),
+						rs.getString("TITLE"),
+						rs.getString("SIMPLE_INTRO"), 
+						rs.getString("PROCESS"),
+						rs.getString("REG_EMAIL"),
+						rs.getInt("KCALORY"),
+						rs.getString("N"),
+						rs.getString("S"), 
+						rs.getString("T")
 						);
-				
-				
+							
 				tempList.add(temp);
 				
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	
@@ -102,7 +101,6 @@ public class RecipeService {
 	}
 	
 	void addRecipe() {
-		//������ �Է� ���� ���� ����
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
 		String password = "skdy0514";

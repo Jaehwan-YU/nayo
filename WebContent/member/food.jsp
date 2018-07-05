@@ -15,14 +15,6 @@
 	<!-- 헤더영역 -->
 	<header id="header">
 		<div class="content-container">
-		<!-- <h1 id="test">
-		동해물과 백두산이<br/>
-		냉짬뽕이 먹고싶다<br/>
-		나는지금 배고프다<br/>
-		집에가서 쉬고싶다<br/>
-		얄리얄리 얄라셩 얄라리얄라<br/>
-		어머님은 짜장면이 싫다고 하셨어<br/>
-		</h1> -->
 			<section>
 				<h1>나요</h1>
 				<h2>상단 메뉴</h2>
@@ -70,8 +62,8 @@
 		</div>
 	</section>
 	<!-- 메인영역 -->
-
-	<main id="main" class="clearfix">
+	
+	<main id="body" class="clearfix">
 	<div class="content-container">
 		<h1>서비스 영역</h1>
 		<nav>
