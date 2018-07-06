@@ -49,8 +49,11 @@
 			</section>
 	</div>
 	</header>
-
-	<div id="visual"></div>
+	
+	<div class="content-container">
+		<div id="visual">		
+		</div>
+	</div>
 
 <!-- body영역 -->
 	<section id="body">
