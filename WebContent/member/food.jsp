@@ -1,5 +1,14 @@
+<%@page import="java.util.List"%>
+<%@page import="com.nayo.web.entity.Food"%>
+<%@page import="com.nayo.web.member.FoodService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%
+	FoodService fs = new FoodService();
+
+	List<Food> list = fs.getFoodList("woghks2045@gmail.com");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,7 +65,7 @@
 			</nav>
 		</div>
 	</section>
-	
+
 	<!-- 메인영역 -->
 
 	<section id="body" class="clearfix">
@@ -75,22 +84,18 @@
 				<h1>식재료 카테고리 영역</h1>
 				<h2>목록</h2>
 				<form>
-					<input type="checkbox" id="food-cate-1" value="채소/과일"/>
-					<label for="food-cate-1">채소/과일</label>
-					<input type="checkbox" id="food-cate-2" value="육류"/>
-					<label for="food-cate-2">육류</label>
-					<input type="checkbox" id="food-cate-3" value="수산물"/>
-					<label for="food-cate-3">수산물</label>
-					<input type="checkbox" id="food-cate-4" value="곡물/견과류"/>
-					<label for="food-cate-4">곡물/견과류</label>
-					<input type="checkbox" id="food-cate-5" value="양념소스"/>
-					<label for="food-cate-5">양념소스</label>
-					<input type="checkbox" id="food-cate-6" value="가공식품"/>
-					<label for="food-cate-6">가공식품</label>
-					<input type="checkbox" id="food-cate-7" value="유제품"/>
-					<label for="food-cate-7">유제품</label>
-					<input type="checkbox" id="food-cate-8" value="기타"/>
-					<label for="food-cate-8">기타</label>
+					<input type="checkbox" id="food-cate-1" value="채소/과일" /> <label
+						for="food-cate-1">채소/과일</label> <input type="checkbox"
+						id="food-cate-2" value="육류" /> <label for="food-cate-2">육류</label>
+					<input type="checkbox" id="food-cate-3" value="수산물" /> <label
+						for="food-cate-3">수산물</label> <input type="checkbox"
+						id="food-cate-4" value="곡물/견과류" /> <label for="food-cate-4">곡물/견과류</label>
+					<input type="checkbox" id="food-cate-5" value="양념소스" /> <label
+						for="food-cate-5">양념소스</label> <input type="checkbox"
+						id="food-cate-6" value="가공식품" /> <label for="food-cate-6">가공식품</label>
+					<input type="checkbox" id="food-cate-7" value="유제품" /> <label
+						for="food-cate-7">유제품</label> <input type="checkbox"
+						id="food-cate-8" value="기타" /> <label for="food-cate-8">기타</label>
 				</form>
 			</section>
 
@@ -124,13 +129,37 @@
 				</section>
 				<section class="food-container">
 					<h1 class="area-name">상온</h1>
-					<ul>
-						<li>감자</li>
-						<li>소금</li>
-						<li>굴소스</li>
-						<li>설탕</li>
-						<li>간장</li>
-					</ul>
+					<form>
+						<table>
+							<%
+								int count = 0;
+								for (Food f : list) {
+									if (count == 0)
+							%><tr>
+								<%
+									;
+								%>
+								<td>
+									<ul>
+										<li><img alt="" src="../images/ajax-loader.gif"></li>
+										<li><%=f.getName()%></li>
+									</ul>
+								</td>
+								<%
+									count++;
+										if (count == 3) {
+								%>
+							</tr>
+							<%
+								;
+										count = 0;
+									}
+							%>
+							<%
+								}
+							%>
+						</table>
+					</form>
 					<input type="button" value="보유 식재료 추가" />
 				</section>
 			</section>

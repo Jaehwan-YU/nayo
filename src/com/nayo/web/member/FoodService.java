@@ -30,8 +30,8 @@ public class FoodService {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, user, password);
 		PreparedStatement pstmt = con.prepareStatement(sql);
-		pstmt.setString(1, memberEmail );
-		ResultSet rs = pstmt.executeQuery(sql);
+		pstmt.setString(1, memberEmail);
+		ResultSet rs = pstmt.executeQuery();
 			
 		while(rs.next()) {		
 			food = new Food(rs.getString("NAME"),rs.getString("SELL_LIFE"));

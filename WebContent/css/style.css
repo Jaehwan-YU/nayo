@@ -49,7 +49,13 @@ li{
 	width: 318px;
 	margin: 0px;
 	float: left;
+	text-align:center;
 }
+
+	.food-container > form {
+		display:inline-block;
+		text-align: center;
+	}
 
 .center-alignment{
 	text-align: center;
@@ -76,9 +82,21 @@ li{
 		flex-grow: 1;
 		text-align: center;
 	}
+			
 		#finder > form{
+			margin-top: 11px;
+			height: 25px;
+			display: flex;
 			border: 3px solid orange;
 		}
+		
+		#finder input[type="text"]{
+			flex-grow: 1;
+			border: none;
+			padding: 0px 5px;		
+		}
+		
+		
 		#finder input[type="submit"]{
 			border: none;
 			width:31px;
