@@ -40,10 +40,13 @@ li{
 #header{
 	height: 80px;
 }
+	#header > .content-container:first-child{
+		display: flex;
+		
+	}
 	#header h1{
 		height: inherit;
 		width: 320px;
-		float: left;
 		padding-top: 10px;
 	}
 		#header h1 > a{
@@ -54,15 +57,30 @@ li{
 				color: #0054FF;	
 			}
 	#search-engine{
+		flex-grow : 1;
 		height: inherit;
-		width: 320px;
-		float: left;
 		padding-top: 10px;
 	}
+		#search-engine > form{
+			border: 3px solid #FF5E00;
+			width: 220px;
+		}
+		#search-engine input[type="text"]{
+			box-sizing: border-box;
+			border: none;
+			padding: 0px 5px;
+			line-height: 25px;
+		}
+		#search-engine input[type="submit"]{
+			border: none;
+			width:31px;
+			height: 25px;
+			text-indent: -999px;
+			background: url("../images/btn-zoom.png") no-repeat center;
+		}
+	
 	#member-menu{
 		height: inherit;
-		width: 320px;
-		float: left;
 		padding-top: 10px;
 	}
 	
@@ -110,9 +128,10 @@ li{
 		}
 		#main-menu > ul{
 			overflow: visible;
+			display: flex;
 		}
 			#main-menu > ul > li{
-				float: left;
+				flex-grow: 1;
 				padding-left: 57px;
 				padding-right: 57px;
 			}
@@ -136,10 +155,12 @@ li{
 	min-height: 300px;
 	margin-top: 30px;
 }
+	#body > .content-container{
+		display: flex;
+	}
 	#aside{
 		min-height: inherit;
 		width: 170px;
-		float: left;
 		border: 1px solid black;
 		padding-left: 30px; 
 	}
@@ -147,8 +168,11 @@ li{
 			display: none;
 		}
 		#aside-menu > ul{
+			display: flex;
+			flex-direction: column;
 		}
 			#aside-menu > ul > li{
+				flex-grow: 1;
 				display: list-item;
 				padding-bottom: 10px;
 			}
@@ -163,10 +187,9 @@ li{
 					}
 
 	#main{
+		flex-grow: 1;
 		min-height: inherit;
 		box-sizing: border-box;
-		width: 735px;
-		float: left;
 		border: 1px solid black;
 		padding: 10px;
 		padding-left: 20px;

@@ -21,8 +21,8 @@
 		<div id="search-engine">
 			<h2>강좌검색 폼</h2>
 			<form>
-					<input type="text" placeholder="재료명, 레시피 검색" /> <input type="button"
-						value="검색" />
+				<input type="text" placeholder="재료명, 레시피 검색" />
+				<input type="submit" value="검색" />
 			</form>
 		</div>
 		<div id="member-menu">
@@ -35,8 +35,9 @@
 				</ul>
 			</nav>
 		</div>
-			<br />
-			<section>
+	</div>
+		<br />
+			<section class="content-container">
 				<nav id="main-menu">
 					<h2>메인메뉴</h2>
 					<ul>
@@ -47,7 +48,6 @@
 					</ul>
 				</nav>			
 			</section>
-	</div>
 	</header>
 	
 	<div class="content-container">
