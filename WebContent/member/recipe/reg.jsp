@@ -9,13 +9,13 @@
 <body>
 	<div>
 		<ul>
-			<li><a href="../../index.html">로고</a></li>
-			<li><a href="../../faq/list.html">고객센터</a></li>
-			<li><a href="list.html">마이페이지</a></li>
-			<li><a href="../food.html">나의 식재료</a></li>
-			<li><a href="../../recipe/list.html">레시피</a></li>
-			<li><a href="../shopbag.html">장바구니</a></li>
-			<li><a href="../menu.html">나의 식단</a></li>
+			<li><a href="../../index.jsp">로고</a></li>
+			<li><a href="../../faq/list.jsp">고객센터</a></li>
+			<li><a href="list.jsp">마이페이지</a></li>
+			<li><a href="../food.jsp">나의 식재료</a></li>
+			<li><a href="../../recipe/list.jsp">레시피</a></li>
+			<li><a href="../shopbag.jsp">장바구니</a></li>
+			<li><a href="../menu.jsp">나의 식단</a></li>
 		</ul>
 	</div>
 	[레시피 등록 페이지]

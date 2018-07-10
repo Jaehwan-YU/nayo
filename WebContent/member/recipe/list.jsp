@@ -9,18 +9,18 @@
 <body>
 	<div>
 		<ul>
-			<li><a href="../../index.html">home</a></li>
-			<li><a href="../../faq/list.html">고객센터</a></li>
-			<li><a href="list.html">마이페이지</a></li>
-			<li><a href="reg.html">레시피 등록</a></li>
-			<li><a href="../food.html">나의 식재료</a></li>
-			<li><a href="../../recipe/list.html">레시피</a></li>
-			<li><a href="../shopbag.html">장바구니</a></li>
-			<li><a href="../menu.html">나의 식단</a></li>
-			<li><a href="list.html">나의 레시피</a></li>
-			<li><a href="../bookmark.html">즐겨먹기</a></li>
-			<li><a href="../infocheck.html">내 정보</a></li>
-			<li><a href="../../recipe/detail.html">레시피 1</a></li>
+			<li><a href="../../index.jsp">home</a></li>
+			<li><a href="../../faq/list.jsp">고객센터</a></li>
+			<li><a href="list.jsp">마이페이지</a></li>
+			<li><a href="reg.jsp">레시피 등록</a></li>
+			<li><a href="../food.jsp">나의 식재료</a></li>
+			<li><a href="../../recipe/list.jsp">레시피</a></li>
+			<li><a href="../shopbag.jsp">장바구니</a></li>
+			<li><a href="../menu.jsp">나의 식단</a></li>
+			<li><a href="list.jsp">나의 레시피</a></li>
+			<li><a href="../bookmark.jsp">즐겨먹기</a></li>
+			<li><a href="../infocheck.jsp">내 정보</a></li>
+			<li><a href="../../recipe/detail.jsp">레시피 1</a></li>
 		</ul>
 	</div>
 	[마이페이지 (마이 레시피)]

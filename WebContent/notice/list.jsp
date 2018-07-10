@@ -9,8 +9,8 @@
 <body>
 	<div>
 		<ul>
-			<li><a href="../index.html">home</a>
-			<li><a href="../faq/list.html">FAQ</a>
+			<li><a href="../index.jsp">home</a>
+			<li><a href="../faq/list.jsp">FAQ</a>
 		</ul>
 	</div>
 	
