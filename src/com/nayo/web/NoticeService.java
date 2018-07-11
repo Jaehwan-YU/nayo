@@ -45,12 +45,14 @@ public List<Notice> getNoticeList(String field, String query, int page) throws C
 			
 			list.add(notice);
 		}
+
 		
 		rs.close();
 	    st.close();
 	    con.close();
 	      
 		return list;
+
 	}
 	
 	public int getNoticeCount(String field, String query) throws ClassNotFoundException, SQLException {
