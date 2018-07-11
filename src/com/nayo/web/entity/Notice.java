@@ -1,11 +1,13 @@
 package com.nayo.web.entity;
 
+import java.sql.Date;
+
 public class Notice {
 		
 	private String id;
 	private String title;
 	private String content;
-	private String regDate;
+	private Date regDate;
 	private String regId;
 	private String noticeCate;
 	
@@ -14,7 +16,7 @@ public class Notice {
 		
 	}
 	
-	public Notice(String id, String title, String content, String regDate, String regId, String noticeCate) {
+	public Notice(String id, String title, String content, String noticeCate, String regId, Date regDate) {
 		this.id = id;
 		this.title = title;
 		this.content = content;
@@ -40,10 +42,10 @@ public class Notice {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getRegDate() {
+	public Date getRegDate() {
 		return regDate;
 	}
-	public void setRegDate(String regDate) {
+	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
 	public String getRegId() {
@@ -57,6 +59,12 @@ public class Notice {
 	}
 	public void setNoticeCate(String noticeCate) {
 		this.noticeCate = noticeCate;
+	}
+
+	@Override
+	public String toString() {
+		return "Notice [id=" + id + ", title=" + title + ", content=" + content + ", regDate=" + regDate + ", regId="
+				+ regId + ", noticeCate=" + noticeCate + "]";
 	}
 	
 }

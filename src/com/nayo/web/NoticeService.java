@@ -9,78 +9,49 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.nayo.web.entity.Notice;
-import com.nayo.web.member.ShopbagService;
 
 public class NoticeService {
 	
-	private Notice notice;
-	private List<Notice> noticeList;
-
-	public NoticeService() {
-		
-		notice = new Notice();
-		noticeList = new ArrayList<Notice>();
-		
-		
+	public List<Notice> getNoticeList(int page) throws ClassNotFoundException, SQLException {
+		return getNoticeList("title", "", page);
 	}
 	
-	public NoticeService(Notice notice) {
-		this.notice = notice;
-		this.noticeList = new ArrayList<Notice>();
+public List<Notice> getNoticeList(String field, String query, int page) throws ClassNotFoundException, SQLException {
 		
-	}
-	
-	public NoticeService(List<Notice> noticeList) {
-		this.notice = new Notice();
-		this.noticeList = noticeList;
-	}
-	
-	public List<Notice> getNoticeList() throws ClassNotFoundException, SQLException {
-		
-		List<Notice> tempList = new ArrayList<Notice>();
+		List<Notice> list = new ArrayList();
 		
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
 		String password = "skdy0514";
 
-		String sql = "SELECT C.NAME, N.ID, N.TITLE, N.CONTENT, N.REG_ID, N.REG_DATE"
-					+ "FROM NOTICE N"
-					+ "INNER JOIN NOTICE_CATE C"
+		String sql = "SELECT C.NAME, N.ID, N.TITLE, N.CONTENT, N.REG_ID, N.REG_DATE "
+					+ "FROM NOTICE N "
+					+ "INNER JOIN NOTICE_CATE C "
 					+ "ON N.NOTICE_CATE_ID = C.ID";
 			
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, user, password);
-		PreparedStatement pstmt = con.prepareStatement(sql);
-		ResultSet rs = pstmt.executeQuery(sql);
+		PreparedStatement st = con.prepareStatement(sql);		
+		
+		ResultSet rs = st.executeQuery();
 			
 		while(rs.next()) {		
-			Notice notice = new Notice(rs.getString("ID"),
+			Notice notice = new Notice(rs.getString("NAME"),
+									   rs.getString("ID"),
 									   rs.getString("TITLE"),
 									   rs.getString("CONTENT"),
-									   rs.getString("REG_DATE"),
 									   rs.getString("REG_ID"),
-									   rs.getString("NAME"));
+									   rs.getDate("REG_DATE"));
 			
-			tempList.add(notice);
+			list.add(notice);
 		}
+		
 		rs.close();
-		pstmt.close();
+		st.close();
 		con.close();
 		
-		return tempList;
+		return list;
 
-	}
-	
-	public Notice getNotice() {
-		return notice;
-	}
-
-	public void setNotice(Notice notice) {
-		this.notice = notice;
-	}
-
-	public void setNoticeList(List<Notice> noticeList) {
-		this.noticeList = noticeList;
 	}
 
 }
