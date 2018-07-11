@@ -7,7 +7,9 @@
 <%
 	FoodService fs = new FoodService();
 
-	List<Food> list = fs.getFoodList("woghks2045@gmail.com");
+	List<Food> list1 = fs.getFoodList("woghks2045@gmail.com", 1);
+	List<Food> list2 = fs.getFoodList("woghks2045@gmail.com", 2);
+	List<Food> list3 = fs.getFoodList("woghks2045@gmail.com", 3);
 %>
 <!DOCTYPE html>
 <html>
@@ -109,31 +111,80 @@
 				<h1>보유 식재료 출력 영역</h1>
 				<section class="food-container">
 					<h1 class="area-name">냉장</h1>
-					<ul>
-						<li>삼겹살</li>
-						<li>닭고기 볶음용</li>
-						<li>콩나물</li>
-						<li>대파</li>
-						<li>양파</li>
-						<li>마늘</li>
-						<li>배추김치</li>
-					</ul>
+					<form>
+						<table>
+							<%
+								int count = 0;
+								for (Food f : list1) {
+									if (count == 0)
+							%><tr>
+								<%
+									;
+								%>
+								<td>
+									<ul>
+										<li><img alt="" src="../images/ajax-loader.gif"></li>
+										<li><%=f.getName()%></li>
+									</ul>
+								</td>
+								<%
+									count++;
+										if (count == 3) {
+								%>
+							</tr>
+							<%
+								;
+										count = 0;
+									}
+							%>
+							<%
+								}
+							%>
+						</table>
+					</form>
 					<input type="button" value="보유 식재료 추가" />
 				</section>
 				<section class="food-container">
 					<h1 class="area-name">냉동</h1>
-					<ul>
-						<li>등록된 식재료가 없습니다. <br /> 식재료를 등록해주세요.
-						</li>
-					</ul>
+					<form>
+						<table>
+							<%
+								count = 0;
+								for (Food f : list2) {
+									if (count == 0)
+							%><tr>
+								<%
+									;
+								%>
+								<td>
+									<ul>
+										<li><img alt="" src="../images/ajax-loader.gif"></li>
+										<li><%=f.getName()%></li>
+									</ul>
+								</td>
+								<%
+									count++;
+										if (count == 3) {
+								%>
+							</tr>
+							<%
+								;
+										count = 0;
+									}
+							%>
+							<%
+								}
+							%>
+						</table>
+					</form>
 				</section>
 				<section class="food-container">
 					<h1 class="area-name">상온</h1>
 					<form>
 						<table>
 							<%
-								int count = 0;
-								for (Food f : list) {
+								count = 0;
+								for (Food f : list3) {
 									if (count == 0)
 							%><tr>
 								<%

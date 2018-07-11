@@ -18,19 +18,20 @@ public class FoodService {
 		food = new Food();
 	}
 	
-	public List<Food> getFoodList(String memberEmail) throws ClassNotFoundException, SQLException	{
+	public List<Food> getFoodList(String memberEmail, int keepArea) throws ClassNotFoundException, SQLException	{
 		List<Food> list = new ArrayList<Food>();
 		
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
 		String password = "skdy0514";
 
-		String sql = "SELECT * FROM FOOD WHERE REG_EMAIL = ?";
+		String sql = "SELECT * FROM FOOD WHERE REG_EMAIL = ? AND KEEP_AREA_ID = ?";
 		
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, user, password);
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, memberEmail);
+		pstmt.setInt(2, keepArea);
 		ResultSet rs = pstmt.executeQuery();
 			
 		while(rs.next()) {		
@@ -38,6 +39,10 @@ public class FoodService {
 			//System.out.println(shop);
 			list.add(food);		
 			}
+		
+		rs.close();
+		pstmt.close();
+		con.close();
 		
 		return list;
 	}	

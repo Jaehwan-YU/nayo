@@ -63,6 +63,10 @@ public class NoticeService {
 			
 			tempList.add(notice);
 		}
+		rs.close();
+		pstmt.close();
+		con.close();
+		
 		return tempList;
 
 	}

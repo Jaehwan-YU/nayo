@@ -89,10 +89,17 @@ public class RecipeService {
 				tempList.add(temp);
 				
 			}
+			
+			rs.close();
+			stmt.close();
+			con.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	
+		
+		
+		
 		return tempList;
 	}
 	
