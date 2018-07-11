@@ -45,8 +45,38 @@ public List<Notice> getNoticeList(String field, String query, int page) throws C
 			
 			list.add(notice);
 		}
+		
+		rs.close();
+	    st.close();
+	    con.close();
+	      
 		return list;
-
 	}
-
+	
+	public int getNoticeCount(String field, String query) throws ClassNotFoundException, SQLException {
+		int count = 0;
+		
+		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+	    String user = "c##nayoadmin";
+	    String password = "skdy0514";
+	      
+	    String sql = "SELECT COUNT(ID) COUNT "
+	    			+ "FROM NOTICE "
+	    			+ "WHERE "+field+" LIKE ?";
+	    Class.forName("oracle.jdbc.driver.OracleDriver");
+	    Connection con = DriverManager.getConnection(url, user, password);      
+	    PreparedStatement st = con.prepareStatement(sql);
+	    st.setString(1, "%"+query+"%");
+		
+	    ResultSet rs = st.executeQuery();
+		
+	    if(rs.next())
+	    	count = rs.getInt("COUNT");
+		
+	    rs.close();
+	    st.close();
+	    con.close();
+	      
+		return count;
+}
 }
