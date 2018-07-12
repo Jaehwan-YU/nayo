@@ -116,11 +116,12 @@
 					 	
 					 	<section>
 							<h1>페이지 인덱스</h1>
-							<div>1 / 1 pages</div>
+					
+							<div>1 / <%= count %> pages</div>
 							<section>
 								<h1>페이저</h1>
 									<ul>
-									<% for(int i=1; i<=count; i++){ %>
+									<% for(int i=1; i<count+1; i++){ %>
 										<li><a href="?p=<%= i %>&f=<%= field %>&q=<%= query %>"><%= i %></a></li>
 									<% } %>
 									</ul>

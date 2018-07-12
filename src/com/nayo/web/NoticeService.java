@@ -25,14 +25,15 @@ public List<Notice> getNoticeList(String field, String query, int page) throws C
 		String password = "skdy0514";
 
 		String sql = "SELECT *\r\n" + 
-						"FROM(SELECT ROWNUM NUM, C.NAME, N.ID, N.TITLE, N.CONTENT, N.REG_ID, N.REG_DATE\r\n" + 
-						"        FROM (SELECT *\r\n" + 
-						"                FROM NOTICE\r\n" + 
-						"                WHERE "+field+" LIKE ?) N\r\n" + 
-						"        INNER JOIN NOTICE_CATE C\r\n" + 
-						"        ON N.NOTICE_CATE_ID = C.ID\r\n" + 
-						"        ORDER BY REG_DATE DESC)\r\n" + 
-						"WHERE NUM BETWEEN ? AND ?";
+					"FROM(SELECT ROWNUM NUM, N.*\r\n" + 
+					"    FROM(SELECT C.NAME, N.ID, N.TITLE, N.CONTENT, N.REG_ID, N.REG_DATE\r\n" + 
+					"        FROM(SELECT *\r\n" + 
+					"            FROM NOTICE\r\n" + 
+					"            WHERE "+field+" LIKE ?) N\r\n" + 
+					"        INNER JOIN NOTICE_CATE C\r\n" + 
+					"        ON N.NOTICE_CATE_ID = C.ID\r\n" + 
+					"        ORDER BY REG_DATE DESC) N)\r\n" + 
+					"WHERE NUM BETWEEN ? AND ?";
 			
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, user, password);
