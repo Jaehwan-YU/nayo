@@ -63,9 +63,10 @@ public class Member {
 	public void setIntro(String intro) {
 		this.intro = intro;
 	}
-	
-	
-	
-	
+	@Override
+	public String toString() {
+		return "Member [email=" + email + ", pwd=" + pwd + ", nickname=" + nickname + ", birth=" + birth + ", gender="
+				+ gender + ", profilepic=" + profilepic + ", intro=" + intro + "]";
+	}
 	
 }

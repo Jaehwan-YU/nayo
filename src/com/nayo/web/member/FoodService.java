@@ -46,7 +46,7 @@ public class FoodService {
 		
 		return list;
 	}	
-	void addFood(String memberEmail){
+	void addFood(String memberEmail, String foodName){
 		
 	}
 	void setFood(String foodId){

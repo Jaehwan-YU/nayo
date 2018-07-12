@@ -39,7 +39,11 @@ public class KeepTip {
 		this.keepArea = keepArea;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "KeepTip [name=" + name + ", foodLife=" + foodLife + ", foodCate=" + foodCate + ", keepArea=" + keepArea
+				+ "]";
+	}
 	
 	
 }

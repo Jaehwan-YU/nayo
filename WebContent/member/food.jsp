@@ -30,7 +30,7 @@
 			<h1>상단 메뉴</h1>
 			<nav id="logo">
 				<h1>로고</h1>
-				<a href="../index.jsp">home</a>
+				<a href="../index.jsp">나요</a>
 			</nav>
 
 			<nav id="finder">
