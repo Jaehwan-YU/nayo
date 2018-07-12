@@ -1,0 +1,111 @@
+@charset "UTF-8";
+#header{
+	height: 100px;
+	background: #FFA648;
+}
+
+	#header > .content-container > h1{
+		position: absolute;
+		left: 0px;
+		top: 30px;
+	}
+	
+	
+
+		
+/* -----------------------search-engine----------------------------- */
+	#search-engine{
+		border: 3px solid #FF8224;
+		height: 25px;
+		width: 400px;
+		
+		position: absolute;
+		left: 250px;
+		top: 30px;
+	}
+		#search-engine > h1{
+			display: none;
+		}
+			#search-engine  form{
+				display: flex;
+				overflow: hidden;
+			}
+			#search-engine input[type="text"]{
+				box-sizing: border-box;
+				border: none;
+				padding: 0px 5px;
+				line-height: 25px;
+				flex-grow : 1;
+			}
+			#search-engine input[type="submit"]{
+				background: url("../images/btn-zoom.png") no-repeat center;
+				border: none;
+				border-left: 1px solid #FF8224;
+				width:31px;
+				height: 25px;
+				text-indent: -999px;
+				
+			}
+
+/* -----------------------basic-menu----------------------------- */	
+	#basic-menu{
+		display: inline-block;
+		
+		position: absolute;
+		right: 0px;
+		top: 40px;
+	}
+		#basic-menu > h1{
+			display: none;
+		}
+
+		#basic-menu > ul{
+			/* overflow: auto; */
+			display: flex;
+		}
+			#basic-menu > ul > li{
+				display: inline-flex;
+				overflow: auto;
+				padding-left: 24px;
+			}
+				#basic-menu > ul > li > a{
+					text-decoration: none;
+					color: #ffffff;
+					font-family: 맑은 돋움, 돋움, Arial, sans-serif;
+					font-size: 15px;
+					font-weight: bold;
+				}
+				#basic-menu > ul > li > a:hover{
+						color: #ff6a00;
+				}
+
+/* -----------------------main-menu----------------------------- */
+	#main-menu{
+		display: inline-block;
+		height: 40px;
+		width: 960px;
+		margin: 20px 0px;
+	}
+		#main-menu > h1{
+			display: none;
+		}
+		#main-menu > ul{
+			overflow: visible;
+			display: flex;
+		}
+			#main-menu > ul > li{
+				flex-grow: 1;
+				padding-left: 50px;
+				padding-right: 50px;
+				line-height: 250%;
+			}
+				#main-menu > ul > li > a{
+					text-decoration: none;
+					color: #000000;
+					font-family: 맑은 돋움, 돋움, Arial, sans-serif;
+					font-size: 30px;
+					font-weight: bold;
+				}
+				#main-menu > ul > li > a:hover{
+						color: #ff6a00;
+					}

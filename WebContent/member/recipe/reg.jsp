@@ -5,20 +5,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="../../css/basic.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-	<div>
-		<ul>
-			<li><a href="../../index.jsp">로고</a></li>
-			<li><a href="../../faq/list.jsp">고객센터</a></li>
-			<li><a href="list.jsp">마이페이지</a></li>
-			<li><a href="../food.jsp">나의 식재료</a></li>
-			<li><a href="../../recipe/list.jsp">레시피</a></li>
-			<li><a href="../shopbag.jsp">장바구니</a></li>
-			<li><a href="../menu.jsp">나의 식단</a></li>
-		</ul>
-	</div>
-	[레시피 등록 페이지]
-</body>
 
+<!-- header영역 -->
+	<jsp:include page="../../inc/header.jsp"/>
+
+	<!-- visual영역 -->	
+	<div class="content-container">
+		<div id="visual">		
+		</div>
+	</div>
+	
+	[레시피 등록 페이지]
+	
+<!-- footer영역 -->	
+	<jsp:include page="../../inc/footer.jsp"/>	
+	
+</body>
 </html>

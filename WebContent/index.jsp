@@ -5,24 +5,27 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="css/basic.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-	<div>
-		<ul>
-			<li><a href="index.jsp">home</a></li>
-			<li><a href="notice/list.jsp">고객센터</a></li>
-			<li><a href="member/recipe/list.jsp">마이페이지</a></li>
-			<li><a href="member/food.jsp">나의 식재료</a></li>
-			<li><a href="recipe/list.jsp">레시피</a></li>
-			<li><a href="member/shopbag.jsp">장바구니</a></li>
-			<li><a href="member/menu.jsp">나의식단</a></li>
-		    <li><a href="recipe/detail.jsp">레시피1</a></li>
-		</ul>
+
+<!-- header영역 -->
+	<jsp:include page="inc/header.jsp"/>
+	
+	<!-- visual영역 -->	
+	<div class="content-container">
+		<div id="visual">		
+		</div>
 	</div>
+	
 	<div>
 	<p>
 	[홈페이지입니다.]
 	</p>
 	</div>
+	
+<!-- footer영역 -->	
+	<jsp:include page="inc/footer.jsp"/>
+	
 </body>
 </html>
