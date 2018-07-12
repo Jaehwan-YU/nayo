@@ -42,5 +42,11 @@ public class Report {
 	public void setContent(String content) {
 		this.content = content;
 	}
+
+	@Override
+	public String toString() {
+		return "Report [reportEmail=" + reportEmail + ", recipeId=" + recipeId + ", reportCate=" + reportCate
+				+ ", content=" + content + "]";
+	}
 	
 }

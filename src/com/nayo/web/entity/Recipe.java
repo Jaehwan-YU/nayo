@@ -85,7 +85,13 @@ public class Recipe {
 	public void setRecipeType(String recipeType) {
 		this.recipeType = recipeType;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Recipe [id=" + id + ", title=" + title + ", simpleIntro=" + simpleIntro + ", process=" + process
+				+ ", regEmail=" + regEmail + ", kcalory=" + kcalory + ", national=" + national + ", situation="
+				+ situation + ", recipeType=" + recipeType + "]";
+	}
 	
 	
 }
