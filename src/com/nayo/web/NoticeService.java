@@ -24,34 +24,69 @@ public List<Notice> getNoticeList(String field, String query, int page) throws C
 		String user = "c##nayoadmin";
 		String password = "skdy0514";
 
-		String sql = "SELECT C.NAME, N.ID, N.TITLE, N.CONTENT, N.REG_ID, N.REG_DATE "
-					+ "FROM NOTICE N "
-					+ "INNER JOIN NOTICE_CATE C "
-					+ "ON N.NOTICE_CATE_ID = C.ID";
+		String sql = "SELECT *\r\n" + 
+						"FROM(SELECT ROWNUM NUM, C.NAME, N.ID, N.TITLE, N.CONTENT, N.REG_ID, N.REG_DATE\r\n" + 
+						"        FROM (SELECT *\r\n" + 
+						"                FROM NOTICE\r\n" + 
+						"                WHERE "+field+" LIKE ?) N\r\n" + 
+						"        INNER JOIN NOTICE_CATE C\r\n" + 
+						"        ON N.NOTICE_CATE_ID = C.ID\r\n" + 
+						"        ORDER BY REG_DATE DESC)\r\n" + 
+						"WHERE NUM BETWEEN ? AND ?";
 			
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, user, password);
-		PreparedStatement st = con.prepareStatement(sql);		
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, "%"+query+"%");
+		st.setInt(2, (page-1)*10+1);
+	    st.setInt(3, page*10);
 		
 		ResultSet rs = st.executeQuery();
 			
 		while(rs.next()) {		
-			Notice notice = new Notice(rs.getString("NAME"),
-									   rs.getString("ID"),
+			Notice notice = new Notice(rs.getString("ID"),
 									   rs.getString("TITLE"),
+									   rs.getDate("REG_DATE"),
 									   rs.getString("CONTENT"),
 									   rs.getString("REG_ID"),
-									   rs.getDate("REG_DATE"));
+									   rs.getString("NAME"));
 			
 			list.add(notice);
 		}
+
 		
 		rs.close();
-		st.close();
-		con.close();
-		
+	    st.close();
+	    con.close();
+	      
 		return list;
 
 	}
-
+	
+	public int getNoticeCount(String field, String query) throws ClassNotFoundException, SQLException {
+		int count = 0;
+		
+		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+	    String user = "c##nayoadmin";
+	    String password = "skdy0514";
+	      
+	    String sql = "SELECT COUNT(ID) COUNT "
+	    			+ "FROM NOTICE "
+	    			+ "WHERE "+field+" LIKE ?";
+	    Class.forName("oracle.jdbc.driver.OracleDriver");
+	    Connection con = DriverManager.getConnection(url, user, password);      
+	    PreparedStatement st = con.prepareStatement(sql);
+	    st.setString(1, "%"+query+"%");
+		
+	    ResultSet rs = st.executeQuery();
+		
+	    if(rs.next())
+	    	count = rs.getInt("COUNT");
+		
+	    rs.close();
+	    st.close();
+	    con.close();
+	      
+		return count;
+}
 }
