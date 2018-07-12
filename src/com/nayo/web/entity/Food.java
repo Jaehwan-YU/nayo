@@ -1,12 +1,14 @@
 package com.nayo.web.entity;
 
+import java.sql.Date;
+
 public class Food {
 	
 	private String id;
 	private String name;
 	private int foodLife;
-	private String sellLife;
-	private String regDate;
+	private Date sellLife;
+	private Date regDate;
 	private String useDate;
 	private String regEmail;
 	private String foodCate;
@@ -16,13 +18,11 @@ public class Food {
 	public Food() {
 		
 	}
-	public Food(String name, String sellLife) {
-		this.name = name;
-		this.sellLife = sellLife;
+	public Food(String id, String name, int foodLife, Date sellLife) {
+		
 	}
-	public Food(String id, String name, int foodLife, String sellLife, String regDate, String useDate, String regEmail,
+	public Food(String id, String name, int foodLife, Date sellLife, Date regDate, String useDate, String regEmail,
 			String foodCate, String keepArea, String foodImg) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.foodLife = foodLife;
@@ -52,16 +52,16 @@ public class Food {
 	public void setFoodLife(int foodLife) {
 		this.foodLife = foodLife;
 	}
-	public String getSellLife() {
+	public Date getSellLife() {
 		return sellLife;
 	}
-	public void setSellLife(String sellLife) {
+	public void setSellLife(Date sellLife) {
 		this.sellLife = sellLife;
 	}
-	public String getRegDate() {
+	public Date getRegDate() {
 		return regDate;
 	}
-	public void setRegDate(String regDate) {
+	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
 	public String getUseDate() {
