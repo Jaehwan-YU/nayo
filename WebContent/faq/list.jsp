@@ -13,6 +13,7 @@
 <!-- header영역 -->
 	<jsp:include page="../inc/header.jsp"/>	
 
+	<!-- visual영역 -->	
 	<div class="content-container">
 		<div id="visual">		
 		</div>
@@ -39,6 +40,9 @@
 			</main>
 		</div>
 	</section>	
+
+<!-- footer영역 -->	
+	<jsp:include page="../inc/footer.jsp"/>
 
 </body>
 </html>

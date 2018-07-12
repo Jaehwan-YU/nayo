@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String ctx = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +14,7 @@
 <header id="header">
 	<div class="content-container">
 		<h1>
-			<a href="../index.jsp"><img scr="" alt="">나요</a>
+			<a href="<%= ctx %>/index.jsp"><img scr="" alt="">나요</a>
 		</h1>
 			
 		<nav id="search-engine">
@@ -25,9 +28,9 @@
 		<nav id="basic-menu">
 			<h1>회원메뉴</h1>
 				<ul>
-					<li><a href="../login.jsp">로그인</a></li>
-					<li><a href="../../notice/list.jsp">고객센터</a></li>
-					<li><a href="recipe/list.jsp">마이페이지</a></li>
+					<li><a href="<%= ctx %>/login.jsp">로그인</a></li>
+					<li><a href="<%= ctx %>/notice/list.jsp">고객센터</a></li>
+					<li><a href="<%= ctx %>/member/recipe/list.jsp">마이페이지</a></li>
 				</ul>
 		</nav>		
 	</div>
@@ -37,10 +40,10 @@
 	<nav id="main-menu">
 		<h1>메인메뉴</h1>
 			<ul>
-				<li><a href="food.jsp">나의 식재료</a></li>
-				<li><a href="../recipe/list.jsp">레시피</a></li>
-				<li><a href="shopbag.jsp">장바구니</a></li>
-				<li><a href="menu.jsp">나의 식단</a></li>
+				<li><a href="<%= ctx %>/member/food.jsp">나의 식재료</a></li>
+				<li><a href="<%= ctx %>/recipe/list.jsp">레시피</a></li>
+				<li><a href="<%= ctx %>/member/shopbag.jsp">장바구니</a></li>
+				<li><a href="<%= ctx %>/member/menu.jsp">나의 식단</a></li>
 			</ul>
 	</nav>			
 </section>

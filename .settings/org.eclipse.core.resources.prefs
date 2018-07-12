@@ -1,3 +1,6 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=refs/remotes/origin/master
 eclipse.preferences.version=1
 encoding//WebContent/admin/index.jsp=UTF-8
 encoding//WebContent/admin/keeptip.jsp=UTF-8
@@ -6,11 +9,8 @@ encoding//WebContent/admin/notice/detail.jsp=UTF-8
 encoding//WebContent/admin/notice/edit.jsp=UTF-8
 encoding//WebContent/admin/notice/list.jsp=UTF-8
 encoding//WebContent/admin/report.jsp=UTF-8
-encoding//WebContent/css/style.css=UTF-8
-<<<<<<< HEAD
-=======
+encoding//WebContent/css/foodStyle.css=UTF-8
 encoding//WebContent/faq/list.jsp=UTF-8
->>>>>>> refs/remotes/origin/master
 encoding//WebContent/index.jsp=UTF-8
 encoding//WebContent/login.jsp=UTF-8
 encoding//WebContent/member/bookmark.jsp=UTF-8

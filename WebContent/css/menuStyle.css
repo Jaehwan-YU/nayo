@@ -1,32 +1,12 @@
+@import url("reset.css");
+@import url("commonStyle.css");
+@import url("header.css");
+@import url("visual.css");
+@import url("footer.css");
 /*-----reset--------------------------------------------*/
-body{
-	margin: 0px;
-}
-
-h1, h2, h3{
-	display:none;
-	margin: 0px;
-}
-
-footer{
-	margin: 0px;
-}
-p{
-	margin: 0px;
-}
-
-ul{
-	margin: 0px;
-	padding: 0px;
-	display: inline-block;
-}
-
-li{
-	display: block;
-}
 
 /*-----Common style------------------------------------------*/
-.content-container {
+/* .content-container {
 	height: 100%;
 	width: 960px;
 	margin-left: auto;
@@ -64,98 +44,14 @@ li{
 	width: 200px;
 	height: auto;	
 }
-
+ */
 /*-----styling------------------------------------------*/
-
 /*-----#header style------------------------------------*/
-#header{
-	height:50px;
-	background: #ff8000;
-}
-	#header > .content-container{
-		line-height: 50px;
-		display: flex;
-	}
-	
-	#logo{
-		position: absolute;
-		left: 0px;
-		top: 10px;
-				
-	}
-	#logo > img{
-		width: 100%;
-	}
-		
-	#finder{
-		height: 25px;
-		flex-grow: 1;
-		text-align: center;
-		position: absolute;
-		right: 350px;
-	}
-			
-		#finder > form{
-			margin-top: 11px;
-			height: 25px;
-			display: flex;
-			border: 3px solid #ff8000;
-		}
-		
-		#finder input[type="text"]{
-			flex-grow: 1;
-			border: none;
-			padding: 0px 5px;		
-		}
-		
-		
-		#finder input[type="submit"]{
-			border: none;
-			width:31px;
-			height: 25px;
-			text-indent: -999px;
-			background: url("../images/btn-zoom.png") no-repeat center;
-		}
-			
-	
-	#user-menu{
-		flex-grow: 1;
-		right: 0px;
-		position: absolute;
-	}
 
-	
-		#user-menu > ul{
-		overflow: auto;
-		display: flex;
-		}
-		
-		#user-menu > ul > li{
-		padding-left: 10px;
-		}
-		
-		#user-menu > ul > li:first-child{
-		padding: 0px;
-		background: none;
-		}
-		
-			#user-menu > ul > li > a{
-			text-decoration: none;
-			color: #ffffff;
-			font-family: ¸¼Àº °íµñ, °íµñ, Arial, sans-serif; 
-			font-size: 15px;
-			font-weight: bold;
-			}
-			
 /*-----#visual style---------------------------------------*/
 
-#visual {
-	height: 7px;
-	background: #bad968;
-}
-
 /*-----#main-menu style------------------------------------*/
-#main-menu {
+/* #main-menu {
 	height: 80px;			
 	margin-bottom: 20px;
 	
@@ -200,7 +96,7 @@ li{
 					#main-menu-list >ul > li > a:hover{
 						color: orange;	
 					}
-					
+					 */
 /*-----#body style------------------------------------*/					
 #body{
 	min-height: 800px;
@@ -228,7 +124,3 @@ li{
 	}
 	
 /*-----#footer style------------------------------------*/
-#footer{
-	height: 200px;
-	background: #313131;
-}

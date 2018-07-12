@@ -14,7 +14,7 @@
 <!-- header영역 -->
 	<jsp:include page="../inc/header.jsp"/>
 	
-	
+	<!-- visual영역 -->	
 	<div class="content-container">
 		<div id="visual">		
 		</div>

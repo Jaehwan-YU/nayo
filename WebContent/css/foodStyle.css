@@ -1,0 +1,124 @@
+@import url("reset.css");
+@import url("commonStyle.css");
+@import url("header.css");
+@import url("visual.css");
+@import url("footer.css");
+/*-----reset--------------------------------------------*/
+/* body{
+	margin: 0px;
+}
+
+h1, h2, h3{
+	display:none;
+	margin: 0px;
+}
+
+footer{
+	margin: 0px;
+}
+p{
+	margin: 0px;
+}
+
+ul{
+	margin: 0px;
+	padding: 0px;
+	display: inline-block;
+}
+
+li{
+	display: block;
+}
+ */
+/*-----Common style------------------------------------------*/
+/* .content-container {
+	height: 100%;
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.clearfix::after{
+	content:".";
+	height:0px;
+	display: block;
+	clear:left;
+	overflow:hidden;
+} */
+.area-name{
+	display: block;
+}
+
+.food-container{
+	border: 1px solid #ccc;
+	height: 500px;
+	width: 318px;
+	margin: 0px;
+	float: left;
+	text-align:center;
+}
+
+	.food-container > form {
+		display:inline-block;
+		text-align: center;
+	}
+
+.center-alignment{
+	text-align: center;
+}
+
+/*-----styling------------------------------------------*/
+
+/*-----#header style------------------------------------*/
+
+/*-----#visual style---------------------------------------*/
+
+/*-----#main-menu style------------------------------------*/
+				
+/*-----#body style------------------------------------*/					
+#body{
+	height: 800px;
+}
+	#cookable-recipe{
+	height: 100px;
+	border: 1px solid #ccc;
+	text-align: center;
+	}
+	
+		#cookable-recipe > ul {
+		padding-top: 17px;
+		overflow: auto;
+		}
+		
+			#cookable-recipe > ul > li{
+			float: left;
+			padding-left: 30px;
+			}
+			
+			#cookable-recipe > ul > li:first-child{
+			padding: 0px;
+			background: none; 
+			}
+	
+	
+	#food-service{
+	text-align: center;		
+	}
+	#food-cate{
+	border: 2px solid #ccc;
+	height: 50px;
+	text-align: center;	
+	}
+		#food-cate > form {
+		padding-top: 17px;
+		overflow:auto;
+		}
+		
+		#food-cate > form > label{
+		padding-right: 30px;
+		}
+		
+		#food-cate > form > label:last-child{
+		padding: 0px;
+		background: none;
+		}
+/*-----#footer style------------------------------------*/
