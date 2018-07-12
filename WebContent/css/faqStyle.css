@@ -1,3 +1,4 @@
+@import url("header.css");
 /* -----------------------reset---------------------------------- */
 body{
 	margin:0px;
@@ -26,6 +27,8 @@ li{
 		width: 960px;
 		margin-left: auto;
 		margin-right: auto;
+		
+		position: relative;
 }
 	
 .clearfix::after{
@@ -37,120 +40,14 @@ li{
 }	
 	
 /* -----------------------styling--------------------------------- */
-#header{
-	height: 80px;
-}
-	#header > .content-container:first-child{
-		display: flex;
-		
-	}
-	#header h1{
-		height: inherit;
-		width: 320px;
-		padding-top: 10px;
-	}
-		#header h1 > a{
-			text-decoration: none;
-			color: #000000;
-		}
-			#header h1 > a:hover{
-				color: #0054FF;	
-			}
-	#search-engine{
-		flex-grow : 1;
-		height: inherit;
-		padding-top: 10px;
-	}
-		#search-engine > form{
-			border: 3px solid #FF5E00;
-			width: 220px;
-		}
-		#search-engine input[type="text"]{
-			box-sizing: border-box;
-			border: none;
-			padding: 0px 5px;
-			line-height: 25px;
-		}
-		#search-engine input[type="submit"]{
-			border: none;
-			width:31px;
-			height: 25px;
-			text-indent: -999px;
-			background: url("../images/btn-zoom.png") no-repeat center;
-		}
-	
-	#member-menu{
-		height: inherit;
-		padding-top: 10px;
-	}
-	
-	#header h2{
-		display: none;
-	}
-	
-	#basic-menu{
-		display: inline-block;
-	}
-		#basic-menu h1{
-			display: none;
-		}
-		#basic-menu > h2{
-			display: none;
-		}
-		#basic-menu > ul{
-			overflow: auto;
-		}
-			#basic-menu > ul > li{
-				float: left;
-				padding-left: 24px;
-			}
-				#basic-menu > ul > li > a{
-					text-decoration: none;
-					color: #000000;
-					font-family: ¸¼Àº µ¸¿ò, µ¸¿ò, Arial, sans-serif;
-					font-size: 15px;
-					font-weight: bold;
-				}
-				#basic-menu > ul > li > a:hover{
-						color: #ff6a00;
-					}
+/* =======================header================================== */
 
-	#main-menu{
-		display: inline-block;
-		height: 50px;
-		width: 960px;
-	}
-		#main-menu h1{
-			display: none;
-		}
-		#main-menu > h2{
-			display: none;
-		}
-		#main-menu > ul{
-			overflow: visible;
-			display: flex;
-		}
-			#main-menu > ul > li{
-				flex-grow: 1;
-				padding-left: 57px;
-				padding-right: 57px;
-			}
-				#main-menu > ul > li > a{
-					text-decoration: none;
-					color: #000000;
-					font-family: ¸¼Àº µ¸¿ò, µ¸¿ò, Arial, sans-serif;
-					font-size: 30px;
-					font-weight: bold;
-				}
-				#main-menu > ul > li > a:hover{
-						color: #ff6a00;
-					}
-
+/* =======================visual================================== */
 #visual{
-	height: 70px;
-	border-bottom: 3px solid #FF5E00;
+	border-top: 3px solid #FF5E00;
 }
 
+/* =======================body================================== */
 #body{
 	min-height: 300px;
 	margin-top: 30px;
@@ -158,6 +55,8 @@ li{
 	#body > .content-container{
 		display: flex;
 	}
+	
+/* -----------------------aside----------------------------- */		
 	#aside{
 		min-height: inherit;
 		width: 170px;
@@ -186,6 +85,7 @@ li{
 						color: #FFBB00;
 					}
 
+/* -----------------------main----------------------------- */
 	#main{
 		flex-grow: 1;
 		min-height: inherit;
@@ -198,7 +98,8 @@ li{
 		#main h1{
 			display: none;
 		}
-	
+
+/* =======================footer================================== */		
 #footer{
 	height: 100px;
 
