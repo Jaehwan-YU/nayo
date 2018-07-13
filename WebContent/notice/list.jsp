@@ -73,7 +73,7 @@
 			<main id="main">
 				<h1>공지사항 목록</h1>
 					<h2>공지사항</h2>
-						<section>
+						<section id="notice-search">
 							<h1>공지사항 검색폼</h1>
 							<form method="get">
 								<select name="f">
@@ -85,28 +85,26 @@
 							</form>
 						</section>
 	
-						<section>
+						<section id="notice-table">
 					 		<h1>공지사항표</h1>
-					 		<table>
+					 		<table class="table">
 					 			<thead>
 					 				<tr>
-					 					<td>분류</td>
-					 					<td>번호</td>
-					 					<td>제목</td>
-					 					<td>내용</td>
-					 					<td>작성자</td>
-					 					<td>작성일</td>
+					 					<td class="td-sm">분류</td>
+					 					<td class="td-md">번호</td>
+					 					<td class="title">제목</td>
+					 					<td class="td-md">작성자</td>
+					 					<td class="td-md">작성일</td>
 					 				</tr>
 					 			</thead>
 					 			<tbody>
 					 			<% for(Notice n : list){ %>
 					 				<tr>
-						 				<td><%= n.getNoticeCate() %></td>
-						 				<td><%= n.getId() %></td>
-						 				<td><%= n.getTitle() %></td>
-						 				<td><%= n.getContent() %></td>
-						 				<td><%= n.getRegId() %></td>
-						 				<td><%= n.getRegDate() %></td>
+						 				<td class="td-sm"><%= n.getNoticeCate() %></td>
+						 				<td class="td-md"><%= n.getId() %></td>
+						 				<td class="title"><a href=""><%= n.getTitle() %></a></td>		
+						 				<td class="td-md"><%= n.getRegId() %></td>
+						 				<td class="td-md"><%= n.getRegDate() %></td>
 					 				</tr>
 					 			<% } %>
 					 			
@@ -114,18 +112,21 @@
 					 		</table>
 					 	</section>
 					 	
-					 	<section>
+					 	<section id="page-index">
 							<h1>페이지 인덱스</h1>
-							<div>1 / 1 pages</div>
-							<section>
-								<h1>페이저</h1>
-									<ul>
-									<% for(int i=1; i<=count; i++){ %>
-										<li><a href="?p=<%= i %>&f=<%= field %>&q=<%= query %>"><%= i %></a></li>
-									<% } %>
-									</ul>
-							</section>
+					
+							<div><%= pageNo %> / <%= count %> pages</div>
 						</section>
+						
+						<section id="pager">
+							<h1>페이저</h1>
+								<ul>
+								<% for(int i=1; i<count+1; i++){ %>
+									<li><a href="?p=<%= i %>&f=<%= field %>&q=<%= query %>"><%= i %></a></li>
+								<% } %>
+								</ul>
+						</section>
+						
 					</main>
 				</div>
 			</section>

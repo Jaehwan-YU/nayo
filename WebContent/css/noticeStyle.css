@@ -26,8 +26,7 @@
 /* -----------------------aside----------------------------- */		
 	#aside{
 		min-height: inherit;
-		width: 170px;
-		border: 1px solid black;
+		width: 160px;
 		padding-left: 30px; 
 	}
 		#aside h1{
@@ -56,16 +55,124 @@
 
 	#main{
 		flex-grow: 1;
-		min-height: inherit;
+		width: 800px;
 		box-sizing: border-box;
-		border: 1px solid black;
-		padding: 10px;
-		padding-left: 20px;
-		margin-left: 20px; 
+		padding-left: 35px;
+		padding-top: 25px;
 	}
-		#main h1{
+		#main > h1{
+				display: none;
+			}
+			
+/* -----------------------notice-search--------------------- */	
+		#notice-search{
+			text-align: right;
+		}
+		#notice-search > h1{
 			display: none;
 		}
+			#notice-search select{
+				border: 1px solid #FFA648;
+				width: 75px;
+				height: 24px;
+				vertical-align: middle;
+			}	
+				#notice-search input[type="text"]{
+					border: 1px solid #FFA648;
+					width: 200px;
+					height: 20px;
+					vertical-align: middle;
+				}
+
+/* -----------------------table----------------------------- */
+			#notice-table{
+				font-family: µ¸¿ò, Arial, sans-serif;
+				font-size: 16px;
+				color: #808080;
+				font-weight: normal;
+			}
+				#notice-table > h1{
+					display: none;
+				}
+					#notice-table .table{
+						width: 100%;
+						border-top: 2px solid #FFA648;
+						margin-top: 10px;
+						table-layout: fixed;
+					}
+						.table thead{
+							background: #F5F5F5;
+						}
+							.table tr{
+								height: 30px;
+							}
+								.table td{
+									border-bottom: 1px solid #E9E9E9;
+									text-align: center;
+								}
+						.table tbody .title{
+							text-align: left;
+							text-indent: 5px;
+							
+							white-space: nowrap;
+							overflow: hidden;
+							text-overflow: ellipsis;
+						}
+							.table tbody .title a{
+								color: #808080;
+								text-decoration: none;
+							}	
+						.table .td-md{
+							width: 110px;
+						}
+						.table .td-sm{
+							width: 80px;
+						}
+						
+/* -----------------------page----------------------------- */
+	#page-index > h1{
+		display: none;
+	}
+		#page-index{
+			color: #979797;
+			font-family: µ¸¿ò, Arial, sans-serif;
+			font-size: 13px;
+			color: #808080;
+			font-weight: normal;
+			
+			position: absolute;
+			right: 0px;
+			
+			margin-top: 2px;
+		}
 	
+	#pager > h1{
+		display: none;
+	}
+		#pager{
+			color: #979797;
+			font-family: µ¸¿ò, Arial, sans-serif;
+			font-size: 13px;
+			color: #808080;
+			font-weight: normal;	
+			text-align: center;
+			margin: 15px 0px;
+	
+		}
+			#pager ul{
+				display: inline-flex;
+				
+			}
+			
+					#pager a{
+						margin: 0px 3px;
+					}
+					#pager ul > li > a:hover {
+						color: #FFBB00;
+	
+					}
+		
+
+					
 /* =======================footer================================== */
 
