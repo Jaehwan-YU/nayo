@@ -9,10 +9,10 @@ public class Food {
 	private int foodLife;
 	private Date sellLife;
 	private Date regDate;
-	private String useDate;
+	private Date useDate;
 	private String regEmail;
-	private String foodCate;
-	private String keepArea;
+	private int foodCateId;
+	private int keepAreaId;
 	private String foodImg;
 	
 	public Food() {
@@ -21,8 +21,8 @@ public class Food {
 	public Food(String id, String name, int foodLife, Date sellLife) {
 		
 	}
-	public Food(String id, String name, int foodLife, Date sellLife, Date regDate, String useDate, String regEmail,
-			String foodCate, String keepArea, String foodImg) {
+	public Food(String id, String name, int foodLife, Date sellLife, Date regDate, Date useDate, String regEmail,
+			int foodCateId, int keepAreaId, String foodImg) {
 		this.id = id;
 		this.name = name;
 		this.foodLife = foodLife;
@@ -30,8 +30,8 @@ public class Food {
 		this.regDate = regDate;
 		this.useDate = useDate;
 		this.regEmail = regEmail;
-		this.foodCate = foodCate;
-		this.keepArea = keepArea;
+		this.foodCateId = foodCateId;
+		this.keepAreaId = keepAreaId;
 		this.foodImg = foodImg;
 	}
 	public String getId() {
@@ -64,10 +64,10 @@ public class Food {
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
-	public String getUseDate() {
+	public Date getUseDate() {
 		return useDate;
 	}
-	public void setUseDate(String useDate) {
+	public void setUseDate(Date useDate) {
 		this.useDate = useDate;
 	}
 	public String getRegEmail() {
@@ -76,17 +76,17 @@ public class Food {
 	public void setRegEmail(String regEmail) {
 		this.regEmail = regEmail;
 	}
-	public String getFoodCate() {
-		return foodCate;
+	public int getFoodCateId() {
+		return foodCateId;
 	}
-	public void setFoodCate(String foodCate) {
-		this.foodCate = foodCate;
+	public void setFoodCateId(int foodCateId) {
+		this.foodCateId = foodCateId;
 	}
-	public String getKeepArea() {
-		return keepArea;
+	public int getKeepAreaId() {
+		return keepAreaId;
 	}
-	public void setKeepArea(String keepArea) {
-		this.keepArea = keepArea;
+	public void setKeepAreaId(int keepAreaId) {
+		this.keepAreaId = keepAreaId;
 	}
 	
 	public String getFoodImg() {
@@ -98,8 +98,8 @@ public class Food {
 	@Override
 	public String toString() {
 		return "Food [id=" + id + ", name=" + name + ", foodLife=" + foodLife + ", sellLife=" + sellLife + ", regDate="
-				+ regDate + ", useDate=" + useDate + ", regEmail=" + regEmail + ", foodCate=" + foodCate + ", keepArea="
-				+ keepArea + "]";
+				+ regDate + ", useDate=" + useDate + ", regEmail=" + regEmail + ", foodCate=" + foodCateId + ", keepArea="
+				+ keepAreaId + "]";
 	}
 	
 }
