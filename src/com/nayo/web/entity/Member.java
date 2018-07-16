@@ -6,11 +6,15 @@ public class Member {
 	private String pwd;
 	private String nickname;
 	private String birth;
-	private String gender;
+	private int gender;
 	private String profilepic;
 	private String intro;
 	
-	public Member(String email, String pwd, String nickname, String birth, String gender, String profilepic,
+	public Member() {
+		
+	}
+	
+	public Member(String email, String pwd, String nickname, String birth, int gender, String profilepic,
 			String intro) {
 		
 		this.email = email;
@@ -45,10 +49,10 @@ public class Member {
 	public void setBirth(String birth) {
 		this.birth = birth;
 	}
-	public String getGender() {
+	public int getGender() {
 		return gender;
 	}
-	public void setGender(String gender) {
+	public void setGender(int gender) {
 		this.gender = gender;
 	}
 	public String getProfilepic() {

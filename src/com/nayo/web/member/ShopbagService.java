@@ -1,20 +1,21 @@
 package com.nayo.web.member;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ShopbagService {
 	private String name;
 	private String regEmail;
-	private String buyDay;
+	private Date buyDay;
 	
-	public ShopbagService(String name, String memberEmail, String buyDay) {
+	public ShopbagService(String name, String memberEmail, Date buyDay) {
 		this.name = name;
 		this.regEmail = memberEmail;
 		this.buyDay = buyDay;
@@ -36,25 +37,29 @@ public class ShopbagService {
 		String user = "c##nayoadmin";
 		String password = "skdy0514";
 
-		String sql = "SELECT * FROM SHOPBAG WHERE REG_EMAIL = ?";
+		String sql = "SELECT * FROM SHOPBAG WHERE REG_EMAIL = ? AND BUY_DAY IS NULL";
 			
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, user, password);
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, memberEmail);
-		ResultSet rs = pstmt.executeQuery(sql);
+		ResultSet rs = pstmt.executeQuery();
 			
 		while(rs.next()) {		
 			ShopbagService shop = new ShopbagService(rs.getString("NAME"),
 													rs.getString("REG_EMAIL"),
-													rs.getString("BUY_DAY"));
-			System.out.println(shop);
+													rs.getDate("BUY_DAY"));
 			list.add(shop);
 		}
+		
+		rs.close();
+		pstmt.close();
+		con.close();
+		
 		return list;		
 	}
 	
-	void addShopbag(String name, String memberEmail) throws ClassNotFoundException, SQLException {
+	public void addShopbag(String name, String memberEmail) throws ClassNotFoundException, SQLException {
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
 		String password = "skdy0514";
@@ -66,10 +71,15 @@ public class ShopbagService {
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, name);
 		pstmt.setString(2, memberEmail);
-		ResultSet rs = pstmt.executeQuery(sql);
+		int cnt = pstmt.executeUpdate();
+		
+		System.out.println(cnt>0?"등록 완료":"등록 실패");
+		
+		pstmt.close();
+		con.close();
 	}
 	
-	void deleteShopbag(String name, String memberEmail) throws ClassNotFoundException, SQLException {
+	public void deleteShopbag(String name, String memberEmail) throws ClassNotFoundException, SQLException {
 		
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
@@ -82,8 +92,12 @@ public class ShopbagService {
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, name);
 		pstmt.setString(2, memberEmail);
-		ResultSet rs = pstmt.executeQuery(sql);
+		int cnt = pstmt.executeUpdate();
+
+		System.out.println(cnt>0 ? "삭제완료":"삭제실패");
 		
+		pstmt.close();
+		con.close();
 	}
 	
 	
@@ -100,10 +114,10 @@ public class ShopbagService {
 	public void setRegEmail(String memberEmail) {
 		this.regEmail = memberEmail;
 	}
-	public String getBuyDay() {
+	public Date getBuyDay() {
 		return buyDay;
 	}
-	public void setBuyDay(String buyDay) {
+	public void setBuyDay(Date buyDay) {
 		this.buyDay = buyDay;
 	}
 }
