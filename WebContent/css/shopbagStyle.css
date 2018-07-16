@@ -54,13 +54,19 @@
 
 /*-----#main-food-list style------------------------------------*/
 	#main-food {
-	height: 100%;
-	margin-bottom: 20px;
-	border-bottom: 3px solid #bad968;
+		height: 100%; /* inherit */
+		width: 960px;
+		margin-left: auto;
+		margin-right: auto;		
+		position: relative;
+		margin-top: 20px;
+		margin-bottom: 20px;	
+		text-align: center;	
+	
 }
 		
 	#main-food > h1{
-	display: none;
+		display: none;
 	}
 			#main-food-list{
 				background: #ff8080;				
@@ -94,16 +100,22 @@
 						color: black;	
 					}
 
-					
+
+.main-food-container > h1{
+	display: none;	
+}
+
 /*-----#body style------------------------------------*/					
 #body{
 	min-height: 800px;
 	width: 960px;
 	display: flex;
 	margin-left: auto;
-	margin-right: auto;
-	
+	margin-right: auto;	
+	background: #ececec;
 	
 }
+
+		
 		
 /*-----#footer style------------------------------------*/

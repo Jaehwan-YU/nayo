@@ -31,8 +31,16 @@
 	<section id = 'body'>
 		<div class="menu-container">
 			<nav id="daily-menu">
+				
+				
 				<table border="1">
-					<h3>2018년 6월</h3>
+				
+				
+					<form>
+ 					 	<p>날짜 입력</p>
+  						<input type="date" name="bday">
+					</form>
+					
 					<tr>
 						<th>오늘</th>
 						<td>18 아침<br>점심 <br>저녁<br></td>
@@ -69,10 +77,10 @@
 			<nav id="cook">
 				<h4>바로 조리 가능</h4>
 				<ul>
-					<li>두부조림</li>
-					<li>김치찌개</li>
-					<li>어묵볶음</li>
-					<li>김치볶음밥</li>
+					<li><img alt="" src="../images/ajax-loader.gif"><br>두부조림</li><br>
+					<li><img alt="" src="../images/ajax-loader.gif"><br>김치찌개</li><br>
+					<li><img alt="" src="../images/ajax-loader.gif"><br>어묵볶음</li><br>
+					<li><img alt="" src="../images/ajax-loader.gif"><br>김치볶음밥</li>
 				</ul>
 			</nav>	
 		</div>
@@ -81,10 +89,10 @@
 			<nav id = "recommend">	
 				<h4>이번주 추천</h4>
 				<ul>
-					<li>닭볶음탕</li>
-					<li>장어구이</li>
-					<li>미역국</li>
-					<li>순두부찌개</li>
+					<li><img alt="" src="../images/ajax-loader.gif"><br>닭볶음탕</li><br>
+					<li><img alt="" src="../images/ajax-loader.gif"><br>장어구이</li><br>
+					<li><img alt="" src="../images/ajax-loader.gif"><br>미역국</li><br>
+					<li><img alt="" src="../images/ajax-loader.gif"><br>순두부찌개</li>
 				</ul>
 			</nav>
 		</div>
@@ -93,10 +101,10 @@
 			<nav id="bookmark">
 				<h4>즐겨먹기</h4>
 				<ul>
-					<li>회덮밥</li>
-					<li>김치볶음밥</li>
-					<li>콩국수</li>
-					<li>소고기 스테이크</li>
+					<li><img alt="" src="../images/ajax-loader.gif"><br>회덮밥</li><br>
+					<li><img alt="" src="../images/ajax-loader.gif"><br>김치볶음밥</li><br>
+					<li><img alt="" src="../images/ajax-loader.gif"><br>콩국수</li><br>
+					<li><img alt="" src="../images/ajax-loader.gif"><br>소고기 스테이크</li>
 				</ul>
 			</nav>
 		</div>				
