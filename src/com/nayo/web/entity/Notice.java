@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Notice {
 		
-	private String id;
+	private int id;
 	private String title;
 	private String content;
 	private Date regDate;
@@ -16,7 +16,7 @@ public class Notice {
 		
 	}
 	
-	public Notice(String id, String title, Date regDate, String content, String regId, String noticeCate) {
+	public Notice(int id, String title, Date regDate, String content, String regId, String noticeCate) {
 		this.id = id;
 		this.title = title;
 		this.content = content;
@@ -24,10 +24,18 @@ public class Notice {
 		this.regId = regId;
 		this.noticeCate = noticeCate;
 	}
-	public String getId() {
+	public Notice(int id, String title, Date regDate, String content, String regId) {
+		this.id = id;
+		this.title = title;
+		this.content = content;
+		this.regDate = regDate;
+		this.regId = regId;
+	}
+
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getTitle() {

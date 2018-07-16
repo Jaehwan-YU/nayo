@@ -46,7 +46,7 @@ public class FoodService {
 			
 		while(rs.next()) {		
 			food = new Food(rs.getString("ID"),rs.getString("NAME"),
-					rs.getInt("FOOD_LIFE"),rs.getDate("SEEL_LIFE"));
+					rs.getInt("FOOD_LIFE"),rs.getDate("SELL_LIFE"));
 			//System.out.println(shop);
 			list.add(food);		
 			}

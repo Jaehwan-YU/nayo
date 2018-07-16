@@ -16,3 +16,6 @@ ul{
 li{
 	display:block;
 }
+table{
+	border-collapse: collapse;
+}

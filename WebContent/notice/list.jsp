@@ -102,7 +102,7 @@
 					 				<tr>
 						 				<td class="td-sm"><%= n.getNoticeCate() %></td>
 						 				<td class="td-md"><%= n.getId() %></td>
-						 				<td class="title"><a href=""><%= n.getTitle() %></a></td>		
+						 				<td class="title"><a href="detail.jsp?id=<%= n.getId()%>"><%= n.getTitle() %></a></td>		
 						 				<td class="td-md"><%= n.getRegId() %></td>
 						 				<td class="td-md"><%= n.getRegDate() %></td>
 					 				</tr>
