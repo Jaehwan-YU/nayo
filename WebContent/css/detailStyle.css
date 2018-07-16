@@ -63,26 +63,6 @@
 		#main > h1{
 				display: none;
 			}
-			
-/* -----------------------notice-search--------------------- */	
-		#notice-search{
-			text-align: right;
-		}
-		#notice-search > h1{
-			display: none;
-		}
-			#notice-search select{
-				border: 1px solid #FFA648;
-				width: 75px;
-				height: 24px;
-				vertical-align: middle;
-			}	
-				#notice-search input[type="text"]{
-					border: 1px solid #FFA648;
-					width: 200px;
-					height: 20px;
-					vertical-align: middle;
-				}
 
 /* -----------------------table----------------------------- */
 			#notice-table{
@@ -100,83 +80,21 @@
 						margin-top: 10px;
 						table-layout: fixed;
 					}
-						.table thead > tr > td{
+						.table th{
 							background: #EAEAEA;
-							border-left: 1px solid #C6C6C6;
+							border-bottom: 1px solid #C6C6C6;
 						}
-							.table thead > tr > td:first-child{
-								border-left: none;
+						.table tr{
+							height: 30px;
+						}
+							.table td{
+								border-bottom: 1px solid #C6C6C6;
+								text-align: center;
 							}
-							.table tr{
-								height: 30px;
-							}
-								.table td{
-									border-bottom: 1px solid #E9E9E9;
-									text-align: center;
-								}
-						.table tbody .title{
+						.table tbody > tr:first-child > td {
 							text-align: left;
 							text-indent: 5px;
-							
-							white-space: nowrap;
-							overflow: hidden;
-							text-overflow: ellipsis;
-						}
-							.table tbody .title a{
-								color: #808080;
-								text-decoration: none;
-							}	
-						.table .td-md{
-							width: 110px;
-						}
-						.table .td-sm{
-							width: 80px;
 						}
 						
-/* -----------------------page----------------------------- */
-	#page-index > h1{
-		display: none;
-	}
-		#page-index{
-			color: #979797;
-			font-family: µ¸¿ò, Arial, sans-serif;
-			font-size: 13px;
-			color: #808080;
-			font-weight: normal;
-			
-			position: absolute;
-			right: 0px;
-			
-			margin-top: 2px;
-		}
-	
-	#pager > h1{
-		display: none;
-	}
-		#pager{
-			color: #979797;
-			font-family: µ¸¿ò, Arial, sans-serif;
-			font-size: 13px;
-			color: #808080;
-			font-weight: normal;	
-			text-align: center;
-			margin: 15px 0px;
-	
-		}
-			#pager ul{
-				display: inline-flex;
-				
-			}
-			
-					#pager a{
-						margin: 0px 3px;
-					}
-					#pager ul > li > a:hover {
-						color: #FFBB00;
-	
-					}
-		
-
-					
 /* =======================footer================================== */
 

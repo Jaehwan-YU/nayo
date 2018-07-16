@@ -45,7 +45,7 @@ public List<Notice> getNoticeList(String field, String query, int page) throws C
 		ResultSet rs = st.executeQuery();
 			
 		while(rs.next()) {		
-			Notice notice = new Notice(rs.getString("ID"),
+			Notice notice = new Notice(rs.getInt("ID"),
 									   rs.getString("TITLE"),
 									   rs.getDate("REG_DATE"),
 									   rs.getString("CONTENT"),
@@ -62,6 +62,38 @@ public List<Notice> getNoticeList(String field, String query, int page) throws C
 	      
 		return list;
 
+	}
+
+	public Notice getNotice(int id) throws ClassNotFoundException, SQLException {
+		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		String user = "c##nayoadmin";
+		String password = "skdy0514";
+
+		String sql = "SELECT * " + 
+					"FROM NOTICE " +
+					"WHERE ID = ?";
+			
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, user, password);
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1, id);
+		
+		ResultSet rs = st.executeQuery();
+			
+		while(rs.next()) {		
+			Notice notice = new Notice(rs.getInt("ID"),
+									   rs.getString("TITLE"),
+									   rs.getDate("REG_DATE"),
+									   rs.getString("CONTENT"),
+									   rs.getString("REG_ID"));
+			
+			rs.close();
+		    st.close();
+		    con.close();
+		    
+			return notice;
+		}
+		return null;
 	}
 	
 	public int getNoticeCount(String field, String query) throws ClassNotFoundException, SQLException {

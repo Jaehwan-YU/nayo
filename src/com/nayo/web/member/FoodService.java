@@ -43,12 +43,13 @@ public class FoodService {
 		pstmt.setInt(2, keepArea);
 		ResultSet rs = pstmt.executeQuery();
 
-		while (rs.next()) {
-			food = new Food(rs.getString("ID"), rs.getString("NAME"), rs.getInt("FOOD_LIFE"), rs.getDate("SEEL_LIFE"));
-			// System.out.println(shop);
-			list.add(food);
-		}
-
+		while(rs.next()) {		
+			food = new Food(rs.getString("ID"),rs.getString("NAME"),
+					rs.getInt("FOOD_LIFE"),rs.getDate("SELL_LIFE"));
+			//System.out.println(shop);
+			list.add(food);		
+			}
+		
 		rs.close();
 		pstmt.close();
 		con.close();
