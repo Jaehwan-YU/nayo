@@ -62,6 +62,10 @@
 							</tbody>
 						</table>
 					</section>
+					
+					<section id="detail-content">
+						<div><%= notice.getContent() %></div>
+					</section>
 						
 			</main>
 		</div>

@@ -46,6 +46,7 @@ public class MyInfoService {
 		return  member;
 	}
 	
+
 	public void setMemberInfo(Member member) throws SQLException, ClassNotFoundException {
 		
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
