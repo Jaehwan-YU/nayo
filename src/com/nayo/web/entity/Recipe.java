@@ -2,12 +2,15 @@ package com.nayo.web.entity;
 
 public class Recipe {
 		
-	private String id;
+	private int id;
 	private String title;
 	private String simpleIntro;
 	private String process;
 	private String regEmail;
 	private int kcalory;
+	private int nationalId;
+	private int situationId;
+	private int recipeTypeId;
 	private String national;
 	private String situation;
 	private String recipeType;
@@ -17,7 +20,7 @@ public class Recipe {
 		
 	}
 	
-	public Recipe(String id, String title, String simpleIntro, String process, String regEmail, int kcalory,
+	public Recipe(int id, String title, String simpleIntro, String process, String regEmail, int kcalory,
 			String national, String situation, String recipeType) {
 		
 		this.id = id;
@@ -31,10 +34,10 @@ public class Recipe {
 		this.recipeType = recipeType;
 	}
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getTitle() {
@@ -84,6 +87,30 @@ public class Recipe {
 	}
 	public void setRecipeType(String recipeType) {
 		this.recipeType = recipeType;
+	}
+
+	public int getNationalId() {
+		return nationalId;
+	}
+
+	public void setNationalId(int nationalId) {
+		this.nationalId = nationalId;
+	}
+
+	public int getSituationId() {
+		return situationId;
+	}
+
+	public void setSituationId(int situationId) {
+		this.situationId = situationId;
+	}
+
+	public int getRecipeTypeId() {
+		return recipeTypeId;
+	}
+
+	public void setRecipeTypeId(int recipeTypeId) {
+		this.recipeTypeId = recipeTypeId;
 	}
 
 	@Override
