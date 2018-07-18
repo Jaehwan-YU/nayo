@@ -1,24 +1,74 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String ctx = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>나요</title>
+<link href="css/loginStyle.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-	<div>
-		<ul>
-			<li><a href="index.jsp">home</a>
-			<li><a href="notice/list.jsp">고객센터</a>
-			<li><a href="member/recipe/list.jsp">마이페이지</a>
-			<li><a href="member/food.jsp">나의 식재료</a>
-			<li><a href="recipe/list.jsp">레시피</a>
-			<li><a href="member/shopbag.jsp">장바구니</a>
-			<li><a href="member/menu.jsp">나의식단</a><br></br>
-		</ul>
-	</div>
 
-	[로그인] 로그인하는 페이지 입니다
+<!-- header영역 -->
+	<jsp:include page="inc/header.jsp"/>
+	
+	<!-- visual영역 -->	
+	<div class="content-container">
+		<div id="visual">		
+		</div>
+	</div>
+	
+<!-- body영역 -->
+	<section id="body">
+		<div class="content-container">
+			<h1>
+				<a href="<%= ctx %>/index.jsp"><img scr="" alt="">나요</a>
+			</h1>
+		
+			<section id="login-text">
+				<h1>로그인정보입력</h1>
+					<table>
+						<tbody>
+							<tr>
+								<td><input type="text" placeholder="아이디"/></td>
+							</tr>
+							<tr>
+								<td><input type="password" placeholder="비밀번호"/></td>
+							</tr>
+							<tr>
+								<td><input type="submit" value="로그인"/></td>
+							</tr>
+						</tbody>
+					</table>
+			</section>
+			
+			<section id="search-login">
+				<h1>로그인정보 찾기</h1>
+					<ul>
+						<li><a href="">아이디 찾기</a></li>
+						<li><a href="">비밀번호 찾기</a></li>
+						<li><a href="<%= ctx %>/signup.jsp">회원가입</a></li>
+					</ul>
+			</section>
+			
+			<section id="another-login">
+				<h1>타매체 로그인</h1>
+					<ul>
+						<li><a href="">카카오톡 로그인</a></li>
+						<li><a href="">페이스북 로그인</a></li>
+					</ul>
+			</section>
+			
+		</div>
+	</section>
+	
+	
+	
+<!-- footer영역 -->	
+	<%-- <jsp:include page="inc/footer.jsp"/> --%>
+	
 </body>
 </html>

@@ -46,7 +46,7 @@ public class MyInfoService {
 		return  member;
 	}
 	
-	public void setMemberInfo(String memberEmail) {
+	/*public void setMemberInfo(String memberEmail) {
 		
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
@@ -76,5 +76,5 @@ public class MyInfoService {
 		con.close();
 		
 		
-	}
+	}*/
 }
