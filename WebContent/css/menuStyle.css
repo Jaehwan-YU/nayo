@@ -102,25 +102,54 @@
 	min-height: 800px;
 	width: 960px;
 	display: flex;
+	margin-top : 20px;
 	margin-left: auto;
 	margin-right: auto;
-	background: #c0c0c0;
+	background: #ececec;
+	text-align: center;
 }
+
+.menu-container{
+	width : 600px;	
+
+}
+
+.cook-container{	
+	width : 180px;
+}
+
+.recommend-container{
+	width : 180px;	
+}
+
+.bookmark-container{	
+	width : 180px;	
+}
+
 	#daily-menu{
 		border: 2px solid orange;
-		background: white;		
+		background: white;
+		margin-right: 15px;	
+		height: 800px;		
+    	overflow-y:scroll;  
+		
 	}
 	#cook{
 		border: 2px solid orange;
 		background: white;	
+		margin-right: 15px;
+		height: 800px;
 	}
 	#recommend{
 		border: 2px solid orange;
 		background: white;	
+		margin-right: 15px;
+		height: 800px;
 	}
 	#bookmark{
 		border: 2px solid orange;
 		background: white;	
+		height: 800px;
 	}
 	
 /*-----#footer style------------------------------------*/

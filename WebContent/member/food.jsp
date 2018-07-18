@@ -10,7 +10,7 @@
 	List<Food> list1 = fs.getFoodList("woghks2045@gmail.com", 1);
 	List<Food> list2 = fs.getFoodList("woghks2045@gmail.com", 2);
 	List<Food> list3 = fs.getFoodList("woghks2045@gmail.com", 3);
-%>
+%> 
 <!DOCTYPE html>
 <html>
 <head>
