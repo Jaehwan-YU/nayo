@@ -9,7 +9,7 @@
 <body>
 	<header>
 		<ul>
-			<li><a href="index.jsp">home</a></li>
+			<li><a href="index">home</a></li>
 		</ul>
 	</header>
 

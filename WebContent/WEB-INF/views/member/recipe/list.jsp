@@ -20,10 +20,10 @@
 	
 	<div>
 		<ul>
-			<li><a href="list.jsp">나의 레시피</a></li>
-			<li><a href="../bookmark.jsp">즐겨먹기</a></li>
-			<li><a href="../infocheck.jsp">내 정보</a></li>
-			<li><a href="../../recipe/detail.jsp">레시피 1</a></li>
+			<li><a href="list">나의 레시피</a></li>
+			<li><a href="../bookmark">즐겨먹기</a></li>
+			<li><a href="../infocheck">내 정보</a></li>
+			<li><a href="../../recipe/detail">레시피 1</a></li>
 		</ul>
 	</div>
 	[마이페이지 (마이 레시피)]

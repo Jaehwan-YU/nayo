@@ -28,8 +28,8 @@
 					<h2>마이페이지</h2>
 					<div id="aside-menu">
 						<ul>
-							<li><a href="../notice/list.jsp">공지사항</a>
-							<li><a href="list.jsp">FAQ</a>
+							<li><a href="../notice/list">공지사항</a>
+							<li><a href="faq/list">FAQ</a>
 						</ul>
 					</div>
 			</aside>

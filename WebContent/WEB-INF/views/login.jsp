@@ -25,7 +25,7 @@
 	<section id="body">
 		<div class="content-container">
 			<h1>
-				<a href="<%= ctx %>/index.jsp"><img scr="" alt="">나요</a>
+				<a href="<%= ctx %>/index"><img scr="" alt="">나요</a>
 			</h1>
 		
 			<section id="login-text">
@@ -50,7 +50,7 @@
 					<ul>
 						<li><a href="">아이디 찾기</a></li>
 						<li><a href="">비밀번호 찾기</a></li>
-						<li><a href="<%= ctx %>/signup.jsp">회원가입</a></li>
+						<li><a href="<%= ctx %>/signup">회원가입</a></li>
 					</ul>
 			</section>
 			

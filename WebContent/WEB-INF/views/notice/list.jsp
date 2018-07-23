@@ -30,7 +30,7 @@
 <body>
 	
 <!-- header영역 -->
-	<jsp:include page="../../../inc/header.jsp"/>
+	<jsp:include page="../inc/header.jsp"/>
 	
 	<!-- visual영역 -->	
 	<div class="content-container">
@@ -48,7 +48,7 @@
 					<div id="aside-menu">
 						<ul>
 							<li><a href="list">공지사항</a>
-							<li><a href="../faq/list.jsp">FAQ</a>
+							<li><a href="../faq/list">FAQ</a>
 						</ul>
 					</div>
 			</aside>
@@ -128,7 +128,7 @@
 			</section>
 			
 <!-- footer영역 -->	
-	<jsp:include page="../../../inc/footer.jsp"/>
+	<jsp:include page="../inc/footer.jsp"/>
 	
 </body>
 </html>

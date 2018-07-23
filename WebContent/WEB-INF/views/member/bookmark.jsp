@@ -29,9 +29,9 @@
 					<h2>마이페이지</h2>
 					<div id="aside-menu">
 						<ul>
-							<li><a href="recipe/list.jsp">나의 레시피</a></li>
-							<li><a href="bookmark.jsp">즐겨먹기</a></li>
-							<li><a href="infocheck.jsp">내 정보</a></li>
+							<li><a href="recipe/list">나의 레시피</a></li>
+							<li><a href="bookmark">즐겨먹기</a></li>
+							<li><a href="infocheck">내 정보</a></li>
 						</ul>
 					</div>
 		</aside>
@@ -40,9 +40,9 @@
 					<h1>즐겨먹기 목록</h1>
 						<h2>즐겨먹기</h2>
 							<ul>
-								<li><a href="../recipe/detail.jsp">레시피 1</a></li>
-								<li><a href="../recipe/detail.jsp">레시피 2</a></li>
-								<li><a href="../recipe/detail.jsp">레시피 3</a></li>
+								<li><a href="../recipe/detail">레시피 1</a></li>
+								<li><a href="../recipe/detail">레시피 2</a></li>
+								<li><a href="../recipe/detail">레시피 3</a></li>
 							</ul>
 					<div>이전</div>
 					<div>
