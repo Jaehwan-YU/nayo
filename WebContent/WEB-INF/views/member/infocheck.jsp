@@ -21,9 +21,9 @@
 	<div>
 		<h3>마이페이지</h3>
 		<ul>
-			<li><a href="recipe/list.jsp">나의 레시피</a></li>
-			<li><a href="bookmark.jsp">즐겨먹기</a></li>
-			<li><a href="infocheck.jsp">내 정보</a></li>
+			<li><a href="recipe/list">나의 레시피</a></li>
+			<li><a href="bookmark">즐겨먹기</a></li>
+			<li><a href="infocheck">내 정보</a></li>
 		</ul>
 	</div>
 	<div>

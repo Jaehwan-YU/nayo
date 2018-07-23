@@ -95,7 +95,7 @@ public class NoticeService {
 		
 		if (rs.next()) {
 			Notice notice = new Notice(rs.getInt("ID"), rs.getString("TITLE"), rs.getDate("REG_DATE"),
-					rs.getString("CONTENT"), rs.getString("REG_ID"), rs.getString("NAME"));
+					rs.getString("CONTENT"), rs.getString("REG_ID"));
 			
 			return notice;
 		}

@@ -22,7 +22,7 @@
 <body>
 	
 <!-- header영역 -->
-	<jsp:include page="../../../inc/header.jsp"/>
+	<jsp:include page="../inc/header.jsp"/>
 	
 	<!-- visual영역 -->	
 	<div class="content-container">
@@ -74,7 +74,7 @@
 	</section>
 			
 <!-- footer영역 -->	
-	<jsp:include page="../../../inc/footer.jsp"/>
+	<jsp:include page="../inc/footer.jsp"/>
 	
 </body>
 </html>
