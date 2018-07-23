@@ -85,7 +85,7 @@ public class NoticeService {
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
 		String password = "skdy0514";
-		String sql = "SELECT * FROM NOTICE WHERE ID = ?";
+		String sql = "select * from notice where id = ?";
 		
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, user, password);
@@ -95,7 +95,7 @@ public class NoticeService {
 		
 		if (rs.next()) {
 			Notice notice = new Notice(rs.getInt("ID"), rs.getString("TITLE"), rs.getDate("REG_DATE"),
-					rs.getString("CONTENT"), rs.getString("REG_ID"), rs.getString("NAME"));
+					rs.getString("CONTENT"), rs.getString("REG_ID"));
 			
 			return notice;
 		}

@@ -231,7 +231,7 @@ public class RecipeService {
 		
 		
 		while(rs.next()) {
-			pstmt.setString(1, rs.getString("recipe_id"));
+			pstmt2.setString(1, rs.getString("recipe_id"));
 			ResultSet rs2 = pstmt2.executeQuery();
 						if(rs2.next()) {
 							Recipe recipe = new Recipe(rs2.getInt("id"),

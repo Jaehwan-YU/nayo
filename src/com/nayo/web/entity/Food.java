@@ -19,7 +19,10 @@ public class Food {
 		
 	}
 	public Food(String id, String name, int foodLife, Date sellLife) {
-		
+		this.id = id;
+		this.name = name;
+		this.foodLife = foodLife;
+		this.sellLife = sellLife;
 	}
 	public Food(String id, String name, int foodLife, Date sellLife, Date regDate, Date useDate, String regEmail,
 			int foodCateId, int keepAreaId, String foodImg) {

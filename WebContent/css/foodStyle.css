@@ -108,6 +108,9 @@ li{
 	height: 50px;
 	text-align: center;	
 	}
+		#food-cate > h1 {
+			display: none;
+		}
 		#food-cate > form {
 		padding-top: 17px;
 		overflow:auto;

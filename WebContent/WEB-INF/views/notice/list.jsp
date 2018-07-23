@@ -4,28 +4,11 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
-	int pageNo = 1;
-	String field = "title";
-	String query = "";
-	
-	String pageNo_ = request.getParameter("p");
-	String field_ = request.getParameter("f");
-	String query_ = request.getParameter("q");
-	
-	if(pageNo_ != null && !pageNo_.equals(""))
-		pageNo = Integer.parseInt(pageNo_);
-	if(field_ !=null && !field_.equals(""))
-		field = field_;
-	if(query_ !=null && !query_.equals(""))
-		query = query_;
-	
-	NoticeService ns = new NoticeService();
-
-	List<Notice> list = ns.getNoticeList(field, query, pageNo);
-	
-	int count_ = ns.getNoticeCount(field, query);
-	int countList = 10;
+	String ctx = request.getContextPath();
+	/* int countList = 10;
 	int count = 1;
 	
 	if(count_ / countList == 0)
@@ -34,7 +17,7 @@
 		count = count_ / countList;
 		count++;
 	}else
-		count = count_ / countList;
+		count = count_ / countList; */
 	
 %>
 <!DOCTYPE html>
@@ -42,12 +25,12 @@
 <head>
 <meta charset="UTF-8">
 <title>나요</title>
-<link href="../css/noticeStyle.css" type="text/css" rel="stylesheet" />
+<link href="<%=ctx %>/css/noticeStyle.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	
 <!-- header영역 -->
-	<jsp:include page="../inc/header.jsp"/>
+	<jsp:include page="../../../inc/header.jsp"/>
 	
 	<!-- visual영역 -->	
 	<div class="content-container">
@@ -64,7 +47,7 @@
 					<h2>마이페이지</h2>
 					<div id="aside-menu">
 						<ul>
-							<li><a href="list.jsp">공지사항</a>
+							<li><a href="list">공지사항</a>
 							<li><a href="../faq/list.jsp">FAQ</a>
 						</ul>
 					</div>
@@ -80,7 +63,7 @@
 									<option value="title">제목</option>
 									<option value="content">내용</option>
 								</select>
-								<input type="text" name="q" placeholder="검색어를 입력하세요." value="<%= query%>"/>
+								<input type="text" name="q" placeholder="검색어를 입력하세요." value="${param.q}"/>
 								<input type="submit" value="검색"/>
 							</form>
 						</section>
@@ -98,32 +81,45 @@
 					 				</tr>
 					 			</thead>
 					 			<tbody>
-					 			<% for(Notice n : list){ %>
+					 			<c:forEach var="n" items="${list}"> 
 					 				<tr>
-						 				<td class="td-sm"><%= n.getNoticeCate() %></td>
-						 				<td class="td-md"><%= n.getId() %></td>
-						 				<td class="title"><a href="detail.jsp?id=<%= n.getId()%>"><%= n.getTitle() %></a></td>		
-						 				<td class="td-md"><%= n.getRegId() %></td>
-						 				<td class="td-md"><%= n.getRegDate() %></td>
+						 				<td class="td-sm">${n.noticeCate}</td>
+						 				<td class="td-md">${n.id}</td>
+						 				<td class="title"><a href="detail?id=${n.id}">${n.title}</a></td>		
+						 				<td class="td-md">${n.regId}</td>
+						 				<td class="td-md">${n.regDate}</td>
 					 				</tr>
-					 			<% } %>
-					 			
+					 			</c:forEach>
 					 			</tbody>
 					 		</table>
 					 	</section>
 					 	
 					 	<section id="page-index">
+					 	<c:if test="${not empty p}">
+								<c:set var="page" value="${p}"/>
+						</c:if>
+						<c:set var="startNum" value="${(page-1)/5}"/>
+						<c:set var="startNum" value="${startNum - (startNum%1)}"/>
+						<c:set var="startNum" value="${startNum*5+1}"/>
+						
+						<c:set var="lastNum" value="${(count+9)/10}"/>
+						<c:set var="lastNum" value="${lastNum-(lastNum%1)}"/>
+						<c:set var="lastNum" value="${fn:replace(lastNum,'.0','')}"/>
+						 	
+					 	<c:if test="${lastNum < startNum+4}">
+							<c:set var="lastNum" value="${lastNum}" />
+						</c:if>
 							<h1>페이지 인덱스</h1>
 					
-							<div><%= pageNo %> / <%= count %> pages</div>
+							<div>${p} / ${lastNum} pages</div>
 						</section>
 						
 						<section id="pager">
 							<h1>페이저</h1>
 								<ul>
-								<% for(int i=1; i<count+1; i++){ %>
-									<li><a href="?p=<%= i %>&f=<%= field %>&q=<%= query %>"><%= i %></a></li>
-								<% } %>
+								<c:forEach var="i" begin="${startNum}" end="${lastNum}">
+									<li><a href="?p=${i}&f=${param.f}&q=${param.q}">${i}</a></li>
+								</c:forEach>
 								</ul>
 						</section>
 						
@@ -132,7 +128,7 @@
 			</section>
 			
 <!-- footer영역 -->	
-	<jsp:include page="../inc/footer.jsp"/>
+	<jsp:include page="../../../inc/footer.jsp"/>
 	
 </body>
 </html>

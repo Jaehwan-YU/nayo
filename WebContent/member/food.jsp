@@ -1,3 +1,5 @@
+<%@page import="com.nayo.web.entity.Recipe"%>
+<%@page import="com.nayo.web.RecipeService"%>
 <%@page import="com.nayo.web.entity.FoodCate"%>
 <%@page import="java.util.List"%>
 <%@page import="com.nayo.web.entity.Food"%>
@@ -9,14 +11,16 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
 	FoodService fs = new FoodService();
+	RecipeService rs = new RecipeService();
 
 	List<FoodCate> list = fs.getFoodCateList();
-	
+	List<Recipe> rList = rs.getCookableRecipeList("woghks2045@gmail.com");
 	
 	List<Food> list1 = fs.getFoodList("woghks2045@gmail.com", 1);
 	List<Food> list2 = fs.getFoodList("woghks2045@gmail.com", 2);
 	List<Food> list3 = fs.getFoodList("woghks2045@gmail.com", 3);
 	
+	pageContext.setAttribute("rList", rList);
 	pageContext.setAttribute("list1", list1);
 	pageContext.setAttribute("list2", list2);
 	pageContext.setAttribute("list3", list3);
@@ -49,8 +53,8 @@
 			<nav id="cookable-recipe">
 				<h1 class="area-name">지금 바로 조리 가능한 레시피</h1>
 				<ul>
-					<c:forEach var="fc" items="${list}">
-						<li>${fc.name}</li>
+					<c:forEach var="rc" items="${rList}">
+						<li>${rc.title}</li>
 					</c:forEach>
 				</ul>
 			</nav>
@@ -77,29 +81,20 @@
 					<h1 class="area-name">냉장</h1>
 					<form>
 						<table>
-							<c:forEach var="f" items="${list1}">
-							<tr>
-							
-								<td>
-									<ul>
-										<li><img alt="" src="../images/ajax-loader.gif"></li>
-										<li><%=f.getName()%></li>
-									</ul>
-								</td>
-								<%
-									count++;
-										if (count == 3) {
-								%>
-							</tr>
-							<%
-								;
-										count = 0;
-									}
-							%>
-							<%
-								}
-							%>
-							</c:forEach>
+								<c:forEach var="f" items="${list1}" varStatus="st">
+									<c:if test="${st.index%3 == 0}">
+										<tr>
+									</c:if>
+									<td>
+										<ul>
+											<li><img alt="" src="../images/ajax-loader.gif"></li>
+											<li>${f.name}</li>
+										</ul>
+									</td>
+									<c:if test="${st.index%3 == 2}">
+										</tr>
+									</c:if>
+								</c:forEach>
 						</table>
 					</form>
 					<input type="button" value="보유 식재료 추가" />
@@ -108,33 +103,20 @@
 					<h1 class="area-name">냉동</h1>
 					<form>
 						<table>
-							<%
-								count = 0;
-								for (Food f : list2) {
-									if (count == 0)
-							%><tr>
-								<%
-									;
-								%>
-								<td>
-									<ul>
-										<li><img alt="" src="../images/ajax-loader.gif"></li>
-										<li><%=f.getName()%></li>
-									</ul>
-								</td>
-								<%
-									count++;
-										if (count == 3) {
-								%>
-							</tr>
-							<%
-								;
-										count = 0;
-									}
-							%>
-							<%
-								}
-							%>
+							<c:forEach var="f" items="${list2}" varStatus="st">
+									<c:if test="${st.index%3 == 0}">
+										<tr>
+									</c:if>
+									<td>
+										<ul>
+											<li><img alt="" src="../images/ajax-loader.gif"></li>
+											<li>${f.name}</li>
+										</ul>
+									</td>
+									<c:if test="${st.index%3 == 2}">
+										</tr>
+									</c:if>
+								</c:forEach>
 						</table>
 					</form>
 				</section>
@@ -142,33 +124,20 @@
 					<h1 class="area-name">상온</h1>
 					<form>
 						<table>
-							<%
-								count = 0;
-								for (Food f : list3) {
-									if (count == 0)
-							%><tr>
-								<%
-									;
-								%>
-								<td>
-									<ul>
-										<li><img alt="" src="../images/ajax-loader.gif"></li>
-										<li><%=f.getName()%></li>
-									</ul>
-								</td>
-								<%
-									count++;
-										if (count == 3) {
-								%>
-							</tr>
-							<%
-								;
-										count = 0;
-									}
-							%>
-							<%
-								}
-							%>
+							<c:forEach var="f" items="${list3}" varStatus="st">
+									<c:if test="${st.index%3 == 0}">
+										<tr>
+									</c:if>
+									<td>
+										<ul>
+											<li><img alt="" src="../images/ajax-loader.gif"></li>
+											<li>${f.name}</li>
+										</ul>
+									</td>
+									<c:if test="${st.index%3 == 2}">
+										</tr>
+									</c:if>
+								</c:forEach>
 						</table>
 					</form>
 					<input type="button" value="보유 식재료 추가" />
