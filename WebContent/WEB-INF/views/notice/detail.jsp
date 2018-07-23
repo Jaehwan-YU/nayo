@@ -3,11 +3,13 @@
 <%@page import="com.nayo.web.NoticeService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
-	int id = Integer.parseInt(request.getParameter("id"));
-	NoticeService ns = new NoticeService();
+
+	String ctx = request.getContextPath();
+
 	
-	Notice notice = ns.getNotice(id);
 	
 %>
 <!DOCTYPE html>
@@ -15,12 +17,12 @@
 <head>
 <meta charset="UTF-8">
 <title>나요</title>
-<link href="../css/detailStyle.css" type="text/css" rel="stylesheet" />
+<link href="<%=ctx %>/css/detailStyle.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	
 <!-- header영역 -->
-	<jsp:include page="../inc/header.jsp"/>
+	<jsp:include page="../../../inc/header.jsp"/>
 	
 	<!-- visual영역 -->	
 	<div class="content-container">
@@ -37,7 +39,7 @@
 					<h2>마이페이지</h2>
 					<div id="aside-menu">
 						<ul>
-							<li><a href="list.jsp">공지사항</a>
+							<li><a href="list">공지사항</a>
 							<li><a href="../faq/list.jsp">FAQ</a>
 						</ul>
 					</div>
@@ -51,20 +53,20 @@
 							<tbody>
 								<tr>
 									<th>제목</th>
-									<td colspan="3"><%= notice.getTitle() %></td>
+									<td colspan="3">${n.title}</td>
 								</tr>
 								<tr>
 									<th>작성일</th>
-									<td><%= notice.getRegDate() %></td>
+									<td>${n.regDate}</td>
 									<th>작성자</th>
-									<td><%= notice.getRegId() %></td>
+									<td>${n.regId}</td>
 								</tr>
 							</tbody>
 						</table>
 					</section>
 					
 					<section id="detail-content">
-						<div><%= notice.getContent() %></div>
+						<div>${n.content}</div>
 					</section>
 						
 			</main>
@@ -72,7 +74,7 @@
 	</section>
 			
 <!-- footer영역 -->	
-	<jsp:include page="../inc/footer.jsp"/>
+	<jsp:include page="../../../inc/footer.jsp"/>
 	
 </body>
 </html>
