@@ -6,10 +6,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.nayo.web.entity.Food;
+import com.nayo.web.entity.FoodCate;
+
 
 public class FoodService {
 
@@ -18,9 +21,9 @@ public class FoodService {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		FoodService fs = new FoodService();
 		Date date = null;
+		List<FoodCate> fc = fs.getFoodCateList();
 
-		fs.addFood("woghks2045@gmail.com", "닭고기");
-
+		System.out.println(fc.get(0).getName());
 	}
 
 	public FoodService() {
@@ -189,5 +192,35 @@ public class FoodService {
 		pstmt.close();
 		con.close();
 		return food;
+	}
+	
+	public List<FoodCate> getFoodCateList() throws SQLException, ClassNotFoundException{
+			
+			List<FoodCate> list = new ArrayList<>();
+			
+			String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+			String user = "c##nayoadmin";
+			String password = "skdy0514";
+
+			String sql = "SELECT * FROM FOOD_CATE";
+			
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con = DriverManager.getConnection(url, user, password);
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				FoodCate fc = new FoodCate(rs.getInt("ID"), rs.getString("NAME"));
+				
+				list.add(fc);
+				
+			}
+			
+			con.close();
+			stmt.close();
+			rs.close();
+			
+		return list;
+		
 	}
 }

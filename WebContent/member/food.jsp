@@ -1,16 +1,27 @@
+<%@page import="com.nayo.web.entity.FoodCate"%>
 <%@page import="java.util.List"%>
 <%@page import="com.nayo.web.entity.Food"%>
 <%@page import="com.nayo.web.member.FoodService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
 	FoodService fs = new FoodService();
 
+	List<FoodCate> list = fs.getFoodCateList();
+	
+	
 	List<Food> list1 = fs.getFoodList("woghks2045@gmail.com", 1);
 	List<Food> list2 = fs.getFoodList("woghks2045@gmail.com", 2);
 	List<Food> list3 = fs.getFoodList("woghks2045@gmail.com", 3);
-%> 
+	
+	pageContext.setAttribute("list1", list1);
+	pageContext.setAttribute("list2", list2);
+	pageContext.setAttribute("list3", list3);
+	pageContext.setAttribute("list", list);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,13 +33,12 @@
 </head>
 <body>
 
-<!-- header영역 -->
-	<jsp:include page="../inc/header.jsp"/>
-	
-	<!-- visual영역 -->	
+	<!-- header영역 -->
+	<jsp:include page="../inc/header.jsp" />
+
+	<!-- visual영역 -->
 	<div class="content-container">
-		<div id="visual">		
-		</div>
+		<div id="visual"></div>
 	</div>
 
 	<!-- 메인영역 -->
@@ -39,28 +49,19 @@
 			<nav id="cookable-recipe">
 				<h1 class="area-name">지금 바로 조리 가능한 레시피</h1>
 				<ul>
-					<li>콩나물국</li>
-					<li>삼겹살 볶음밥</li>
-					<li>닭 김치찜</li>
+					<c:forEach var="fc" items="${list}">
+						<li>${fc.name}</li>
+					</c:forEach>
 				</ul>
 			</nav>
 
 			<section id="food-cate">
 				<h1>식재료 카테고리 영역</h1>
-				<h2>목록</h2>
 				<form>
-					<input type="checkbox" id="food-cate-1" value="채소/과일" /> <label
-						for="food-cate-1">채소/과일</label> <input type="checkbox"
-						id="food-cate-2" value="육류" /> <label for="food-cate-2">육류</label>
-					<input type="checkbox" id="food-cate-3" value="수산물" /> <label
-						for="food-cate-3">수산물</label> <input type="checkbox"
-						id="food-cate-4" value="곡물/견과류" /> <label for="food-cate-4">곡물/견과류</label>
-					<input type="checkbox" id="food-cate-5" value="양념소스" /> <label
-						for="food-cate-5">양념소스</label> <input type="checkbox"
-						id="food-cate-6" value="가공식품" /> <label for="food-cate-6">가공식품</label>
-					<input type="checkbox" id="food-cate-7" value="유제품" /> <label
-						for="food-cate-7">유제품</label> <input type="checkbox"
-						id="food-cate-8" value="기타" /> <label for="food-cate-8">기타</label>
+					<c:forEach var="fc" items="${list}">
+						<input type="checkbox" class="food-cate-${fc.id}" value="${fc.id}" />
+						<label for="food-cate-${fc.id}">${fc.name}</label>
+					</c:forEach>
 				</form>
 			</section>
 
@@ -76,14 +77,9 @@
 					<h1 class="area-name">냉장</h1>
 					<form>
 						<table>
-							<%
-								int count = 0;
-								for (Food f : list1) {
-									if (count == 0)
-							%><tr>
-								<%
-									;
-								%>
+							<c:forEach var="f" items="${list1}">
+							<tr>
+							
 								<td>
 									<ul>
 										<li><img alt="" src="../images/ajax-loader.gif"></li>
@@ -103,6 +99,7 @@
 							<%
 								}
 							%>
+							</c:forEach>
 						</table>
 					</form>
 					<input type="button" value="보유 식재료 추가" />
@@ -180,8 +177,8 @@
 		</div>
 	</section>
 
-<!-- footer영역 -->	
-	<jsp:include page="../inc/footer.jsp"/>
-	
+	<!-- footer영역 -->
+	<jsp:include page="../inc/footer.jsp" />
+
 </body>
 </html>

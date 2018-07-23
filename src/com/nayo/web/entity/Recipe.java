@@ -20,6 +20,16 @@ public class Recipe {
 		
 	}
 	
+	public Recipe(int id, String title, String simpleIntro, String process) {
+		
+		this.id = id;
+		this.title = title;
+		this.simpleIntro = simpleIntro;
+		this.process = process;
+
+	}
+	
+	
 	public Recipe(int id, String title, String simpleIntro, String process, String regEmail, int kcalory,
 			String national, String situation, String recipeType) {
 		

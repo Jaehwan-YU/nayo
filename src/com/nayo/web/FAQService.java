@@ -2,6 +2,6 @@ package com.nayo.web;
 
 public class FAQService {
 
-	void getFAQList() {}
+	public void getFAQList() {}
 
 }

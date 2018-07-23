@@ -55,7 +55,12 @@ public class BookmarkService {
 													rs.getString("SIMPLE_INTRO"));
 			//System.out.println(shop);
 			list.add(bookmark);
-	}
+		}
+		
+		con.close();
+		pstmt.close();
+		rs.close();
+		
 		return list;
 	}
 
@@ -71,7 +76,13 @@ public class BookmarkService {
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, memberEmail );
 		pstmt.setString(2, recipeId );
-		ResultSet rs = pstmt.executeQuery(sql);
+		int cnt = pstmt.executeUpdate();
+		
+		System.out.println(cnt>0? "등록 완료":"등록 실패");
+		
+		con.close();
+		pstmt.close();
+		
 	}
 
 	void deleteBookMark(String memberEmail, String recipeId) throws ClassNotFoundException, SQLException {
@@ -86,7 +97,12 @@ public class BookmarkService {
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, memberEmail );
 		pstmt.setString(2, recipeId );
-		ResultSet rs = pstmt.executeQuery(sql);
+		int cnt = pstmt.executeUpdate();
+		
+		System.out.println(cnt>0? "삭제 성공":"삭제 실패");
+		
+		con.close();
+		pstmt.close();
 	}
 	
 	

@@ -74,6 +74,9 @@ public class MenuService {
 		int cnt = pstmt.executeUpdate();
 		
 		System.out.println(cnt>0? "등록 완료":"등록 실패");
+		
+		con.close();
+		pstmt.close();
 	}
 	public void setMenu(Menu menu) throws SQLException, ClassNotFoundException {
 	
@@ -92,6 +95,9 @@ public class MenuService {
 		int cnt = pstmt.executeUpdate();
 		
 		System.out.println(cnt>0? "수정 완료":"수정 실패");
+		
+		con.close();
+		pstmt.close();
 	}
 	public void deleteMenu(Menu menu) throws SQLException, ClassNotFoundException {
 		
@@ -109,6 +115,9 @@ public class MenuService {
 		int cnt = pstmt.executeUpdate();
 		
 		System.out.println(cnt>0? "삭제 완료":"삭제 실패");
+		
+		con.close();
+		pstmt.close();
 		
 	}
 }

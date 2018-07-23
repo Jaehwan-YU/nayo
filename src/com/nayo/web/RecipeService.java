@@ -199,5 +199,57 @@ public class RecipeService {
 		System.out.println(cnt>0?"수정 완료":"수정 실패");
 	
 	}
+	
+	public List<Recipe> getCookableRecipeList(String memberEmail) throws ClassNotFoundException, SQLException{
+		
+		List<Recipe> list = new ArrayList<>();
+		
+		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		String user = "c##nayoadmin";
+		String password = "skdy0514";
+		
+		String sql = "select (m.point-n.point2) point, m.recipe_id from \r\n" + 
+				"(select recipe_ID, sum(point) point from\r\n" + 
+				"(select recipe_id, case when main_or_sub = 1 then count*10 else count end point from \r\n" + 
+				"(select recipe_id, main_or_sub, count(ID) count from ingredients group by recipe_id, main_or_sub)) \r\n" + 
+				"group by recipe_id) m inner join \r\n" + 
+				"(select sum(point) point2, recipe_id from \r\n" + 
+				"(select recipe_id, main_or_sub, case when main_or_sub =1 then count_f*10 else count_f end point from \r\n" + 
+				"(select count(i.id) count_f, recipe_id, main_or_sub from ingredients i inner join \r\n" + 
+				"(select * from food where reg_email = ?) f on i.name = f.name group by recipe_id, main_or_sub)) \r\n" + 
+				"group by recipe_id) n on m.recipe_id = n.recipe_id order by point";
+		
+		String sql2 = "select*from recipe where id = ?";
+				
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, user, password);
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		PreparedStatement pstmt2 = con.prepareStatement(sql2);
+		pstmt.setString(1, memberEmail);
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		
+		while(rs.next()) {
+			pstmt.setString(1, rs.getString("recipe_id"));
+			ResultSet rs2 = pstmt2.executeQuery();
+						if(rs2.next()) {
+							Recipe recipe = new Recipe(rs2.getInt("id"),
+									rs2.getString("title"),
+									rs2.getString("simple_intro"), 
+									rs2.getString("process"));
+							
+							list.add(recipe);
+							
+							rs2.close();
+						}
+		}
+		rs.close();
+		pstmt2.close();
+		pstmt.close();
+		con.close();
+		
+		return list;
+	}
 		
 }
