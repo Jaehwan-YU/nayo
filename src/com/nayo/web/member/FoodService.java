@@ -1,5 +1,7 @@
 package com.nayo.web.member;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -9,6 +11,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
+
+import javax.servlet.ServletContext;
 
 import com.nayo.web.entity.Food;
 import com.nayo.web.entity.FoodCate;
@@ -16,26 +21,29 @@ import com.nayo.web.entity.FoodCate;
 
 public class FoodService {
 
-	Food food;
+	private Food food;
+	private String url;
+	private String user;
+	private String password;
 
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		FoodService fs = new FoodService();
-		Date date = null;
-		List<FoodCate> fc = fs.getFoodCateList();
 
-		System.out.println(fc.get(0).getName());
-	}
-
-	public FoodService() {
-		food = new Food();
+	public FoodService(ServletContext servletContext) throws IOException {
+		InputStream is = servletContext.getResourceAsStream("WEB-INF/db.properties");
+		Properties prop = new Properties();
+		prop.load(is);
+		is.close();
+		
+		url = prop.getProperty("url");
+		user = prop.getProperty("user");
+		password = prop.getProperty("password");
 	}
 
 	public List<Food> getFoodList(String memberEmail, int keepArea) throws ClassNotFoundException, SQLException {
 		List<Food> list = new ArrayList<Food>();
 
-		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+	/*	String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
-		String password = "skdy0514";
+		String password = "skdy0514";*/
 
 		String sql = "SELECT * FROM FOOD WHERE REG_EMAIL = ? AND KEEP_AREA_ID = ? AND USE_DATE IS NULL";
 
@@ -69,9 +77,9 @@ public class FoodService {
 		int keepAreaId = 1;
 		String foodImg = "default img";
 
-		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+	/*	String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
-		String password = "skdy0514";
+		String password = "skdy0514";*/
 
 		String addSql = "INSERT INTO FOOD(ID, NAME, FOOD_LIFE, REG_EMAIL, FOOD_CATE_ID, KEEP_AREA_ID, FOOD_IMG)"
 				+ " VALUES(FOOD_SEQ.nextval, ?, ?, ?, ?, ?, ?)";
@@ -114,9 +122,9 @@ public class FoodService {
 	public void setFood(int foodId, Date sellLife, int foodLife, int keepAreaId)
 			throws SQLException, ClassNotFoundException {
 
-		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+/*		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
-		String password = "skdy0514";
+		String password = "skdy0514";*/
 
 		String sql = "UPDATE FOOD SET SELL_LIFE = ?, FOOD_LIFE = ?, KEEP_AREA_ID = ? WHERE ID = ?";
 
@@ -144,9 +152,9 @@ public class FoodService {
 
 	public void deleteFood(int foodId) throws SQLException, ClassNotFoundException {
 
-		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+/*		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
-		String password = "skdy0514";
+		String password = "skdy0514";*/
 
 		String sql = "DELETE FROM FOOD WHERE ID = ?";
 
@@ -166,10 +174,10 @@ public class FoodService {
 	public Food getFoodDetail(int foodId) throws SQLException, ClassNotFoundException {
 
 		Food food = new Food();
-
+/*
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
-		String password = "skdy0514";
+		String password = "skdy0514";*/
 
 		String sql = "SELECT * FROM FOOD WHERE ID = ?";
 
@@ -198,10 +206,10 @@ public class FoodService {
 			
 			List<FoodCate> list = new ArrayList<>();
 			
-			String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+	/*		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 			String user = "c##nayoadmin";
 			String password = "skdy0514";
-
+*/
 			String sql = "SELECT * FROM FOOD_CATE";
 			
 			Class.forName("oracle.jdbc.driver.OracleDriver");

@@ -1,5 +1,7 @@
 package com.nayo.web.member;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -9,21 +11,35 @@ import java.sql.SQLException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
+
+import javax.servlet.ServletContext;
 
 public class ShopbagService {
 	private String name;
 	private String regEmail;
 	private Date buyDay;
+	private String url;
+	private String user;
+	private String password;
 	
 	public ShopbagService(String name, String memberEmail, Date buyDay) {
 		this.name = name;
 		this.regEmail = memberEmail;
 		this.buyDay = buyDay;
 	}
-	public ShopbagService() {
-		this.name = null;
-		this.regEmail = null;
-		this.buyDay = null;
+	public ShopbagService(ServletContext servletContext) throws IOException {
+
+		InputStream is = servletContext.getResourceAsStream("WEB-INF/db.properties");
+		Properties prop = new Properties();
+		prop.load(is);
+		is.close();
+		
+		url = prop.getProperty("url");
+		user = prop.getProperty("user");
+		password = prop.getProperty("password");
+		
+		
 	}
 	public ShopbagService(String memberEmail) {
 		this.regEmail = memberEmail;
