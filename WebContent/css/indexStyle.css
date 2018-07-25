@@ -7,7 +7,11 @@
 
 
 /* =======================body================================== */	
-
+#body{
+	min-height: 600px;
+	overflow: auto;
+	margin-top: 30px;
+}
 #body .content-container > h1{
 	display: none;
 }
@@ -16,17 +20,17 @@
 #recommend{
 	border: 1px solid #979797;
 	margin: 10px;
+	overflow: auto;
 }
 	#recommend > h1{
 		text-align: center;
 		padding: 10px 0px;
 	}
-	#recommend tr{
-		display: flex;
+	#recommend ul{
+		border: 1px solid #979797;
+		margin: 10px;
+		width: 100px;
 	}
-		#recommend ul{
-			flex-flow: row;
-		}
 	#recommend li{
 		text-align: center;
 	}
@@ -36,10 +40,19 @@
 #season{
 	border: 1px solid #979797;
 	margin: 10px;
+	overflow: auto;
 }
 	#season > h1{
 		text-align: center;
 		padding: 10px 0px;
+	}
+	#season ul{
+		border: 1px solid #979797;
+		margin: 10px;
+		width: 100px;
+	}
+	#season li{
+		text-align: center;
 	}
 
 /* -----------------------repair----------------------------- */

@@ -99,10 +99,10 @@
 					 */
 /*-----#body style------------------------------------*/					
 #body{
-	min-height: 800px;
+	min-height: 600px;
 	width: 960px;
 	display: flex;
-	margin-top : 20px;
+	margin-top : 30px;
 	margin-left: auto;
 	margin-right: auto;
 	background: #ececec;
