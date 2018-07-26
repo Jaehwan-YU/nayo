@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.nayo.web.entity.Bookmark;
 import com.nayo.web.entity.Recipe;
@@ -20,9 +21,15 @@ import com.nayo.web.member.BookmarkService;
 public class BookmarkList extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String memberEmail = "";
+		HttpSession session = request.getSession();
+		BookmarkService bs = new BookmarkService(getServletContext());
+	
+		String memberEmail = (String)session.getAttribute("email");
 		
-		BookmarkService bs = new BookmarkService();
+		if(memberEmail == null) {
+			response.sendRedirect("../login");
+			return;
+		}
 		
 		try {
 			List<Recipe> list = bs.getBookmarkList(memberEmail);

@@ -1,5 +1,7 @@
 package com.nayo.web.member;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,19 +9,36 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
+
+import javax.servlet.ServletContext;
 
 import com.nayo.web.NoticeService;
 import com.nayo.web.entity.Bookmark;
 import com.nayo.web.entity.Recipe;
 
 public class BookmarkService {
+	private String url;
+	private String user;
+	private String password;
 	
+	public BookmarkService(ServletContext servletContext) throws IOException {
+		InputStream is = servletContext.getResourceAsStream("WEB-INF/db.properties");
+		Properties prop = new Properties();
+		prop.load(is);
+		is.close();
+		
+		url = prop.getProperty("url");
+		user = prop.getProperty("user");
+		password = prop.getProperty("password");
+	}
+
 	public List<Recipe> getBookmarkList(String memberEmail) throws ClassNotFoundException, SQLException {
 		List<Recipe> list = new ArrayList();
 		
-		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		/*String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
-		String password = "skdy0514";
+		String password = "skdy0514";*/
 
 		String sql = "SELECT *\r\n" + 
 				"FROM RECIPE R\r\n" + 
@@ -53,9 +72,9 @@ public class BookmarkService {
 	}
 
 	void addBookMark(String memberEmail, String recipeId) throws SQLException, ClassNotFoundException {
-		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		/*String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
-		String password = "skdy0514";
+		String password = "skdy0514";*/
 		
 		String sql = "INSERT INTO BOOKMARK(RECIPE_ID, REG_EMAIL) VALUES(?,?)";
 		
@@ -74,9 +93,9 @@ public class BookmarkService {
 	}
 
 	void deleteBookMark(String memberEmail, String recipeId) throws ClassNotFoundException, SQLException {
-		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		/*String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
-		String password = "skdy0514";
+		String password = "skdy0514";*/
 		
 		String sql = "DELETE FROM BOOKMARK WHERE REG_EMAIL = ? AND RECIPE_ID = ?";
 		

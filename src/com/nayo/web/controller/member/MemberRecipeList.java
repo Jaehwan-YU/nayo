@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.nayo.web.RecipeService;
 import com.nayo.web.controller.RecipeList;
@@ -20,9 +21,11 @@ import com.nayo.web.entity.Recipe;
 public class MemberRecipeList extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String memberEmail = "sorastar31@gmail.com";
+		HttpSession session = request.getSession();
+		RecipeService rs = new RecipeService(getServletContext());
+		String memberEmail = (String)session.getAttribute("email");
 		
-		RecipeService rs = new RecipeService();
+		
 		
 		List<Recipe> list;
 		try {
