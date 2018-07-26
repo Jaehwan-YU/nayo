@@ -77,6 +77,39 @@ public class RecipeService {
 		return tempList;
 	}
 	
+public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundException, SQLException{
+	
+		List<Recipe> tempList = new ArrayList<Recipe>();
+		
+		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		String user = "c##nayoadmin";
+		String password = "skdy0514";
+		
+		String sql = "SELECT * FROM RECIPE WHERE REG_EMAIL = ?";
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, user, password);
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, memberEmail);
+		ResultSet rs = st.executeQuery();
+			
+		while(rs.next()) {		
+			
+			Recipe recipe = new Recipe(rs.getInt("ID"),
+										rs.getString("TITLE"),
+										rs.getString("SIMPLE_INTRO"),
+										rs.getString("PROCESS"));
+			//System.out.println(shop);
+			tempList.add(recipe);
+		}
+		
+		con.close();
+		st.close();
+		rs.close();
+		
+		return tempList;
+	}
+
 	public Recipe getRecipe(int id) {
 		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
