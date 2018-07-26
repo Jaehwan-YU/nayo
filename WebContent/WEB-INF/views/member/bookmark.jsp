@@ -1,12 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<%
+	String ctx = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>나도 요리사 - 나요</title>
 
-<link href="../css/bookmarkStyle.css" type="text/css" rel="stylesheet" />
+<link href="<%=ctx %>/css/bookmarkStyle.css" type="text/css" rel="stylesheet" />
 
 </head>
 <body>
@@ -39,9 +45,12 @@
 			<main id="main">
 					<h1>즐겨먹기 목록</h1>
 						<h2>즐겨먹기</h2>
+							<c:forEach var="b" items="${list}"> 
 							<ul>
-								<li><a href="../recipe/detail">레시피 </a></li>
+								<li><a href="../recipe/detail">${b.title}</a></li>
+								
 							</ul>
+							</c:forEach>
 			</main>
 	</div>
 	</section>

@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import com.nayo.web.member.MyInfoService;
 
+import com.nayo.web.member.MyInfoService;
+
 @WebServlet("/login")
 public class Login extends HttpServlet {
 

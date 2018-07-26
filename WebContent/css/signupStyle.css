@@ -1,0 +1,25 @@
+@charset "UTF-8";
+@import url("reset.css");
+@import url("commonStyle.css");
+
+#body{
+	min-height: 600px;
+	overflow: auto;
+	margin-top: 30px;
+}
+	#body > .content-container{
+		text-align: center;
+	}
+	
+#signup > h1{
+	display: none;
+}
+
+
+#signup-table > h1{
+	display: none;
+}
+	#signup-table table{
+		margin-left: auto;
+		margin-right: auto;
+	}
