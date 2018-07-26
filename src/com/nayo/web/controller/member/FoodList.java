@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.nayo.web.RecipeService;
 import com.nayo.web.entity.Food;
@@ -25,22 +26,25 @@ public class FoodList extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		HttpSession session = request.getSession();
 		FoodService fs = new FoodService(getServletContext());
 		RecipeService rs = new RecipeService();
 
+		String email = (String) session.getAttribute("email");
+		
 		List<FoodCate> list;
 		List<Recipe> rList;
 		
 		List<Food> list1;
 		List<Food> list2;
 		List<Food> list3;
+		
 		try {
 			list = fs.getFoodCateList();
-			rList = rs.getCookableRecipeList("woghks2045@gmail.com");
-			list1 = fs.getFoodList("woghks2045@gmail.com", 1);
-			list2 = fs.getFoodList("woghks2045@gmail.com", 2);
-			list3 = fs.getFoodList("woghks2045@gmail.com", 3);
+			rList = rs.getCookableRecipeList(email);
+			list1 = fs.getFoodList(email, 1);
+			list2 = fs.getFoodList(email, 2);
+			list3 = fs.getFoodList(email, 3);
 			request.setAttribute("rList", rList);
 			request.setAttribute("list1", list1);
 			request.setAttribute("list2", list2);
