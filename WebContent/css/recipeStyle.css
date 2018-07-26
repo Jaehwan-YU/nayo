@@ -1,0 +1,71 @@
+@charset "UTF-8";
+@import url("reset.css");
+@import url("commonStyle.css");
+@import url("header.css");
+@import url("visual.css");
+@import url("footer.css");
+
+
+/* =======================body================================== */	
+#body{
+	min-height: 600px;
+	overflow: auto;
+	margin-top: 30px;
+}
+#body .content-container > h1{
+	display: none;
+}
+
+/* -----------------------my-food-recipe------------------------- */
+#my-food-recipe{
+	border: 1px solid #979797;
+	margin: 10px;
+}
+	#my-food-recipe > h1{
+		text-align: center;
+		padding: 10px 0px;
+	}
+		#my-food-recipe li{
+			text-align: center;
+		}
+
+/* -----------------------my-recipe----------------------------- */
+#my-recipe{
+	border: 1px solid #979797;
+	margin: 10px;
+}
+	#my-recipe > h1{
+		text-align: center;
+		padding: 10px 0px;
+	}
+		#my-recipe li{
+			text-align: center;
+		}
+
+/* -----------------------week----------------------------- */
+#week{
+	border: 1px solid #979797;
+	margin: 10px;
+}
+	#week > h1{
+		text-align: center;
+		padding: 10px 0px;
+	}
+		#week li{
+			text-align: center;
+		}
+
+/* -----------------------recently----------------------------- */
+#recently{
+	border: 1px solid #979797;
+	margin: 10px;
+}
+	#recently > h1{
+		text-align: center;
+		padding: 10px 0px;
+	}
+		#recently li{
+			text-align: center;
+		}
+
+

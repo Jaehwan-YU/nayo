@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link href="../../css/basic.css" type="text/css" rel="stylesheet" />
+<title>나도 요리사 - 나요</title>
+<link href="../../css/myRecipeStyle.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 
@@ -18,15 +18,32 @@
 		</div>
 	</div>
 	
-	<div>
-		<ul>
-			<li><a href="list">나의 레시피</a></li>
-			<li><a href="../bookmark">즐겨먹기</a></li>
-			<li><a href="../infocheck">내 정보</a></li>
-			<li><a href="../../recipe/detail">레시피 1</a></li>
-		</ul>
+	<!-- body영역 -->
+	<section id="body">
+	<div class="content-container">
+		<!-- aside영역 -->
+		<aside id="aside">
+				<h1>마이페이지 메뉴</h1>
+					<h2>마이페이지</h2>
+					<div id="aside-menu">
+						<ul>
+							<li><a href="../bookmark">즐겨먹기</a></li>
+							<li><a href="list">나의 레시피</a></li>
+							<li><a href="../infocheck">내 정보</a></li>
+						</ul>
+					</div>
+		</aside>
+		
+		<!-- main영역 -->
+			<main id="main">
+					<h1>나의 레시피 목록</h1>
+						<h2>나의 레시피</h2>
+							<ul>
+								<li><a href="../recipe/detail">내가 등록한 레시피 목록</a></li>
+							</ul>
+			</main>
 	</div>
-	[마이페이지 (마이 레시피)]
+	</section>
 	
 <!-- footer영역 -->	
 	<jsp:include page="../../inc/footer.jsp"/>
