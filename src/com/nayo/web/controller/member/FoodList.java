@@ -27,11 +27,15 @@ public class FoodList extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		
 		FoodService fs = new FoodService(getServletContext());
 		RecipeService rs = new RecipeService();
 
 		String email = (String) session.getAttribute("email");
-		
+		if(session.getAttribute("email") == null) {
+			response.sendRedirect("../login");
+			return;
+		}
 		List<FoodCate> list;
 		List<Recipe> rList;
 		

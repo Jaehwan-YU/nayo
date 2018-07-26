@@ -34,7 +34,9 @@ public class Login extends HttpServlet {
 				session.setAttribute("email", email);
 				response.sendRedirect("member/food");
 			}
-			else response.sendRedirect("");
+			else {
+				response.sendRedirect("login");
+			}
 		} catch (ClassNotFoundException | SQLException e) {
 
 			e.printStackTrace();
