@@ -1,0 +1,111 @@
+@import url("reset.css");
+@import url("commonStyle.css");
+@import url("header.css");
+@import url("visual.css");
+@import url("footer.css");
+/*-----reset--------------------------------------------*/
+
+/*-----Common style------------------------------------------*/
+
+/*-----styling------------------------------------------*/
+/*-----#header style------------------------------------*/
+
+/*-----#visual style---------------------------------------*/
+
+/*-----#main-menu style------------------------------------*/
+/* #main-menu {
+	height: 80px;			
+	margin-bottom: 20px;
+	
+}
+		
+	#main-menu > h1{
+	display: none;
+	}
+					
+	
+			#main-menu-list > ul{
+				overflow: auto;
+				display: flex;
+			}
+		
+		 		#main-menu-list > ul > li {
+					flex-grow: 1;
+					line-height: 80px;
+				}
+				
+				#main-menu-list > ul > li:first-child{
+					padding-left: 0;
+					background: none;
+				
+				}
+			
+					#main-menu-list >ul > li > a{
+						text-decoration: none;
+						color: #000000;
+						font-family: ¸¼Àº µ¸¿ò, µ¸¿ò, Arial, sans-serif; 
+						font-size: 40px;
+						font-weight: bold;
+					}
+					
+					#main-menu-list >ul > li > a:hover{
+						color: orange;	
+					} */
+
+/*-----#main-food-list style------------------------------------*/
+	#main-food {
+		height: 100%; /* inherit */
+		width: 960px;
+		margin-left: auto;
+		margin-right: auto;		
+		position: relative;
+		margin-top: 20px;
+		margin-bottom: 20px;	
+		text-align: center;	
+	
+}
+		
+	#main-food > h1{
+		display: none;
+	}
+			#main-food-list{
+				background: #ff8080;				
+			}
+		
+			#main-food-list > ul{
+				overflow: auto;
+				display: flex;
+			}
+		
+		 		#main-food-list > ul > li {
+					flex-grow: 1;
+					
+				}
+				
+				#main-food-list > ul > li:first-child{
+					padding-left: 0;
+					background: none;
+				
+				}
+			
+					#main-food-list >ul > li > a{
+						text-decoration: none;
+						color: #ffffff;
+						font-family: ¸¼Àº µ¸¿ò, µ¸¿ò, Arial, sans-serif; 
+						font-size: 20px;
+						font-weight: bold;
+					}
+					
+					#main-food-list >ul > li > a:hover{
+						color: black;	
+					}
+
+
+.main-food-container > h1{
+	display: none;	
+}
+
+/*-----#body style------------------------------------*/					
+
+		
+/*-----#footer style------------------------------------*/
