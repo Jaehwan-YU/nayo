@@ -7,14 +7,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>나도 요리사 - 나요</title>
 </head>
 <body>
 
 <header id="header">
 	<div class="content-container">
 		<h1>
-			<a href="<%= ctx %>/index"><img scr="" alt="">나요</a>
+			<a href="<%= ctx %>/index"><img src="" alt="">나요</a>
 		</h1>
 			
 		<nav id="search-engine">

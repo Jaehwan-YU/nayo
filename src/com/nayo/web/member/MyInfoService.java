@@ -76,4 +76,46 @@ public class MyInfoService {
 		
 		
 	}
+	
+	public boolean login(String memberEmail, String pwd) throws SQLException, ClassNotFoundException {
+		
+		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		String user = "c##nayoadmin";
+		String password = "skdy0514";
+		
+		String sql = "SELECT PWD FROM MEMBER WHERE EMAIL = ?";
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, user, password);
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		
+		pstmt.setString(1, memberEmail);
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		if(rs.next()) {
+			if(rs.getString("PWD").equals(pwd)) {
+				
+				rs.close();
+				pstmt.close();
+				con.close();
+				
+				return true;
+			}
+			else {
+				rs.close();
+				pstmt.close();
+				con.close();
+				
+				return false;
+			}
+				
+		}
+		rs.close();
+		pstmt.close();
+		con.close();
+		
+		return false;
+	}
+	
 }

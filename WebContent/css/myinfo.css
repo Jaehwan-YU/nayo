@@ -1,0 +1,151 @@
+@charset "UTF-8";
+
+@import url("reset.css");
+
+@import url("commonStyle.css");
+
+@import url("header.css");
+
+@import url("visual.css");
+
+@import url("footer.css");
+
+/* =======================body================================== */
+#body {
+	padding: 30px 0px;
+}
+
+#body>.content-container {
+	display: flex;
+	flex-flow: column;
+	text-align: center;
+}
+/* -----------------------aside----------------------------- */
+#aside {
+	min-height : inherit;
+	width : 205px;
+	float : left;
+	box-sizing : border-box;
+}
+
+#aside h1 {
+	padding: display: inline;
+	margin-top: 43px;
+}
+
+#aside-menu>ul {
+	display: flex;
+	flex-direction: column;
+}
+
+#aside-menu>ul>li {
+	flex-grow: 1;
+	display: list-item;
+	padding-bottom: 10px;
+}
+
+#aside-menu>ul>li>a {
+	text-decoration: none;
+	color: #000000;
+	font-family: 맑은 돋움, 돋움, Arial, sans-serif;
+	font-size: 15px;
+}
+
+#aside-menu>ul>li>a:hover {
+	color: #FFBB00;
+}
+/* -----------------------login-text----------------------------- */
+#login-text>h1 {
+	display: none;
+}
+
+#login-text {
+	width: 330px;
+	position: relative;
+	left: 315px;
+	padding: 30px 0px;
+}
+
+#login-text table {
+	position: relative;
+	left: 50px;
+}
+
+#login-text input[type="text"] {
+	width: 230px;
+	height: 20px;
+}
+
+#login-text input[type="password"] {
+	width: 230px;
+	height: 20px;
+}
+
+#login-text input[type="submit"] {
+	width: 235px;
+	background: #FFA648;
+	border: none;
+	height: 30px;
+}
+
+/* -----------------------search-login----------------------------- */
+#search-login>h1 {
+	display: none;
+}
+
+#search-login {
+	padding: 30px 0px;
+}
+
+#search-login ul {
+	display: inline-flex;
+}
+
+#search-login li {
+	padding: 0px 10px;
+}
+
+#search-login a {
+	color: #979797;
+	font-family: 맑은 돋움, 돋움, Arial, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#search-login a:hover {
+	color: #ff6a00;
+}
+/* -----------------------another-login----------------------------- */
+#another-login>h1 {
+	display: none;
+}
+
+#another-login a {
+	text-decoration: none;
+	color: #000000;
+	font-family: 맑은 돋움, 돋움, Arial, sans-serif;
+	font-size: 20px x;
+	font-weight: bold;
+}
+
+#another-login a:hover {
+	color: #ff6a00;
+}
+/* -----------------info-change------------------------ */
+#info-change li {
+	color: #000000;
+	font-family: 맑은 돋움, 돋움, Arial, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	padding-left: 500px;
+}
+
+#main {
+	position : relative;
+	min-height: inherit;
+	width: 755px;
+	padding-bottom: 200px;
+	display: flex;
+	flex-flow: column;
+	text-align: center;
+}

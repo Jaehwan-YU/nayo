@@ -8,7 +8,9 @@
 /* =======================body================================== */	
 
 #body{
-	padding: 30px 0px;
+	min-height: 600px;
+	overflow: auto;
+	margin-top: 30px;
 }
 	#body > .content-container{
 		display: flex;
