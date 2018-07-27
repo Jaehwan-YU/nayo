@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>나도 요리사 - 나요</title>
 <link href="../css/basic.css" type="text/css" rel="stylesheet" />
 </head>
 <body>

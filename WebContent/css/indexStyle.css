@@ -1,0 +1,68 @@
+@charset "UTF-8";
+@import url("reset.css");
+@import url("commonStyle.css");
+@import url("header.css");
+@import url("visual.css");
+@import url("footer.css");
+
+
+/* =======================body================================== */	
+#body{
+	min-height: 600px;
+	overflow: auto;
+	margin-top: 30px;
+}
+#body .content-container > h1{
+	display: none;
+}
+
+/* -----------------------recommend----------------------------- */
+#recommend{
+	border: 1px solid #979797;
+	margin: 10px;
+	overflow: auto;
+}
+	#recommend > h1{
+		text-align: center;
+		padding: 10px 0px;
+	}
+	#recommend ul{
+		border: 1px solid #979797;
+		margin: 10px;
+		width: 100px;
+	}
+	#recommend li{
+		text-align: center;
+	}
+
+
+/* -----------------------season----------------------------- */
+#season{
+	border: 1px solid #979797;
+	margin: 10px;
+	overflow: auto;
+}
+	#season > h1{
+		text-align: center;
+		padding: 10px 0px;
+	}
+	#season ul{
+		border: 1px solid #979797;
+		margin: 10px;
+		width: 100px;
+	}
+	#season li{
+		text-align: center;
+	}
+
+/* -----------------------repair----------------------------- */
+#repair{
+	border: 1px solid #979797;
+	margin: 10px;
+}
+	#repair{
+		text-align: center;
+		padding: 10px 0px;
+	}
+
+

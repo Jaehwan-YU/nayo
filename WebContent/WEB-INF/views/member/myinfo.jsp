@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>Insert title here</title>
 <link href="../css/myinfo.css" type="text/css" rel="stylesheet" />
+
+<title>나도 요리사 - 나요</title>
+<link href="../css/basic.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 

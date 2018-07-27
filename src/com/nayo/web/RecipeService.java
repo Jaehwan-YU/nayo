@@ -1,5 +1,7 @@
 package com.nayo.web;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,17 +10,38 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
+
+import javax.servlet.ServletContext;
+
 import com.nayo.web.entity.Recipe;
 
 public class RecipeService {
+	private String url;
+	private String user;
+	private String password;
+
+	public RecipeService() {
+		
+	}
+	public RecipeService(ServletContext servletContext) throws IOException {
+		InputStream is = servletContext.getResourceAsStream("WEB-INF/db.properties");
+		Properties prop = new Properties();
+		prop.load(is);
+		is.close();
+		
+		url = prop.getProperty("url");
+		user = prop.getProperty("user");
+		password = prop.getProperty("password");
+	}
 
 	public List<Recipe> getRecipeList(){
 		
 		List<Recipe> tempList = new ArrayList<Recipe>();
 		
-		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		/*String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
-		String password = "skdy0514";
+		String password = "skdy0514";*/
 		
 		String sql = "SELECT "
 				+"N.NAME N"
@@ -77,10 +100,43 @@ public class RecipeService {
 		return tempList;
 	}
 	
-	public Recipe getRecipe(int id) {
-		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundException, SQLException{
+	
+		List<Recipe> tempList = new ArrayList<Recipe>();
+		
+		/*String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
-		String password = "skdy0514";
+		String password = "skdy0514";*/
+		
+		String sql = "SELECT * FROM RECIPE WHERE REG_EMAIL = ?";
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, user, password);
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, memberEmail);
+		ResultSet rs = st.executeQuery();
+			
+		while(rs.next()) {		
+			
+			Recipe recipe = new Recipe(rs.getInt("ID"),
+										rs.getString("TITLE"),
+										rs.getString("SIMPLE_INTRO"),
+										rs.getString("PROCESS"));
+			//System.out.println(shop);
+			tempList.add(recipe);
+		}
+		
+		con.close();
+		st.close();
+		rs.close();
+		
+		return tempList;
+	}
+
+	public Recipe getRecipe(int id) {
+		/*String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		String user = "c##nayoadmin";
+		String password = "skdy0514";*/
 		
 		String sql = "SELECT "
 				+"N.NAME N"
@@ -139,9 +195,9 @@ public class RecipeService {
 	}
 	
 	public void addRecipe(Recipe recipe) throws SQLException, ClassNotFoundException {
-		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		/*String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
-		String password = "skdy0514";
+		String password = "skdy0514";*/
 		
 		String sql = "INSERT INTO RECIPE(ID, TITLE, SIMPLE_INTRO, PROCESS, REG_EMAIL, KCALORY, NATIONAL_ID,"
 				+ "SITUATION_ID, RECIPE_TYPE_ID) "
@@ -168,9 +224,9 @@ public class RecipeService {
 		
 	public void setRecipe(Recipe recipe) throws ClassNotFoundException, SQLException {
 		
-		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		/*String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
-		String password = "skdy0514";
+		String password = "skdy0514";*/
 		
 		String sql = "UPDATE RECIPE SET "
 				+ "TITLE = ?, "
@@ -204,9 +260,9 @@ public class RecipeService {
 		
 		List<Recipe> list = new ArrayList<>();
 		
-		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		/*String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
-		String password = "skdy0514";
+		String password = "skdy0514";*/
 		
 		String sql = "select (m.point-n.point2) point, m.recipe_id from \r\n" + 
 				"(select recipe_ID, sum(point) point from\r\n" + 

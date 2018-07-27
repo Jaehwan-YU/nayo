@@ -107,7 +107,7 @@
 
 /*-----#body style------------------------------------*/					
 #body{
-	min-height: 800px;
+	min-height: 600px;
 	width: 960px;
 	display: flex;
 	margin-left: auto;
