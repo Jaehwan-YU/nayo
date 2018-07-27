@@ -48,7 +48,8 @@
 							<ul>
 								<li><a href="../recipe/detail">${r.title}</a></li>
 							</ul>
-							</c:forEach>
+						</c:forEach>
+
 			</main>
 	</div>
 	</section>

@@ -29,12 +29,11 @@ public class RecipeReg extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String saveFolder = "images";
-		String savePath = request.getServletContext().getRealPath(saveFolder);
+		String savePath = request.getServletContext().getRealPath("\\images\\recipe\\processImage");
 		int sizeLimit = 1024*1024*15;
 		MultipartRequest multi = new MultipartRequest(request, savePath, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
-
-		 
+	
+		
 		response.sendRedirect("list");
 	}
 

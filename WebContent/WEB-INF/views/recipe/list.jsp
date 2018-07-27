@@ -85,7 +85,8 @@
 					<%-- </c:forEach> --%>
 					</tr>
 				</table>
-			</section>		
+			</section>
+			<a href="reg">새로운 레시피 등록</a>		
 		</div>
 	</section>
 	

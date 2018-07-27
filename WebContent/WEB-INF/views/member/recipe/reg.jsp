@@ -27,7 +27,7 @@
 					</tr>
 					<tr>
 						<th>완성된 요리 사진</th>
-						<td><input type="file" accept=".jpg, .gif, .png"><input type="hidden" name="name-1" value="1"/></td>
+						<td><input type="file" accept=".jpg, .gif, .png" name="file"><input type="hidden" name="name-1" value="1"/></td>
 					</tr>
 					<tr>
 						<th>주재료</th>

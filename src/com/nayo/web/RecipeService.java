@@ -75,7 +75,7 @@ public class RecipeService {
 						rs.getInt("ID"),
 						rs.getString("TITLE"),
 						rs.getString("SIMPLE_INTRO"), 
-						rs.getString("PROCESS"),
+						rs.getString("MAIN_IMG"),
 						rs.getString("REG_EMAIL"),
 						rs.getInt("KCALORY"),
 						rs.getString("N"),
@@ -121,7 +121,7 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 			Recipe recipe = new Recipe(rs.getInt("ID"),
 										rs.getString("TITLE"),
 										rs.getString("SIMPLE_INTRO"),
-										rs.getString("PROCESS"));
+										rs.getString("MAIN_IMG"));
 			//System.out.println(shop);
 			tempList.add(recipe);
 		}
@@ -172,7 +172,7 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 						rs.getInt("ID"),
 						rs.getString("TITLE"),
 						rs.getString("SIMPLE_INTRO"), 
-						rs.getString("PROCESS"),
+						rs.getString("MAIN_IMG"),
 						rs.getString("REG_EMAIL"),
 						rs.getInt("KCALORY"),
 						rs.getString("N"),
@@ -199,7 +199,7 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 		String user = "c##nayoadmin";
 		String password = "skdy0514";*/
 		
-		String sql = "INSERT INTO RECIPE(ID, TITLE, SIMPLE_INTRO, PROCESS, REG_EMAIL, KCALORY, NATIONAL_ID,"
+		String sql = "INSERT INTO RECIPE(ID, TITLE, SIMPLE_INTRO, MAIN_IMG, REG_EMAIL, KCALORY, NATIONAL_ID,"
 				+ "SITUATION_ID, RECIPE_TYPE_ID) "
 				+ "VALUES(RECIPE_SEQ.nextval,?,?,?,?,?,?,?,?)";
 		
@@ -208,7 +208,7 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, recipe.getTitle());
 		pstmt.setString(2, recipe.getSimpleIntro());
-		pstmt.setString(3, recipe.getProcess());
+		pstmt.setString(3, recipe.getMainImg());
 		pstmt.setString(4, recipe.getRegEmail());
 		pstmt.setInt(5, recipe.getKcalory());
 		pstmt.setInt(6, recipe.getNationalId());
@@ -231,7 +231,7 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 		String sql = "UPDATE RECIPE SET "
 				+ "TITLE = ?, "
 				+ "SIMPLE_INTRO = ?, "
-				+ "PROCESS = ?, "
+				+ "MAIN_IMG = ?, "
 				+ "KCALORY = ?, "
 				+ "NATIONAL_ID = ?, "
 				+ "SITUATION_ID = ?, "
@@ -243,7 +243,7 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, recipe.getTitle());
 		pstmt.setString(2, recipe.getSimpleIntro());
-		pstmt.setString(3, recipe.getProcess());
+		pstmt.setString(3, recipe.getMainImg());
 		pstmt.setInt(5, recipe.getKcalory());
 		pstmt.setInt(6, recipe.getNationalId());
 		pstmt.setInt(7, recipe.getSituationId());
@@ -293,7 +293,7 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 							Recipe recipe = new Recipe(rs2.getInt("id"),
 									rs2.getString("title"),
 									rs2.getString("simple_intro"), 
-									rs2.getString("process"));
+									rs2.getString("MAIN_IMG"));
 							
 							list.add(recipe);
 							

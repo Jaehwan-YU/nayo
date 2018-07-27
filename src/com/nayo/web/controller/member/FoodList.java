@@ -1,6 +1,7 @@
 package com.nayo.web.controller.member;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -27,17 +28,18 @@ public class FoodList extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		
 		FoodService fs = new FoodService(getServletContext());
-		RecipeService rs = new RecipeService();
-
+		RecipeService rs = new RecipeService(getServletContext());
+	/*	PrintWriter out = response.getWriter();*/
 		String email = (String) session.getAttribute("email");
+		
 		if(session.getAttribute("email") == null) {
 			response.sendRedirect("../login");
 			return;
 		}
-		List<FoodCate> list;
+		
 		List<Recipe> rList;
+		List<FoodCate> list;
 		
 		List<Food> list1;
 		List<Food> list2;
@@ -50,10 +52,10 @@ public class FoodList extends HttpServlet {
 			list2 = fs.getFoodList(email, 2);
 			list3 = fs.getFoodList(email, 3);
 			request.setAttribute("rList", rList);
+			request.setAttribute("list", list);
 			request.setAttribute("list1", list1);
 			request.setAttribute("list2", list2);
 			request.setAttribute("list3", list3);
-			request.setAttribute("list", list);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
