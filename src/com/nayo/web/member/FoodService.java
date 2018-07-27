@@ -231,4 +231,32 @@ public class FoodService {
 		return list;
 		
 	}
+	
+	public List<Food> getMetaFoodList() throws SQLException, ClassNotFoundException{
+		
+		List<Food> list = new ArrayList<>();
+		
+		String sql = "SELECT * FROM KEEP_TIP";
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, user, password);
+		Statement stmt = con.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+		
+			
+		while(rs.next()) {
+			
+			Food food = new Food(rs.getString("NAME"),
+						rs.getInt("FOOD_CATE_ID"));
+			
+			list.add(food);
+			
+		}
+		
+		con.close();
+		stmt.close();
+		rs.close();
+		
+		return list;
+	}
 }

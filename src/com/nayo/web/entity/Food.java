@@ -18,6 +18,11 @@ public class Food {
 	public Food() {
 		
 	}
+	public Food(String name, int foodCateId) {
+		this.name = name;
+		this.foodCateId = foodCateId;
+				
+	}
 	public Food(String id, String name, int foodLife, Date sellLife) {
 		this.id = id;
 		this.name = name;
