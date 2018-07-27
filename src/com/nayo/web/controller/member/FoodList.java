@@ -3,6 +3,7 @@ package com.nayo.web.controller.member;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -37,6 +38,8 @@ public class FoodList extends HttpServlet {
 			response.sendRedirect("../login");
 			return;
 		}
+		
+		Enumeration<String> name = request.getAttributeNames();
 		
 		List<Recipe> rList;
 		List<FoodCate> list;
