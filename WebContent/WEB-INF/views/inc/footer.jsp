@@ -13,7 +13,7 @@
 		<section id="company-info">
 			<dl>
 				<dt>주소:</dt>
-				<dd>서울특별시 월그컵북로 21, 풍성빌딩 2층 A</dd>
+				<dd>서울특별시 월드컵북로 21, 풍성빌딩 2층 A</dd>
 			</dl>
 			<dl>
 				<dt>상호:</dt>
