@@ -19,7 +19,7 @@ public class Index extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		RecipeService rs = new RecipeService();
+		RecipeService rs = new RecipeService(getServletContext());
 		
 		List<Recipe> list = rs.getRecipeList();
 		
