@@ -1,0 +1,73 @@
+@import url("reset.css");
+@import url("commonStyle.css");
+@import url("header.css");
+@import url("visual.css");
+@import url("footer.css");
+/* -----------------------reset---------------------------------- */
+
+
+
+
+/* -----------------------styling--------------------------------- */
+/* -----------------------Common Style---------------------------- */
+	
+	
+/* -----------------------styling--------------------------------- */
+/* =======================header================================== */
+
+/* =======================visual================================== */
+
+
+/* =======================body================================== */	
+#body{
+	min-height: 600px;
+	overflow: auto;
+	margin-top: 30px;
+}
+	#body > .content-container{
+		display: flex;
+	}
+	
+/* -----------------------aside----------------------------- */	
+	#aside{
+		min-height: inherit;
+		width: 170px;
+		border: 1px solid black;
+		padding-left: 30px; 
+	}
+		#aside h1{
+			display: none;
+		}
+		#aside-menu > ul{
+			display: flex;
+			flex-direction: column;
+		}
+			#aside-menu > ul > li{
+				flex-grow: 1;
+				display: list-item;
+				padding-bottom: 10px;
+			}
+				#aside-menu > ul > li > a{
+					text-decoration: none;
+					color: #000000;
+					font-family: ¸¼Àº µ¸¿ò, µ¸¿ò, Arial, sans-serif;
+					font-size: 15px;
+				}
+					#aside-menu > ul > li > a:hover{
+						color: #FFBB00;
+					}
+
+/* -----------------------main----------------------------- */
+	#main{
+		flex-grow: 1;
+		min-height: inherit;
+		box-sizing: border-box;
+		border: 1px solid black;
+		padding: 10px;
+		padding-left: 20px;
+		margin-left: 20px; 
+	}
+		#main h1{
+			display: none;
+		}
+/* =======================footer================================== */	
