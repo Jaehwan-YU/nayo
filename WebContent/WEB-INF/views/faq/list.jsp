@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String ctx = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>나도 요리사 - 나요</title>
-
+<script type="text/javascript" src="<%= ctx %>/js/faqList.js"></script>
 <link href="../css/faqStyle.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
@@ -34,9 +37,18 @@
 					</div>
 			</aside>
 			<!-- main영역 -->
-			<main id="main">
-				<h1>FAQ 목록</h1>
-					<h2>FAQ</h2>
+			<main class="main">
+				<h1>FAQ</h1>
+				<div>
+					<ul>
+						<li>제목</li>
+						<li style="display:none">내용</li>
+					</ul>
+					<!-- <ul>
+						<li>제목</li>
+						<li style="display:none">내용</li>
+					</ul> -->
+				</div>
 			</main>
 		</div>
 	</section>	
