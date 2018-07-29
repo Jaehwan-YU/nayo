@@ -9,12 +9,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.servlet.ServletContext;
 
 import com.nayo.web.entity.Recipe;
+import com.nayo.web.entity.RecipeCate;
 
 public class RecipeService {
 	private String url;
@@ -307,5 +310,56 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 		
 		return list;
 	}
+	
+	public List<ArrayList<RecipeCate>> getRecipeCateList() throws SQLException, ClassNotFoundException{
+			
+		List<ArrayList<RecipeCate>> list = new ArrayList<>();
+		ArrayList<RecipeCate> national = new ArrayList<>();
+		ArrayList<RecipeCate> situation = new ArrayList<>();
+		ArrayList<RecipeCate> recipeType = new ArrayList<>();
 		
+		String sql1 = "select * from national";
+		String sql2 = "select * from situation";
+		String sql3 = "select * from recipe_type";
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, user, password);
+		Statement stmt1 = con.createStatement();
+		Statement stmt2 = con.createStatement();
+		Statement stmt3 = con.createStatement();
+		
+		ResultSet rs1 = stmt1.executeQuery(sql1);
+		ResultSet rs2 = stmt2.executeQuery(sql2);
+		ResultSet rs3 = stmt3.executeQuery(sql3);
+		
+		while(rs1.next()) {
+			RecipeCate rc = new RecipeCate(rs1.getString("name"), rs1.getInt("id"));
+			national.add(rc);
+		}
+		
+	 	while(rs2.next()) {
+			RecipeCate rc = new RecipeCate(rs2.getString("name"), rs2.getInt("id"));
+			situation.add(rc);
+			
+		}
+		while(rs3.next()) {
+			RecipeCate rc = new RecipeCate(rs3.getString("name"), rs3.getInt("id"));
+			recipeType.add(rc);
+		}
+		
+		list.add(national);
+		list.add(situation);
+		list.add(recipeType);
+		
+		rs3.close();
+		rs2.close();
+		rs1.close();
+		stmt3.close();
+		stmt2.close();
+		stmt1.close();
+		con.close();
+		
+		return list;
+	}
+	
 }
