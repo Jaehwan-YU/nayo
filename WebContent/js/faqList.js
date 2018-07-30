@@ -1,19 +1,44 @@
 window.addEventListener("load", function(){
     var main = document.querySelector(".main");
-    var h = main.querySelector("ul:first-child");
-    var p = h.nextSibling;
+    var li1 = main.querySelector("h2");
+    var show1 = li1.nextElementSibling;
+    var li2 = show1.nextElementSibling;
+    var show2 = li2.nextElementSibling;
+    var li3 = show2.nextElementSibling;
+    var show3 = li3.nextElementSibling;
+    
+    
     var count = true;
 
-    
-       h.onclick = function(){
+       li1.onclick = function(){
             if(count){
-                p.style.display="block";
+                show1.style.display="block";
                 count = false;
             }
             else{
-                p.style.display="none";
+                show1.style.display="none";
                 count = true;
             }
         }
+       li2.onclick = function(){
+           if(count){
+               show2.style.display="block";
+               count = false;
+           }
+           else{
+               show2.style.display="none";
+               count = true;
+           }
+       }
+       li3.onclick = function(){
+           if(count){
+               show3.style.display="block";
+               count = false;
+           }
+           else{
+               show3.style.display="none";
+               count = true;
+           }
+       }
     
  });
