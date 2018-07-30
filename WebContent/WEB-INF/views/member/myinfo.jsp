@@ -1,15 +1,19 @@
+<%@page import="com.nayo.web.entity.Member" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%
+	String ctx = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 
 <title>Insert title here</title>
-<link href="../css/myinfo.css" type="text/css" rel="stylesheet" />
-
 <title>나도 요리사 - 나요</title>
-<link href="../css/basic.css" type="text/css" rel="stylesheet" />
+<link href="<%=ctx %>/css/myinfo.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 
@@ -47,7 +51,13 @@ pageEncoding="UTF-8"%>
 				</tr>
 				<tr>
 					<th>이메일</th>
-					<td><input type="text" name="email" /></td>
+					<td><input type="text" name="email" value="${email}"/></td>
+				</tr>
+				<tr>
+					<th>닉네임</th>
+					<td><input type="text" name="nick" value="${nick}"/>
+						<input type="button" value="중복확인" />
+					</td>
 				</tr>
 				<tr>
 					<th>비밀번호 변경</th>
@@ -58,14 +68,22 @@ pageEncoding="UTF-8"%>
 					<td><input type="password" name="pwd2" /></td>
 				</tr>
 				<tr>
-					<th>닉네임</th>
-					<td><input type="text" name="nick" />
-						<input type="button" value="중복확인" />
+					<th>생일</th>
+					<td>
+						<input type="date">
+						<input type="radio" name="solar"><label>양력</label>
+						<input type="radio" name="solar"><label>음력</label>
 					</td>
 				</tr>
 				<tr>
-					<th>휴대폰 번호</th>
-					<td></td>
+					<th>성별</th>
+					<td>
+						<select>
+							<option>선택</option>
+							<option selected="selected">남성</option>
+							<option>여성</option>
+						</select>
+					</td>
 				</tr>
 				<tr>
 					<th>자기소개</th>

@@ -30,7 +30,7 @@ public class MyInfoService {
 	}
 
 
-	public Member getMemberInfo(String memberEmail, String pwd) throws SQLException, ClassNotFoundException {
+	public Member getMemberInfo(String memberEmail) throws SQLException, ClassNotFoundException {
 		
 		Member member = new Member();
 		
@@ -50,7 +50,6 @@ public class MyInfoService {
 
 		if (rs.next()) {
 			member.setEmail(rs.getString("EMAIL"));
-			member.setPwd(rs.getString("PWD"));
 			member.setNickname(rs.getString("NICKNAME"));
 			member.setBirth(rs.getString("BIRTH"));
 			member.setGender(rs.getInt("GENDER"));
