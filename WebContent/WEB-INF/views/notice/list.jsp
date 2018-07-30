@@ -6,26 +6,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%
-	String ctx = request.getContextPath();
-	/* int countList = 10;
-	int count = 1;
-	
-	if(count_ / countList == 0)
-		count = 1;
-	else if(count_ % countList > 0){
-		count = count_ / countList;
-		count++;
-	}else
-		count = count_ / countList; */
-	
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>나도 요리사 - 나요</title>
-<link href="<%=ctx %>/css/noticeStyle.css" type="text/css" rel="stylesheet" />
+<link href="${ctx}/css/noticeStyle.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	

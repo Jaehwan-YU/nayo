@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	String ctx = request.getContextPath();
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,26 +13,26 @@
 	<section id="body">
 		<div class="content-container">
 			<h1>
-				<a href="<%=ctx%>/index"><img src="" alt="">나요</a>
+				<a href="${ctx}/index"><img src="" alt="">나요</a>
 			</h1>
 			
 			<section id="signup">
 				<h1>회원가입 페이지 입니다</h1>
 				<section id="signup-table">
 					<h1>회원 가입 폼</h1>
-					<form action="singup" method="post">
+					<form method="post">
 						<table border="1">
 							<tr>
 								<th>이메일</th>
 								<td><input type="text" required="required"
-									placeholder="ex)E-mail@nayo.com" 
+									placeholder="ex)E-mail@nayo.com" name="email"
 									pattern="^[0-9a-zA-Z][0-9a-zA-Z\_\-\.\+]+[0-9a-zA-Z]@[0-9a-zA-Z][0-9a-zA-Z\_\-]*[0-9a-zA-Z](\.[a-zA-Z]{2,6}){1,2}$"/> 
 									<input type="button" value="중복확인" />
 									</td>
 							</tr>
 							<tr>
 								<th>비밀번호</th>
-								<td><input type="password" required="required"
+								<td><input type="password" required="required" name="password"
 									placeholder="영문,숫자,특수문자가 전부 한 번씩 들어가며 8자 이상" /></td>
 							</tr>
 							<tr>
@@ -43,7 +41,7 @@
 							</tr>
 							<tr>
 								<th>닉네임</th>
-								<td><input type="text" required="required" /> <input
+								<td><input type="text" required="required" name="nickname"/> <input
 									type="button" value="중복확인" /></td>
 							</tr>
 							

@@ -18,6 +18,9 @@ import com.nayo.web.entity.Notice;
 public class NoticeList extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String ctx = request.getContextPath();
+		request.setAttribute("ctx", ctx);
+		
 		int pageNo = 1;
 		String field = "title";
 		String query = "";

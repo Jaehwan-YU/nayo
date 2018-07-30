@@ -136,4 +136,32 @@ public class MyInfoService {
 		return false;
 	}
 	
+	public void SignUp(String memberEmail, String pwd, String nickname) throws SQLException, ClassNotFoundException {
+		
+		Member member = new Member();
+		
+		/*String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		String user = "c##nayoadmin";
+		String password = "skdy0514";*/
+
+		String sql = "INSERT INTO MEMBER(EMAIL, PWD, NICKNAME) "
+					+ "VALUES(?,?,?)";
+
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, user, password);
+		PreparedStatement pstmt = con.prepareStatement(sql);
+
+		pstmt.setString(1, memberEmail);
+		pstmt.setString(2, pwd);
+		pstmt.setString(3, nickname);
+
+		ResultSet rs = pstmt.executeQuery();
+
+		
+		rs.close();
+		pstmt.close();
+		con.close();
+
+	}
+	
 }

@@ -1,14 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	String ctx = request.getContextPath();
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>나도 요리사 - 나요</title>
-<script type="text/javascript" src="<%= ctx %>/js/faqList.js"></script>
+<script type="text/javascript" src="${ctx}/js/faqList.js"></script>
 <link href="../css/faqStyle.css" type="text/css" rel="stylesheet" />
 </head>
 <body>

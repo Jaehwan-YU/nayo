@@ -3,16 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<%
-	String ctx = request.getContextPath();
-%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>나도 요리사 - 나요</title>
 
-<link href="<%=ctx %>/css/bookmarkStyle.css" type="text/css" rel="stylesheet" />
+<link href="${ctx}/css/bookmarkStyle.css" type="text/css" rel="stylesheet" />
 
 </head>
 <body>

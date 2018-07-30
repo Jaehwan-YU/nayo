@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 public class RecipeList extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String ctx = request.getContextPath();
+		request.setAttribute("ctx", ctx);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/recipe/list.jsp");
 		dispatcher.forward(request, response);
 	}

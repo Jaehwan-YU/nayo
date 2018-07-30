@@ -20,6 +20,8 @@ public class Login extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String ctx = request.getContextPath();
+		request.setAttribute("ctx", ctx);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/login.jsp");
 
 		dispatcher.forward(request, response);

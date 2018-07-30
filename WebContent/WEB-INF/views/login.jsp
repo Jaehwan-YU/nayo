@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	String ctx = request.getContextPath();
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +22,7 @@
 	<section id="body">
 		<div class="content-container">
 			<h1>
-				<a href="<%=ctx%>/index"><img scr="" alt="">나요</a>
+				<a href="${ctx}/index"><img scr="" alt="">나요</a>
 			</h1>
 
 			<section id="login-text">

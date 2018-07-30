@@ -21,6 +21,9 @@ import com.nayo.web.member.BookmarkService;
 public class BookmarkList extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String ctx = request.getContextPath();
+		request.setAttribute("ctx", ctx);
+		
 		HttpSession session = request.getSession();
 		BookmarkService bs = new BookmarkService(getServletContext());
 	

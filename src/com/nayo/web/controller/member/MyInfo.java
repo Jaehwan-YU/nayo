@@ -18,6 +18,9 @@ import com.nayo.web.member.MyInfoService;
 public class MyInfo extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String ctx = request.getContextPath();
+		request.setAttribute("ctx", ctx);
+		
 		HttpSession session = request.getSession();
 		MyInfoService ms = new MyInfoService(getServletContext());
 		
