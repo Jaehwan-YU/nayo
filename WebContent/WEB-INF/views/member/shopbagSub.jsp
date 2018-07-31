@@ -23,7 +23,7 @@
 		<div id="visual"></div>
 	</div>
 
-	<section id="main-food">
+	<!-- <section id="main-food">
 		<div class="main-food-container">
 			<h1>메인 식재료 목록</h1>
 			<nav id="main-food-list">
@@ -39,14 +39,49 @@
 				</ul>
 			</nav>
 		</div>
-	</section>
+	</section> -->
 
 	<section id='body'>
 		
+		<div id = "shopbag-container">
+		<h1>재료명</h1>
+			<nav id = "food-name">
+				<h2>채소/과일</h2><br/>
+					<ul>
+												
+						<li><a href=""><input type = "checkbox"/>상추<input type = "button" value = "x 이미지 추가할거"/></a></li>						
+						<li><a href=""><input type = "checkbox"/>배추<input type = "button"/></a></li>					
+						<li><a href=""><input type = "checkbox"/>마늘<input type = "button"/></a></li>				
+						<li><a href=""><input type = "checkbox"/>사과<input type = "button"/></a></li>					
+					</ul><br/>
+					
+				<h2>육류</h2><br/>
+					<ul>
+						<li><a href=""><input type = "checkbox"/>돼지고기 앞다리살<input type = "button"/></a></li>
+						<li><a href=""><input type = "checkbox"/>돼지고기 구이용<input type = "button"/></a></li>
+						<li><a href=""><input type = "checkbox"/>소고기 구이용<input type = "button"/></a></li>
+						<li><a href=""><input type = "checkbox"/>소고기 국거리용<input type = "button"/></a></li>					
+					</ul><br/>	
+				
+				<h2>수산물</h2><br/>
+					<ul>
+						<li><a href=""><input type = "checkbox"/>조개<input type = "button"/></a></li>
+						<li><a href=""><input type = "checkbox"/>고등어<input type = "button"/></a></li>
+						<li><a href=""><input type = "checkbox"/>옥돔<input type = "button"/></a></li>
+						<li><a href=""><input type = "checkbox"/>갈치<input type = "button"/></a></li>					
+					</ul><br/>	
+					
+				<h2>곡물/견과류</h2><br/>
+					<ul>
+						<li><a href=""><input type = "checkbox"/>땅콩<input type = "button"/></a></li>
+						<li><a href=""><input type = "checkbox"/>호두<input type = "button"/></a></li>
+						<li><a href=""><input type = "checkbox"/>잡곡<input type = "button"/></a></li>
+						<li><a href=""><input type = "checkbox"/>아몬드<input type = "button"/></a></li>					
+					</ul>		
+			</nav>	
 		
-		
-		
-		
+		</div>		
+	</section>	
 
 	<!-- footer영역 -->
 	<jsp:include page="../inc/footer.jsp" />

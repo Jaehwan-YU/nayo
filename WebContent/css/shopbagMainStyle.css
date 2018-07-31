@@ -1,7 +1,11 @@
 @import url("reset.css");
+
 @import url("commonStyle.css");
+
 @import url("header.css");
+
 @import url("visual.css");
+
 @import url("footer.css");
 /*-----reset--------------------------------------------*/
 
@@ -53,92 +57,76 @@
 					} */
 
 /*-----#main-food-list style------------------------------------*/
-	#main-food {
-		height: 100%; /* inherit */
-		width: 960px;
-		margin-left: auto;
-		margin-right: auto;		
-		position: relative;
-		margin-top: 20px;
-		margin-bottom: 20px;	
-		text-align: center;	
-	
-}
-		
-	#main-food > h1{
-		display: none;
-	}
-			#main-food-list{
-				background: #ff8080;				
-			}
-		
-			#main-food-list > ul{
-				overflow: auto;
-				display: flex;
-			}
-		
-		 		#main-food-list > ul > li {
-					flex-grow: 1;
-					
-				}
-				
-				#main-food-list > ul > li:first-child{
-					padding-left: 0;
-					background: none;
-				
-				}
-			
-					#main-food-list >ul > li > a{
-						text-decoration: none;
-						color: #ffffff;
-						font-family: ¸¼Àº µ¸¿ò, µ¸¿ò, Arial, sans-serif; 
-						font-size: 20px;
-						font-weight: bold;
-					}
-					
-					#main-food-list >ul > li > a:hover{
-						color: black;	
-					}
-
-
-.main-food-container > h1{
-	display: none;	
+#main-food {
+	height: 100%; /* inherit */
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: center;
 }
 
-/*-----#body style------------------------------------*/	
-#body{
+#main-food>h1 {
+	display: none;
+}
+
+#main-food-list {
+	background: #ff8080;
+}
+
+#main-food-list>ul {
+	overflow: auto;
+	display: flex;
+}
+
+#main-food-list>ul>li {
+	flex-grow: 1;
+}
+
+#main-food-list>ul>li:first-child {
+	padding-left: 0;
+	background: none;
+}
+
+#main-food-list>ul>li>a {
+	text-decoration: none;
+	color: #ffffff;
+	font-family: ¸¼Àº µ¸¿ò, µ¸¿ò, Arial, sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#main-food-list>ul>li>a:hover {
+	color: black;
+}
+
+.main-food-container>h1 {
+	display: none;
+}
+
+/*-----#body style------------------------------------*/
+#body {
 	min-height: 600px;
 	width: 960px;
 	display: flex;
-	margin-top : 30px;
+	margin-top: 30px;
 	margin-left: auto;
 	margin-right: auto;
 	background: #ececec;
 	text-align: center;
 	margin-bottom: 10px;
-	
+	vertical-align: middle;
+	line-height: 500px;
+	font-weight: bold;
+	font-size: 20px;
 }
-	#shopbag-container > h1{
-		display : none;
-	}
 
 #shopbag-container {
-	border : 3px solid orange;
+	border: 3px solid orange;
 	min-height: 600px;
 	width: 960px;
-	
 }
 
-#food-name{
-	margin-top : 10px;
-	margin-left : 10px;
-	text-align: left;
-	overflow-y: scroll;
-	
-	
-}
-
-				
-
-		
 /*-----#footer style------------------------------------*/
