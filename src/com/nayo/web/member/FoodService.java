@@ -38,20 +38,15 @@ public class FoodService {
 		password = prop.getProperty("password");
 	}
 
-	public List<Food> getFoodList(String memberEmail, int keepArea) throws ClassNotFoundException, SQLException {
+	public List<Food> getFoodList(String memberEmail) throws ClassNotFoundException, SQLException {
 		List<Food> list = new ArrayList<Food>();
 
-	/*	String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
-		String user = "c##nayoadmin";
-		String password = "skdy0514";*/
-
-		String sql = "SELECT * FROM FOOD WHERE REG_EMAIL = ? AND KEEP_AREA_ID = ? AND USE_DATE IS NULL";
+		String sql = "SELECT * FROM FOOD WHERE REG_EMAIL = ? AND USE_DATE IS NULL";
 
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, user, password);
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, memberEmail);
-		pstmt.setInt(2, keepArea);
 		ResultSet rs = pstmt.executeQuery();
 
 
@@ -59,7 +54,8 @@ public class FoodService {
 			food = new Food(rs.getString("ID"),
 					rs.getString("NAME"), 
 					rs.getInt("FOOD_LIFE"), 
-					rs.getDate("SELL_LIFE"));
+					rs.getDate("SELL_LIFE"),
+					rs.getInt("KEEP_AREA_ID"));
 			// System.out.println(shop);
 			list.add(food);
 		}
@@ -70,6 +66,35 @@ public class FoodService {
 		return list;
 	}
 
+	public List<Food> getFoodList(String memberEmail, int keepAreaId) throws ClassNotFoundException, SQLException {
+		List<Food> list = new ArrayList<Food>();
+
+		String sql = "SELECT * FROM FOOD WHERE REG_EMAIL = ? AND KEEP_AREA_ID = ? AND USE_DATE IS NULL";
+
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, user, password);
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, memberEmail);
+		pstmt.setInt(2, keepAreaId);
+		ResultSet rs = pstmt.executeQuery();
+
+
+		while (rs.next()) {
+			food = new Food(rs.getString("ID"),
+					rs.getString("NAME"), 
+					rs.getInt("FOOD_LIFE"), 
+					rs.getDate("SELL_LIFE"),
+					rs.getInt("KEEP_AREA_ID"));
+			// System.out.println(shop);
+			list.add(food);
+		}
+		rs.close();
+		pstmt.close();
+		con.close();
+
+		return list;
+	}
+	
 	public void addFood(String memberEmail, String foodName) throws SQLException, ClassNotFoundException {
 
 		int foodLife = 90;

@@ -48,12 +48,14 @@ public class FoodList extends HttpServlet {
 		List<Food> list2;
 		List<Food> list3;
 		
+		
+		
 		try {
 			list = fs.getFoodCateList();
 			rList = rs.getCookableRecipeList(email);
 			list1 = fs.getFoodList(email, 1);
 			list2 = fs.getFoodList(email, 2);
-			list3 = fs.getFoodList(email, 3);
+			list3 = fs.getFoodList(email ,3);
 			request.setAttribute("rList", rList);
 			request.setAttribute("list", list);
 			request.setAttribute("list1", list1);
