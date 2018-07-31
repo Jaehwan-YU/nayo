@@ -21,6 +21,9 @@ import com.nayo.web.entity.Recipe;
 public class MemberRecipeList extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String ctx = request.getContextPath();
+		request.setAttribute("ctx", ctx);
+		
 		HttpSession session = request.getSession();
 		RecipeService rs = new RecipeService(getServletContext());
 		String memberEmail = (String)session.getAttribute("email");

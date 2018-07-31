@@ -14,7 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 public class FaqList extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/faq/list.jsp");
+		String ctx = request.getContextPath();
+		request.setAttribute("ctx", ctx);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/faq/list.jsp");
 		
 		dispatcher.forward(request, response);
 	}
