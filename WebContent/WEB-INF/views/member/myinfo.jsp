@@ -32,9 +32,9 @@ pageEncoding="UTF-8"%>
 				<li><a href="bookmark.jsp">즐겨먹기</a></li>
 				<li><a href="infocheck.jsp">내 정보</a></li>
 			</ul>
-	</aside>
 	</nav>
 	</section>
+	</aside>
 
 
 	<!-- body 영역 -->
