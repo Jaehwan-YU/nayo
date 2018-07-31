@@ -28,7 +28,19 @@ public class Recipe {
 		this.mainImg = mainImg;
 
 	}
-	
+
+	public Recipe(String title, String simpleIntro, String mainImg, String regEmail, int kcalory,
+			int nationalId, int situationId, int recipeTypeId) {
+		
+		this.title = title;
+		this.simpleIntro = simpleIntro;
+		this.mainImg = mainImg;
+		this.regEmail = regEmail;
+		this.kcalory = kcalory;
+		this.nationalId = nationalId;
+		this.situationId = situationId;
+		this.recipeTypeId = recipeTypeId;
+	}
 	
 	public Recipe(int id, String title, String simpleIntro, String mainImg, String regEmail, int kcalory,
 			String national, String situation, String recipeType) {
@@ -126,9 +138,9 @@ public class Recipe {
 	@Override
 	public String toString() {
 		return "Recipe [id=" + id + ", title=" + title + ", simpleIntro=" + simpleIntro + ", mainImg=" + mainImg
-				+ ", regEmail=" + regEmail + ", kcalory=" + kcalory + ", national=" + national + ", situation="
-				+ situation + ", recipeType=" + recipeType + "]";
+				+ ", regEmail=" + regEmail + ", kcalory=" + kcalory + ", nationalId=" + nationalId + ", situationId="
+				+ situationId + ", recipeTypeId=" + recipeTypeId + ", national=" + national + ", situation=" + situation
+				+ ", recipeType=" + recipeType + "]";
 	}
-	
 	
 }

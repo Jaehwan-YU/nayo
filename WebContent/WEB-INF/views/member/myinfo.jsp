@@ -24,7 +24,6 @@ pageEncoding="UTF-8"%>
 		<div id="visual"></div>
 	</div>
 
-	
 	<!-- body 영역 -->
 	<section id="body">
 	<div class="content-container">

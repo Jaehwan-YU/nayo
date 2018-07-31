@@ -67,19 +67,19 @@
 					<tr>
 						<th>카테고리</th>
 						<td>
-							<select>
+							<select name="national">
 								<option>나라 선택</option>
 								<c:forEach var="nc" items="${nationalCate}">
 								<option value="${nc.id}">${nc.name}</option>
 								</c:forEach>
 							</select>
-						 	<select>
+						 	<select name="situation">
 						 		<option>상황 선택</option>
 						 		<c:forEach var="sc" items="${situationCate}">
 								<option value="${sc.id}">${sc.name}</option>
 								</c:forEach>
 						 	</select> 
-						 	<select>
+						 	<select name="recipe-type">
 						 		<option>타입 선택</option>
 						 		<c:forEach var="tc" items="${recipeTypeCate}">
 								<option value="${tc.id}">${tc.name}</option>
@@ -98,11 +98,9 @@
 							<input type="button" value="조리과정 추가"/>
 						</td>
 					</tr>
-					<tr>
-						<td colspan="2"><input type="submit" value="등록"> <input
-							type="button" value="취소"></td>
-					</tr>
 				</table>
+				<input type="submit" value="등록"/> 
+				<input type="button" value="취소" id="cancel-button"/>
 			</form>
 		</div>
 	</section>

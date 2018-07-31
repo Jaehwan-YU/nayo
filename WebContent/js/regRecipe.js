@@ -117,3 +117,11 @@ window.addEventListener("load",function(){
         addArea.appendChild(lineSwap);
     }
 });
+
+window.addEventListener("load", function(){
+    var cancelButton = document.querySelector("#cancel-button");
+
+    cancelButton.onclick = function(){
+        history.back(-1);
+    };    
+});
