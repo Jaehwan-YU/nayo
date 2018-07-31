@@ -15,19 +15,14 @@ import java.util.Properties;
 
 import javax.servlet.ServletContext;
 
+import com.nayo.web.entity.Shopbag;
+
 public class ShopbagService {
-	private String name;
-	private String regEmail;
-	private Date buyDay;
+	
 	private String url;
 	private String user;
 	private String password;
-	
-	public ShopbagService(String name, String memberEmail, Date buyDay) {
-		this.name = name;
-		this.regEmail = memberEmail;
-		this.buyDay = buyDay;
-	}
+
 	public ShopbagService(ServletContext servletContext) throws IOException {
 
 		InputStream is = servletContext.getResourceAsStream("WEB-INF/db.properties");
@@ -37,22 +32,12 @@ public class ShopbagService {
 		
 		url = prop.getProperty("url");
 		user = prop.getProperty("user");
-		password = prop.getProperty("password");
-		
-		
-	}
-	public ShopbagService(String memberEmail) {
-		this.regEmail = memberEmail;
+		password = prop.getProperty("password");	
 	}
 
-	
-	public List<ShopbagService> getShopbagList(String memberEmail) throws ClassNotFoundException, SQLException{
-		List<ShopbagService> list = new ArrayList<ShopbagService>();
+	public List<Shopbag> getShopbagList(String memberEmail) throws ClassNotFoundException, SQLException{
+		List<Shopbag> list = new ArrayList<Shopbag>();
 		
-		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
-		String user = "c##nayoadmin";
-		String password = "skdy0514";
-
 		String sql = "SELECT * FROM SHOPBAG WHERE REG_EMAIL = ? AND BUY_DAY IS NULL";
 			
 		Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -62,10 +47,41 @@ public class ShopbagService {
 		ResultSet rs = pstmt.executeQuery();
 			
 		while(rs.next()) {		
-			ShopbagService shop = new ShopbagService(rs.getString("NAME"),
+			Shopbag shopbag = new Shopbag(rs.getString("NAME"),
 													rs.getString("REG_EMAIL"),
 													rs.getDate("BUY_DAY"));
-			list.add(shop);
+			list.add(shopbag);
+		}
+		
+		rs.close();
+		pstmt.close();
+		con.close();
+		
+		return list;		
+	}
+	
+	public List<Shopbag> getShopbagList(String memberEmail, int keepTip) throws ClassNotFoundException, SQLException{
+		List<Shopbag> list = new ArrayList<Shopbag>();
+		
+		String sql = "SELECT NAME\r\n" + 
+					"FROM (SELECT K.FOOD_CATE_ID ID, K.NAME, K.FOOD_IMG\r\n" + 
+					"        FROM KEEP_TIP K\r\n" + 
+					"        INNER JOIN (SELECT NAME\r\n" + 
+					"                    FROM SHOPBAG\r\n" + 
+					"                    WHERE REG_EMAIL = ?) S\r\n" + 
+					"        ON K.NAME = S.NAME)\r\n" + 
+					"WHERE ID = ?";
+			
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, user, password);
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, memberEmail);
+		pstmt.setInt(2, keepTip);
+		ResultSet rs = pstmt.executeQuery();
+			
+		while(rs.next()) {		
+			Shopbag shopbag = new Shopbag(rs.getString("NAME"));
+			list.add(shopbag);
 		}
 		
 		rs.close();
@@ -76,9 +92,6 @@ public class ShopbagService {
 	}
 	
 	public void addShopbag(String name, String memberEmail) throws ClassNotFoundException, SQLException {
-		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
-		String user = "c##nayoadmin";
-		String password = "skdy0514";
 
 		String sql = "INSERT INTO SHOPBAG(NAME, REG_EMAIL) VALUES(?,?)";
 			
@@ -95,12 +108,19 @@ public class ShopbagService {
 		con.close();
 	}
 	
+	public void setShopbag(String name) throws ClassNotFoundException, SQLException {
+		String sql = "";
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, user, password);
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		
+		pstmt.close();
+		con.close();
+	}
+	
 	public void deleteShopbag(String name, String memberEmail) throws ClassNotFoundException, SQLException {
 		
-		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
-		String user = "c##nayoadmin";
-		String password = "skdy0514";
-
 		String sql = "DELETE FROM SHOPBAG WHERE NAME = ? AND REG_EMAIL = ?";
 			
 		Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -115,25 +135,5 @@ public class ShopbagService {
 		pstmt.close();
 		con.close();
 	}
-	
-	
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getRegEmail() {
-		return regEmail;
-	}
-	public void setRegEmail(String memberEmail) {
-		this.regEmail = memberEmail;
-	}
-	public Date getBuyDay() {
-		return buyDay;
-	}
-	public void setBuyDay(Date buyDay) {
-		this.buyDay = buyDay;
-	}
+
 }

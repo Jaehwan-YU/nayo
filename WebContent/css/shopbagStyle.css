@@ -12,99 +12,29 @@
 
 /*-----#visual style---------------------------------------*/
 
-/*-----#main-menu style------------------------------------*/
-/* #main-menu {
-	height: 80px;			
-	margin-bottom: 20px;
-	
-}
-		
-	#main-menu > h1{
-	display: none;
+/*-----#food-cate style------------------------------------*/
+	#food-cate{
+	border: 2px solid #ccc;
+	height: 50px;
+	text-align: center;	
 	}
-					
-	
-			#main-menu-list > ul{
-				overflow: auto;
-				display: flex;
-			}
+		#food-cate > h1 {
+			display: none;
+		}
+		#food-cate > form {
+		padding-top: 17px;
+		overflow:auto;
+		}
 		
-		 		#main-menu-list > ul > li {
-					flex-grow: 1;
-					line-height: 80px;
-				}
-				
-				#main-menu-list > ul > li:first-child{
-					padding-left: 0;
-					background: none;
-				
-				}
+		#food-cate > form > label{
+		padding-right: 30px;
+		}
+		
+		#food-cate > form > label:last-child{
+		padding: 0px;
+		background: none;
+		}
 			
-					#main-menu-list >ul > li > a{
-						text-decoration: none;
-						color: #000000;
-						font-family: ¸¼Àº µ¸¿ò, µ¸¿ò, Arial, sans-serif; 
-						font-size: 40px;
-						font-weight: bold;
-					}
-					
-					#main-menu-list >ul > li > a:hover{
-						color: orange;	
-					} */
-
-/*-----#main-food-list style------------------------------------*/
-	#main-food {
-		height: 100%; /* inherit */
-		width: 960px;
-		margin-left: auto;
-		margin-right: auto;		
-		position: relative;
-		margin-top: 20px;
-		margin-bottom: 20px;	
-		text-align: center;	
-	
-}
-		
-	#main-food > h1{
-		display: none;
-	}
-			#main-food-list{
-				background: #ff8080;				
-			}
-		
-			#main-food-list > ul{
-				overflow: auto;
-				display: flex;
-			}
-		
-		 		#main-food-list > ul > li {
-					flex-grow: 1;
-					
-				}
-				
-				#main-food-list > ul > li:first-child{
-					padding-left: 0;
-					background: none;
-				
-				}
-			
-					#main-food-list >ul > li > a{
-						text-decoration: none;
-						color: #ffffff;
-						font-family: ¸¼Àº µ¸¿ò, µ¸¿ò, Arial, sans-serif; 
-						font-size: 20px;
-						font-weight: bold;
-					}
-					
-					#main-food-list >ul > li > a:hover{
-						color: black;	
-					}
-
-
-.main-food-container > h1{
-	display: none;	
-}
-
 /*-----#body style------------------------------------*/					
 #body{
 	min-height: 600px;
@@ -118,133 +48,35 @@
 	#body > h1{
 		display: none;
 	}
-	
-	
-.shopbag-container{
-	width: 960px;
-    height: 200px;
-    position: relative;
-	
+.table{
+	margin: 20px;
 }
-.vegetable-food{
-	 	height: 100%; /* inherit */
-		width: 960px;
-		margin-left: auto;
-		margin-right: auto;		
-		position: relative;	
-		text-align: center;	
-}
-
-	.vegetable-food > ul{
-		width:inherit; 
-	 	text-align: center;
+	
+#table-list{
+	margin: 5px 0px;
+	/* border: 1px solid #000000; */
+}	
+	#table-list tr{
+		/* border-bottom: 1px solid #000000; */
 	}
-	
-	.vegetable-food > ul > li{
-		display: inline-block;
+	#table-list tr:first-child {
+		font-size: 20px;
+		font-weight: bold;
+		color: #696969;
+		height: 30px;
 	}
-	.vegetable-food > ul > section{
-		margin-top: 40px;		
-	}	
+	#table-list tr:last-child{
+		height: 20px;
+	}
+		#table-list ul{
+			display: flex;
+			flex-direction: row;
+		}
+			#table-list li{
+				flex-grow: 1;
+				padding: 0px 5px;
+			}
 	
-.meat-food{
-		height: 100%; /* inherit */
-		width: 960px;
-		margin-left: auto;
-		margin-right: auto;		
-		position: relative;	
-		text-align: center;	
-}	
-		.meat-food > ul{
-			width:inherit; 
-		 	text-align: center;
-		}
-	
-		.meat-food > ul > li{
-			display: inline-block;
-		}
-		.meat-food > ul > section{
-			margin-top: 40px;		
-		}
-	
-.fish-food{
-		height: 100%; /* inherit */
-		width: 960px;
-		margin-left: auto;
-		margin-right: auto;		
-		position: relative;	
-		text-align: center;	
-}	
-		.fish-food > ul{
-			width:inherit; 
-		 	text-align: center;
-		}
-	
-		.fish-food > ul > li{
-			display: inline-block;
-		}
-		.fish-food > ul > section{
-			margin-top: 40px;		
-		}
-	
-.cereal-food{
-		height: 100%; /* inherit */
-		width: 960px;
-		margin-left: auto;
-		margin-right: auto;		
-		position: relative;	
-		text-align: center;	
-}	
-		.cereal-food > ul{
-			width:inherit; 
-		 	text-align: center;
-		}
-	
-		.cereal-food > ul > li{
-			display: inline-block;
-		}
-		.cereal-food > ul > section{
-			margin-top: 40px;		
-		}	
 
-.sauce-food{
-		height: 100%; /* inherit */
-		width: 960px;
-		margin-left: auto;
-		margin-right: auto;		
-		position: relative;	
-		text-align: center;	
-}	
-		.sauce-food > ul{
-			width:inherit; 
-		 	text-align: center;
-		}
-	
-		.sauce-food > ul > li{
-			display: inline-block;
-		}
-		.sauce-food > ul > section{
-			margin-top: 40px;		
-		}
-		
-.manufacture-food{
-		height: 100%; /* inherit */
-		width: 960px;
-		margin-left: auto;
-		margin-right: auto;		
-		position: relative;	
-		text-align: center;	
-}	
-		.manufacture-food > ul{
-			width:inherit; 
-		 	text-align: center;
-		}
-	
-		.manufacture-food > ul > li{
-			display: inline-block;
-		}
-		.manufacture-food > ul > section{
-			margin-top: 40px;		
-		}				
 		
 /*-----#footer style------------------------------------*/
