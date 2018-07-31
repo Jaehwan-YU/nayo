@@ -12,7 +12,7 @@
 <body>
 
 <!-- header영역 -->
-	<jsp:include page="../inc/header.jsp"/>
+	<jsp:include page="${ctx}/inc/header.jsp"/>
 	
 	<!-- visual영역 -->	
 	<div class="content-container">
@@ -85,13 +85,14 @@
 					<%-- </c:forEach> --%>
 					</tr>
 				</table>
-			</section>		
+			</section>
+			<a href="reg">새로운 레시피 등록</a>		
 		</div>
 	</section>
 	
 
 <!-- footer영역 -->	
-	<jsp:include page="../inc/footer.jsp"/>
+	<jsp:include page="${ctx}/inc/footer.jsp"/>
 
 </body>
 </html>

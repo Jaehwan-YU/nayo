@@ -23,11 +23,12 @@ public class Food {
 		this.foodCateId = foodCateId;
 				
 	}
-	public Food(String id, String name, int foodLife, Date sellLife) {
+	public Food(String id, String name, int foodLife, Date sellLife, int keepAreaId) {
 		this.id = id;
 		this.name = name;
 		this.foodLife = foodLife;
 		this.sellLife = sellLife;
+		this.keepAreaId = keepAreaId;
 	}
 	public Food(String id, String name, int foodLife, Date sellLife, Date regDate, Date useDate, String regEmail,
 			int foodCateId, int keepAreaId, String foodImg) {

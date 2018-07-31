@@ -1,23 +1,42 @@
 package com.nayo.web.member;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
+
+import javax.servlet.ServletContext;
 
 import com.nayo.web.entity.Member;
 
 public class MyInfoService {
+	private String url;
+	private String user;
+	private String password;
 	
-	
-	public Member getMemberInfo(String memberEmail, String pwd) throws SQLException, ClassNotFoundException {
+	public MyInfoService(ServletContext servletContext) throws IOException {
+		InputStream is = servletContext.getResourceAsStream("WEB-INF/db.properties");
+		Properties prop = new Properties();
+		prop.load(is);
+		is.close();
+		
+		url = prop.getProperty("url");
+		user = prop.getProperty("user");
+		password = prop.getProperty("password");
+	}
+
+
+	public Member getMemberInfo(String memberEmail) throws SQLException, ClassNotFoundException {
 		
 		Member member = new Member();
 		
-		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		/*String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
-		String password = "skdy0514";
+		String password = "skdy0514";*/
 
 		String sql = "SELECT * FROM MEMBER WHERE EMAIL = ?";
 
@@ -31,7 +50,6 @@ public class MyInfoService {
 
 		if (rs.next()) {
 			member.setEmail(rs.getString("EMAIL"));
-			member.setPwd(rs.getString("PWD"));
 			member.setNickname(rs.getString("NICKNAME"));
 			member.setBirth(rs.getString("BIRTH"));
 			member.setGender(rs.getInt("GENDER"));
@@ -49,9 +67,9 @@ public class MyInfoService {
 
 	public void setMemberInfo(Member member) throws SQLException, ClassNotFoundException {
 		
-		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		/*String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
-		String password = "skdy0514";
+		String password = "skdy0514";*/
 
 		String sql = "UPDATE MEMBER SET PWD = ?, NICKNAME = ?, BIRTH = ?, GENDER = ?, INTRO = ?, PROFILEPIC = ? "
 				+ "WHERE EMAIL = ?";
@@ -79,9 +97,9 @@ public class MyInfoService {
 	
 	public boolean login(String memberEmail, String pwd) throws SQLException, ClassNotFoundException {
 		
-		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		/*String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
 		String user = "c##nayoadmin";
-		String password = "skdy0514";
+		String password = "skdy0514";*/
 		
 		String sql = "SELECT PWD FROM MEMBER WHERE EMAIL = ?";
 		
@@ -116,6 +134,34 @@ public class MyInfoService {
 		con.close();
 		
 		return false;
+	}
+	
+	public void SignUp(String memberEmail, String pwd, String nickname) throws SQLException, ClassNotFoundException {
+		
+		Member member = new Member();
+		
+		/*String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
+		String user = "c##nayoadmin";
+		String password = "skdy0514";*/
+
+		String sql = "INSERT INTO MEMBER(EMAIL, PWD, NICKNAME) "
+					+ "VALUES(?,?,?)";
+
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, user, password);
+		PreparedStatement pstmt = con.prepareStatement(sql);
+
+		pstmt.setString(1, memberEmail);
+		pstmt.setString(2, pwd);
+		pstmt.setString(3, nickname);
+
+		ResultSet rs = pstmt.executeQuery();
+
+		
+		rs.close();
+		pstmt.close();
+		con.close();
+
 	}
 	
 }

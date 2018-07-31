@@ -1,4 +1,4 @@
-package com.nayo.web.controller;
+package com.nayo.web.controller.member;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -13,40 +13,43 @@ import javax.servlet.http.HttpSession;
 
 import com.nayo.web.member.MyInfoService;
 
-import com.nayo.web.member.MyInfoService;
-
-@WebServlet("/login")
-public class Login extends HttpServlet {
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String ctx = request.getContextPath();
-		request.setAttribute("ctx", ctx);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/login.jsp");
-
+@WebServlet("/member/infocheck")
+public class InfoCheck extends HttpServlet {
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		MyInfoService mis = new MyInfoService(getServletContext());
+		
+		String email = (String)session.getAttribute("email");
+		
+		if(email == null) {
+			response.sendRedirect("../login");
+			return;
+		}
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/member/infocheck.jsp");
+		
 		dispatcher.forward(request, response);
 	}
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MyInfoService ms = new MyInfoService(getServletContext());
-		String email = request.getParameter("email");
 		String pwd = request.getParameter("pwd");
 		HttpSession session = request.getSession();
+		String email = (String)session.getAttribute("email");
 		
 		try {
 			if(ms.login(email, pwd)) {
 				session.setAttribute("email", email);
-				response.sendRedirect("member/food");
+				response.sendRedirect("myinfo");
 			}
 			else {
-				response.sendRedirect("login");
-				//로그인 다시해 알림 띄워주기
+				response.sendRedirect("infocheck");
+				//비밀번호 틀렸엉 알림 띄워주기
 			}
 		} catch (ClassNotFoundException | SQLException e) {
-
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
 	}
 }

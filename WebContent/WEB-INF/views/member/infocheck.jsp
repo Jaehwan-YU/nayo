@@ -39,10 +39,13 @@
 			<main id="main">
 				<h1>비밀번호 재확인</h1>
 					<p>본인확인을 위해 한번 더 비밀번호를 입력해주세요.<br /> 비밀번호는 타인에게 노출되지 않도록 주의해 주세요</p>
+					<form method="post">
 					<ul>
-						<li>아이디 : <Input type="text"></li><br> 
-						<li>비밀번호 재확인 : <Input type="text"></li>
+						<li>비밀번호 재확인 : <Input type="password" name="pwd"></li>
 					</ul>
+					
+					<input type="submit" value="확인"/>
+					</form>
 			</main>
 	</div>
 	</section>

@@ -5,7 +5,7 @@ public class Recipe {
 	private int id;
 	private String title;
 	private String simpleIntro;
-	private String process;
+	private String mainImg;
 	private String regEmail;
 	private int kcalory;
 	private int nationalId;
@@ -20,23 +20,35 @@ public class Recipe {
 		
 	}
 	
-	public Recipe(int id, String title, String simpleIntro, String process) {
+	public Recipe(int id, String title, String simpleIntro, String mainImg) {
 		
 		this.id = id;
 		this.title = title;
 		this.simpleIntro = simpleIntro;
-		this.process = process;
+		this.mainImg = mainImg;
 
 	}
+
+	public Recipe(String title, String simpleIntro, String mainImg, String regEmail, int kcalory,
+			int nationalId, int situationId, int recipeTypeId) {
+		
+		this.title = title;
+		this.simpleIntro = simpleIntro;
+		this.mainImg = mainImg;
+		this.regEmail = regEmail;
+		this.kcalory = kcalory;
+		this.nationalId = nationalId;
+		this.situationId = situationId;
+		this.recipeTypeId = recipeTypeId;
+	}
 	
-	
-	public Recipe(int id, String title, String simpleIntro, String process, String regEmail, int kcalory,
+	public Recipe(int id, String title, String simpleIntro, String mainImg, String regEmail, int kcalory,
 			String national, String situation, String recipeType) {
 		
 		this.id = id;
 		this.title = title;
 		this.simpleIntro = simpleIntro;
-		this.process = process;
+		this.mainImg = mainImg;
 		this.regEmail = regEmail;
 		this.kcalory = kcalory;
 		this.national = national;
@@ -62,11 +74,11 @@ public class Recipe {
 	public void setSimpleIntro(String simpleIntro) {
 		this.simpleIntro = simpleIntro;
 	}
-	public String getProcess() {
-		return process;
+	public String getMainImg() {
+		return mainImg;
 	}
-	public void setProcess(String process) {
-		this.process = process;
+	public void setMainImg(String mainImg) {
+		this.mainImg = mainImg;
 	}
 	public int getKcalory() {
 		return kcalory;
@@ -125,10 +137,10 @@ public class Recipe {
 
 	@Override
 	public String toString() {
-		return "Recipe [id=" + id + ", title=" + title + ", simpleIntro=" + simpleIntro + ", process=" + process
-				+ ", regEmail=" + regEmail + ", kcalory=" + kcalory + ", national=" + national + ", situation="
-				+ situation + ", recipeType=" + recipeType + "]";
+		return "Recipe [id=" + id + ", title=" + title + ", simpleIntro=" + simpleIntro + ", mainImg=" + mainImg
+				+ ", regEmail=" + regEmail + ", kcalory=" + kcalory + ", nationalId=" + nationalId + ", situationId="
+				+ situationId + ", recipeTypeId=" + recipeTypeId + ", national=" + national + ", situation=" + situation
+				+ ", recipeType=" + recipeType + "]";
 	}
-	
 	
 }

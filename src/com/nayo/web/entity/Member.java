@@ -14,6 +14,15 @@ public class Member {
 		
 	}
 	
+	public Member(String email) {
+		this.email = email;
+	}
+
+	public Member(String email, String pwd) {
+		this.email = email;
+		this.pwd = pwd;
+	}
+
 	public Member(String email, String pwd, String nickname, String birth, int gender, String profilepic,
 			String intro) {
 		

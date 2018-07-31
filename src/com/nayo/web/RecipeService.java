@@ -9,12 +9,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.servlet.ServletContext;
 
 import com.nayo.web.entity.Recipe;
+import com.nayo.web.entity.RecipeCate;
 
 public class RecipeService {
 	private String url;
@@ -75,7 +78,7 @@ public class RecipeService {
 						rs.getInt("ID"),
 						rs.getString("TITLE"),
 						rs.getString("SIMPLE_INTRO"), 
-						rs.getString("PROCESS"),
+						rs.getString("MAIN_IMG"),
 						rs.getString("REG_EMAIL"),
 						rs.getInt("KCALORY"),
 						rs.getString("N"),
@@ -121,7 +124,7 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 			Recipe recipe = new Recipe(rs.getInt("ID"),
 										rs.getString("TITLE"),
 										rs.getString("SIMPLE_INTRO"),
-										rs.getString("PROCESS"));
+										rs.getString("MAIN_IMG"));
 			//System.out.println(shop);
 			tempList.add(recipe);
 		}
@@ -172,7 +175,7 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 						rs.getInt("ID"),
 						rs.getString("TITLE"),
 						rs.getString("SIMPLE_INTRO"), 
-						rs.getString("PROCESS"),
+						rs.getString("MAIN_IMG"),
 						rs.getString("REG_EMAIL"),
 						rs.getInt("KCALORY"),
 						rs.getString("N"),
@@ -194,34 +197,118 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 		return null;
 	}
 	
-	public void addRecipe(Recipe recipe) throws SQLException, ClassNotFoundException {
-		/*String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
-		String user = "c##nayoadmin";
-		String password = "skdy0514";*/
+	public void addRecipe(Recipe recipe, ArrayList<String[]> mainIngValues, ArrayList<String[]> subIngValues, ArrayList<String[]> processValues){
 		
-		String sql = "INSERT INTO RECIPE(ID, TITLE, SIMPLE_INTRO, PROCESS, REG_EMAIL, KCALORY, NATIONAL_ID,"
+		String idSql = "SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = UPPER('RECIPE_SEQ')";
+		String sql1 = "INSERT INTO RECIPE(ID, TITLE, SIMPLE_INTRO, MAIN_IMG, REG_EMAIL, KCALORY, NATIONAL_ID,"
 				+ "SITUATION_ID, RECIPE_TYPE_ID) "
-				+ "VALUES(RECIPE_SEQ.nextval,?,?,?,?,?,?,?,?)";
+				+ "VALUES(?,?,?,?,?,?,?,?,?)";
 		
+		String sql2 = "INSERT INTO INGREDIENTS(ID, RECIPE_ID, NAME, QUANTITY, MAIN_OR_SUB)"
+				+ " VALUES(INGREDIENTS_SEQ.nextval, ?, ?, ?, ?)";
+		
+		String sql3 = "INSERT INTO PROCESS(RECIPE_ID,PROCESS_NUMBER,CONTENT,IMG)"
+				+ " VALUES(?,?,?,?)";
+	
+		int id = 0;
+		
+		Connection con = null;
+		PreparedStatement pstmt1 = null;
+		PreparedStatement pstmt2 = null;
+		PreparedStatement pstmt3 = null;
+		PreparedStatement pstmt4 = null;
+		try {
+			System.out.println("실행은 되는거니?");
+			
+		con = DriverManager.getConnection(url, user, password);
+		con.setAutoCommit(false);
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection con = DriverManager.getConnection(url, user, password);
-		PreparedStatement pstmt = con.prepareStatement(sql);
-		pstmt.setString(1, recipe.getTitle());
-		pstmt.setString(2, recipe.getSimpleIntro());
-		pstmt.setString(3, recipe.getProcess());
-		pstmt.setString(4, recipe.getRegEmail());
-		pstmt.setInt(5, recipe.getKcalory());
-		pstmt.setInt(6, recipe.getNationalId());
-		pstmt.setInt(7, recipe.getSituationId());
-		pstmt.setInt(8, recipe.getRecipeTypeId());
+		pstmt1 = con.prepareStatement(sql1);
+		pstmt2 = con.prepareStatement(sql2);
+		pstmt3 = con.prepareStatement(sql2);
+		pstmt4 = con.prepareStatement(sql3);
+		Statement stmt = con.createStatement();
+		ResultSet rs = stmt.executeQuery(idSql);
+		if(rs.next()) {
+			id = rs.getInt("LAST_NUMBER");
+			stmt.close();
+			rs.close();
+		}
+		System.out.println("실행은 되는거니?2");
+		//recipe 등록 sql 셋팅
+		pstmt1.setInt(1, id);
+		pstmt1.setString(2, recipe.getTitle());
+		pstmt1.setString(3, recipe.getSimpleIntro());
+		pstmt1.setString(4, recipe.getMainImg());
+		pstmt1.setString(5, recipe.getRegEmail());
+		pstmt1.setInt(6, recipe.getKcalory());
+		pstmt1.setInt(7, recipe.getNationalId());
+		pstmt1.setInt(8, recipe.getSituationId());
+		pstmt1.setInt(9, recipe.getRecipeTypeId());
 		
-		int cnt = pstmt.executeUpdate();
+		int recipeUp = pstmt1.executeUpdate();
+		System.out.println(recipeUp>0?"레시피 등록성공" : "등록 실패");
+		System.out.println("실행은 되는거니?2-2");
+		//ingredients 등록
+		for(String[] s : mainIngValues) {
+			System.out.println("실행은 되는거니?2-3");
+			pstmt2.setInt(1,id);
+			pstmt2.setString(2,s[0]);
+			pstmt2.setString(3,s[1]);
+			pstmt2.setInt(4,1);
+			System.out.println("실행은 되는거니?2-4");
+			int cnt = pstmt2.executeUpdate();
+			System.out.println("실행은 되는거니?2-6");
+			System.out.println("등록중");
+			System.out.println(cnt>0?"등록완료":"등록실패");
+		}
+		System.out.println("실행은 되는거니?3");
+		for(String[] s : subIngValues) {
+			pstmt3.setInt(1,id);
+			pstmt3.setString(2,s[0]);
+			pstmt3.setString(3,s[1]);
+			pstmt3.setInt(4,2);
+			
+			int cnt = pstmt3.executeUpdate();
+			
+			System.out.println(cnt>0?"등록완료":"등록실패");
+		}
 		
-		System.out.println(cnt>0?"등록완료":"등록실패");
+		int count = 0;
+		for(String[] s : processValues) {	
+			count++;
+			pstmt4.setInt(1, id);
+			pstmt4.setInt(2, count);
+			pstmt4.setString(3, s[0]);
+			pstmt4.setString(4, s[1]);
+			
+			int cnt = pstmt4.executeUpdate();
+			System.out.println(cnt>0?"등록완료":"등록실패");
+		}
+
+		con.commit();
+		pstmt1.close();
+		pstmt2.close();
+		pstmt3.close();
+		pstmt4.close();
+		con.close();
 	
+		}catch(Exception e){
+			try {
+				con.rollback();
+				pstmt1.close();
+				pstmt2.close();
+				pstmt3.close();
+				pstmt4.close();
+				con.close();
+			} catch (SQLException e1) {
+				System.out.println(e1);
+			}
+			System.out.println(e);
+		}
+		
+		
 	}
-	
-		
 	public void setRecipe(Recipe recipe) throws ClassNotFoundException, SQLException {
 		
 		/*String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
@@ -231,7 +318,7 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 		String sql = "UPDATE RECIPE SET "
 				+ "TITLE = ?, "
 				+ "SIMPLE_INTRO = ?, "
-				+ "PROCESS = ?, "
+				+ "MAIN_IMG = ?, "
 				+ "KCALORY = ?, "
 				+ "NATIONAL_ID = ?, "
 				+ "SITUATION_ID = ?, "
@@ -243,7 +330,7 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, recipe.getTitle());
 		pstmt.setString(2, recipe.getSimpleIntro());
-		pstmt.setString(3, recipe.getProcess());
+		pstmt.setString(3, recipe.getMainImg());
 		pstmt.setInt(5, recipe.getKcalory());
 		pstmt.setInt(6, recipe.getNationalId());
 		pstmt.setInt(7, recipe.getSituationId());
@@ -272,7 +359,7 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 				"(select sum(point) point2, recipe_id from \r\n" + 
 				"(select recipe_id, main_or_sub, case when main_or_sub =1 then count_f*10 else count_f end point from \r\n" + 
 				"(select count(i.id) count_f, recipe_id, main_or_sub from ingredients i inner join \r\n" + 
-				"(select * from food where reg_email = ?) f on i.name = f.name group by recipe_id, main_or_sub)) \r\n" + 
+				"(select * from food where reg_email = ? and use_date is null) f on i.name = f.name group by recipe_id, main_or_sub)) \r\n" + 
 				"group by recipe_id) n on m.recipe_id = n.recipe_id order by point";
 		
 		String sql2 = "select*from recipe where id = ?";
@@ -293,7 +380,7 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 							Recipe recipe = new Recipe(rs2.getInt("id"),
 									rs2.getString("title"),
 									rs2.getString("simple_intro"), 
-									rs2.getString("process"));
+									rs2.getString("MAIN_IMG"));
 							
 							list.add(recipe);
 							
@@ -307,5 +394,56 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 		
 		return list;
 	}
+	
+	public List<ArrayList<RecipeCate>> getRecipeCateList() throws SQLException, ClassNotFoundException{
+			
+		List<ArrayList<RecipeCate>> list = new ArrayList<>();
+		ArrayList<RecipeCate> national = new ArrayList<>();
+		ArrayList<RecipeCate> situation = new ArrayList<>();
+		ArrayList<RecipeCate> recipeType = new ArrayList<>();
 		
+		String sql1 = "select * from national";
+		String sql2 = "select * from situation";
+		String sql3 = "select * from recipe_type";
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, user, password);
+		Statement stmt1 = con.createStatement();
+		Statement stmt2 = con.createStatement();
+		Statement stmt3 = con.createStatement();
+		
+		ResultSet rs1 = stmt1.executeQuery(sql1);
+		ResultSet rs2 = stmt2.executeQuery(sql2);
+		ResultSet rs3 = stmt3.executeQuery(sql3);
+		
+		while(rs1.next()) {
+			RecipeCate rc = new RecipeCate(rs1.getString("name"), rs1.getInt("id"));
+			national.add(rc);
+		}
+		
+	 	while(rs2.next()) {
+			RecipeCate rc = new RecipeCate(rs2.getString("name"), rs2.getInt("id"));
+			situation.add(rc);
+			
+		}
+		while(rs3.next()) {
+			RecipeCate rc = new RecipeCate(rs3.getString("name"), rs3.getInt("id"));
+			recipeType.add(rc);
+		}
+		
+		list.add(national);
+		list.add(situation);
+		list.add(recipeType);
+		
+		rs3.close();
+		rs2.close();
+		rs1.close();
+		stmt3.close();
+		stmt2.close();
+		stmt1.close();
+		con.close();
+		
+		return list;
+	}
+	
 }

@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>나도 요리사 - 나요</title>
-
+<script type="text/javascript" src="${ctx}/js/faqList.js"></script>
 <link href="../css/faqStyle.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
@@ -34,9 +35,16 @@
 					</div>
 			</aside>
 			<!-- main영역 -->
-			<main id="main">
-				<h1>FAQ 목록</h1>
-					<h2>FAQ</h2>
+			<main class="main">
+				<h1>FAQ</h1>
+				<div>
+					<h2>제목1</h2>
+					<p style="display:none">내용</p>
+					<h2>제목2</h2>
+					<p style="display:none">내용</p>
+					<h2>제목3</h2>
+					<p style="display:none">내용</p>
+				</div>
 			</main>
 		</div>
 	</section>	

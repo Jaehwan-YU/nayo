@@ -18,8 +18,9 @@ import com.nayo.web.entity.Recipe;
 public class Index extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		RecipeService rs = new RecipeService();
+		String ctx = request.getContextPath();
+		request.setAttribute("ctx", ctx);
+		RecipeService rs = new RecipeService(getServletContext());
 		
 		List<Recipe> list = rs.getRecipeList();
 		

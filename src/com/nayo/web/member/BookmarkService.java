@@ -59,7 +59,7 @@ public class BookmarkService {
 			Recipe recipe = new Recipe(rs.getInt("ID"),
 										rs.getString("TITLE"),
 										rs.getString("SIMPLE_INTRO"),
-										rs.getString("PROCESS"));
+										rs.getString("MAIN_IMG"));
 			//System.out.println(shop);
 			list.add(recipe);
 		}
