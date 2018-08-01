@@ -23,112 +23,135 @@
 		<div id="visual"></div>
 	</div>
 
-	<section id="main-food">
-		<div class="main-food-container">
-			<h1>메인 식재료 목록</h1>
-			<nav id="main-food-list">
-				<ul>
-					<li><a href="">인기</a></li>
-					<li><a href="">채소/과일</a></li>
-					<li><a href="">육류</a></li>
-					<li><a href="">수산물</a></li>
-					<li><a href="">곡물/견과류</a></li>
-					<li><a href="">양념/소스</a></li>
-					<li><a href="">가공 유제품</a></li>
-					<li><a href="">기타</a></li>
-				</ul>
-			</nav>
-		</div>
-	</section>
-
-	<section id='body'>
-		<h1>메인 식재료 이름</h1>
-
-
-		<div class="shopbag-container">
-			<h2>채소/과일</h2>
-			<nav class="vegetable-food">
-				<form>
-					<table>
-						<c:forEach var="f" items="${list}" varStatus="st">
-							<c:if test="${st.index%6 == 0}">
-								<tr>
-							</c:if>
-							<td>
-								<ul>
-									<li><img alt="" src="../images/ajax-loader.gif"></li>
-									<li>${f.name}</li>
-								</ul>
-							</td>
-							<c:if test="${st.index%6 == 5}">
-								</tr>
-							</c:if>
-						</c:forEach>
-					</table>
-				</form>
-
-				<section>
-					<input id = "veg_button" type="button" value="채소/과일 인기재료 더보기" />
-					
-				</section>
-				
-				
-			</nav>
-
-			<h2>육류</h2>
-			<nav class="meat-food"">
-				
-					<section>
-						<input type="button" value="육류 인기재료 더보기" />
-					</section>
-				
-			</nav>
-
-
-			<h2>수산물</h2>
-			<nav class="fish-food">
-				
-
-					<section>
-						<input type="button" value="수산물 인기재료 더보기" />
-					</section>
-				</ul>
-			</nav>
-
-			<h2>곡물/견과류</h2>
-			<nav class="cereal-food">
-				
-					<section>
-						<input type="button" value="곡물/견과류 인기재료 더보기" />
-					</section>
-
-				
-			</nav>
-
-			<h2>양념/소스</h2>
-			<nav class="sauce-food">
-				
-					<section>
-						<input type="button" value="양념/소스 인기재료 더보기" />
-					</section>
-
-				
-			</nav>
-
-			<h2>가공/유제품</h2>
-			<nav class="manufacture-food">
-				
-					<section>
-						<input type="button" value="가공/유제품 인기재료 더보기" />
-					</section>
-
-				
-			</nav>
-
-			<h2 class="etc-food">기타</h2>
-
-		</div>
-	</section>
+	<div class="content-container">
+		<section id="food-cate">
+			<h1>식재료 카테고리 영역</h1>
+			<form>
+				<c:forEach var="fc" items="${fclist}">
+					<input type="checkbox" class="food-cate-${fc.id}" value="${fc.id}" />
+					<label for="food-cate-${fc.id}">${fc.name}</label>
+				</c:forEach>
+			</form>
+		</section>
+	
+		<section id="body">
+			<h1>메인 식재료 이름</h1>
+			<section class="table" class="content-container">
+				<table id="table-list">
+					<tr>
+						<td>채소/과일</td>
+					</tr>
+					<tr>
+						<td>
+							<ul>
+							<c:forEach var="li" items="${list1}">
+								<li>${li.name}</li>
+							</c:forEach>
+							</ul>
+						</td>
+					</tr>
+				</table>
+				<table id="table-list">
+					<tr>
+						<td>육류</td>
+					</tr>
+					<tr>
+						<td>
+							<ul>
+							<c:forEach var="li" items="${list2}">
+								<li>${li.name}</li>
+							</c:forEach>
+							</ul>
+						</td>
+					</tr>
+				</table>
+				<table id="table-list">	
+					<tr>
+						<td>수산물</td>
+					</tr>
+					<tr>
+						<td>
+							<ul>
+							<c:forEach var="li" items="${list3}">
+								<li>${li.name}</li>
+							</c:forEach>
+							</ul>
+						</td>
+					</tr>
+				</table>
+				<table id="table-list">
+					<tr>
+						<td>곡물</td>
+					</tr>
+					<tr>
+						<td>
+							<ul>
+							<c:forEach var="li" items="${list4}">
+								<li>${li.name}</li>
+							</c:forEach>
+							</ul>
+						</td>
+					</tr>
+				</table>
+				<table id="table-list">
+					<tr>
+						<td>양념/소스</td>
+					</tr>
+					<tr>
+						<td>
+							<ul>
+							<c:forEach var="li" items="${list5}">
+								<li>${li.name}</li>
+							</c:forEach>
+							</ul>
+						</td>
+					</tr>
+				</table>
+				<table id="table-list">
+					<tr>
+						<td>가공식품</td>
+					</tr>
+					<tr>
+						<td>
+							<ul>
+							<c:forEach var="li" items="${list6}">
+								<li>${li.name}</li>
+							</c:forEach>
+							</ul>
+						</td>
+					</tr>
+				</table>
+				<table id="table-list">
+					<tr>
+						<td>유제품</td>
+					</tr>
+					<tr>
+						<td>
+							<ul>
+							<c:forEach var="li" items="${list7}">
+								<li>${li.name}</li>
+							</c:forEach>
+							</ul>
+						</td>
+					</tr>
+				</table>
+				<table id="table-list">
+					<tr>
+						<td>기타</td>
+					</tr>
+					<tr>
+						<td>
+							<ul>
+							<c:forEach var="li" items="${list8}">
+								<li>${li.name}</li>
+							</c:forEach>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</section>
+		</section>
+	</div>
 
 	<!-- footer영역 -->
 	<jsp:include page="../inc/footer.jsp" />
