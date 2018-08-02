@@ -98,6 +98,7 @@
 				padding-left: 50px;
 				padding-right: 50px;
 				line-height: 250%;
+				
 			}
 				#main-menu > ul > li > a{
 					text-decoration: none;
@@ -106,6 +107,7 @@
 					font-size: 26px;
 					font-weight: bold;
 				}
+				
 				#main-menu > ul > li > a:hover{
 						color: #ff6a00;
 					}

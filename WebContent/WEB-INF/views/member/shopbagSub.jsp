@@ -49,10 +49,10 @@
 				<h2>채소/과일</h2><br/>
 					<ul>
 												
-						<li><a href=""><input type = "checkbox"/>상추<input type = "button" value = "x 이미지 추가할거"/></a></li>						
-						<li><a href=""><input type = "checkbox"/>배추<input type = "button"/></a></li>					
-						<li><a href=""><input type = "checkbox"/>마늘<input type = "button"/></a></li>				
-						<li><a href=""><input type = "checkbox"/>사과<input type = "button"/></a></li>					
+						<li><input type = "checkbox"/>상추<input type = "button" value = "x 이미지 추가할거"/></a></li>						
+						<li><input type = "checkbox"/>배추<input type = "button"/></a></li>					
+						<li><input type = "checkbox"/>마늘<input type = "button"/></a></li>				
+						<li><input type = "checkbox"/><img alt="" src="../images/ajax-loader.gif">사과<input type = "button"/></a></li>					
 					</ul><br/>
 					
 				<h2>육류</h2><br/>
