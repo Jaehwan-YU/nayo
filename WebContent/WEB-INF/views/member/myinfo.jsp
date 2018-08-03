@@ -41,7 +41,6 @@ pageEncoding="UTF-8"%>
 		</aside>
 	
 		<fieldset id = "main">
-			<legend>프로필 수정</legend>
 			<table border="1">
 				<tr>
 					<td colspan="2">프로필 사진</td>
