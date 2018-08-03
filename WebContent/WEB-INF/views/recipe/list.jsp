@@ -27,14 +27,12 @@
 				<h1>나의 냉장고 재료 조합 레시피</h1>
 				<table>
 					<tr>
-					<%-- <c:forEach var="i" begin="1" end="10"> --%>
 						<td>
 							<ul>
 								<li><img src="">로그인 정보 없을 시 : 해당 서비스를 이용하시려면 로그인</li>
 								<li>로그인 정보 있을 시 : 식재료로 가능한 레시피 출력</li>
 							</ul>
 						</td>
-					<%-- </c:forEach> --%>
 					</tr>
 				</table>
 			</section>
@@ -43,14 +41,12 @@
 				<h1>나만의  레시피</h1>
 				<table>
 					<tr>
-					<%-- <c:forEach var="i" begin="1" end="10"> --%>
 						<td>
 							<ul>
 								<li><img src="">로그인 정보 없을 시 : 해당 서비스를 이용하시려면 로그인</li>
 								<li>로그인 정보 있을 시 : 내가 등록한 레시피 출력 / 등록된요리 없으면 공유해보세요</li>
 							</ul>
 						</td>
-					<%-- </c:forEach> --%>
 					</tr>
 				</table>
 			</section>
@@ -59,14 +55,14 @@
 				<h1>이주의 HOT 레시피</h1>
 				<table>
 					<tr>
-					<%-- <c:forEach var="i" begin="1" end="10"> --%>
 						<td>
+							<c:forEach var="s" items="${slist}">
 							<ul>
-								<li><img src="">이미지</li>
-								<li>주별로 한입만 많은 레시피 출력</li>
+								<li><img src="${s.mainImg}"></li>
+								<li>${s.title}</li>
 							</ul>
+							</c:forEach>
 						</td>
-					<%-- </c:forEach> --%>
 					</tr>
 				</table>
 			</section>
@@ -75,14 +71,14 @@
 				<h1>따끈따끈한 최근 음식 정보</h1>
 				<table>
 					<tr>
-					<%-- <c:forEach var="i" begin="1" end="10"> --%>
 						<td>
+							<c:forEach var="d" items="${dlist}">
 							<ul>
-								<li><img src="">이미지</li>
-								<li>최근 일주일 등록된 레시피 출력</li>
+								<li><img src="${d.mainImg}"></li>
+								<li>${d.title}</li>
 							</ul>
+							</c:forEach>
 						</td>
-					<%-- </c:forEach> --%>
 					</tr>
 				</table>
 			</section>

@@ -135,6 +135,66 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 		
 		return tempList;
 	}
+	public List<Recipe> getDateRecipeList() throws SQLException, ClassNotFoundException{
+		List<Recipe> list = new ArrayList<Recipe>();
+		
+		String sql = "SELECT *\r\n" + 
+					"FROM RECIPE\r\n" + 
+					"WHERE REG_DATE >= (SYSDATE-7)\r\n" + 
+					"ORDER BY REG_DATE DESC";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, user, password);
+		PreparedStatement st = con.prepareStatement(sql);
+		ResultSet rs = st.executeQuery();
+		
+		while(rs.next()) {		
+			
+			Recipe recipe = new Recipe(rs.getInt("ID"),
+										rs.getString("TITLE"),
+										rs.getString("SIMPLE_INTRO"),
+										rs.getString("MAIN_IMG"));
+			//System.out.println(shop);
+			list.add(recipe);
+		}
+		con.close();
+		st.close();
+		rs.close();
+	
+		return list;
+	}
+	
+	public List<Recipe> getScoreRecipeList() throws SQLException, ClassNotFoundException{
+		List<Recipe> list = new ArrayList<Recipe>();
+		
+		String sql = "SELECT R.ID, R.TITLE, R.SIMPLE_INTRO, R.MAIN_IMG\r\n" + 
+					"FROM (SELECT ID, TITLE, SIMPLE_INTRO, MAIN_IMG\r\n" + 
+					"        FROM RECIPE\r\n" + 
+					"        WHERE REG_DATE >= (SYSDATE-7)\r\n" + 
+					"        ORDER BY REG_DATE DESC) R\r\n" + 
+					"INNER JOIN (SELECT RECIPE_ID ID\r\n" + 
+					"            FROM REPLY\r\n" + 
+					"            WHERE SCORE >= 4.5) I\r\n" + 
+					"ON R.ID = I.ID";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, user, password);
+		PreparedStatement st = con.prepareStatement(sql);
+		ResultSet rs = st.executeQuery();
+		
+		while(rs.next()) {		
+			
+			Recipe recipe = new Recipe(rs.getInt("ID"),
+										rs.getString("TITLE"),
+										rs.getString("SIMPLE_INTRO"),
+										rs.getString("MAIN_IMG"));
+			//System.out.println(shop);
+			list.add(recipe);
+		}
+		con.close();
+		st.close();
+		rs.close();
+
+		return list;
+	}
 
 	public Recipe getRecipe(int id) {
 		/*String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";

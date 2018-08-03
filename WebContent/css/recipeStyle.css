@@ -20,6 +20,8 @@
 #my-food-recipe{
 	border: 1px solid #979797;
 	margin: 10px;
+	min-height: 130px;
+	overflow: auto;
 }
 	#my-food-recipe > h1{
 		text-align: center;
@@ -33,6 +35,8 @@
 #my-recipe{
 	border: 1px solid #979797;
 	margin: 10px;
+	min-height: 130px;
+	overflow: auto;
 }
 	#my-recipe > h1{
 		text-align: center;
@@ -46,26 +50,42 @@
 #week{
 	border: 1px solid #979797;
 	margin: 10px;
+	min-height: 130px;
+	overflow: auto;
 }
 	#week > h1{
 		text-align: center;
 		padding: 10px 0px;
 	}
-		#week li{
-			text-align: center;
+		#week td{
+			display: flex;
 		}
+			#week ul{
+				width: 120px;
+			}
+				#week li{
+					text-align: center;
+				}
 
 /* -----------------------recently----------------------------- */
 #recently{
 	border: 1px solid #979797;
 	margin: 10px;
+	min-height: 130px;
+	overflow: auto;
 }
 	#recently > h1{
 		text-align: center;
 		padding: 10px 0px;
 	}
-		#recently li{
-			text-align: center;
+		#recently td{
+			display: flex;
 		}
+		#recently ul{
+			width: 120px;
+		}
+			#recently li{
+				text-align: center;
+			}
 
 
