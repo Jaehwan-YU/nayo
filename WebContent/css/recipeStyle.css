@@ -20,8 +20,13 @@
 #my-food-recipe{
 	border: 1px solid #979797;
 	margin: 10px;
+<<<<<<< HEAD
 	text-align: center;
 	height: 100px;
+=======
+	min-height: 130px;
+	overflow: auto;
+>>>>>>> refs/remotes/origin/master
 }
 	#my-food-recipe > h1{
 		text-align: center;
@@ -36,8 +41,13 @@
 #my-recipe{
 	border: 1px solid #979797;
 	margin: 10px;
+<<<<<<< HEAD
 	text-align: center;
 	height: 100px;
+=======
+	min-height: 130px;
+	overflow: auto;
+>>>>>>> refs/remotes/origin/master
 }
 	#my-recipe > h1{
 		text-align: center;
@@ -51,30 +61,62 @@
 #week{
 	border: 1px solid #979797;
 	margin: 10px;
+<<<<<<< HEAD
 	text-align: center;
 	height: 100px;
+=======
+	min-height: 130px;
+	overflow: auto;
+>>>>>>> refs/remotes/origin/master
 }
 	#week > h1{
 		text-align: center;
 		padding: 10px 0px;
 	}
+<<<<<<< HEAD
 		#week table{
 			display: inline-table;
+=======
+		#week td{
+			display: flex;
+>>>>>>> refs/remotes/origin/master
 		}
+			#week ul{
+				width: 120px;
+			}
+				#week li{
+					text-align: center;
+				}
 
 /* -----------------------recently----------------------------- */
 #recently{
 	border: 1px solid #979797;
 	margin: 10px;
+<<<<<<< HEAD
 	text-align: center;
 	height: 100px;
+=======
+	min-height: 130px;
+	overflow: auto;
+>>>>>>> refs/remotes/origin/master
 }
 	#recently > h1{
 		text-align: center;
 		padding: 10px 0px;
 	}
+<<<<<<< HEAD
 		#recently table{
 			display: inline-table;
+=======
+		#recently td{
+			display: flex;
+>>>>>>> refs/remotes/origin/master
 		}
+		#recently ul{
+			width: 120px;
+		}
+			#recently li{
+				text-align: center;
+			}
 
 

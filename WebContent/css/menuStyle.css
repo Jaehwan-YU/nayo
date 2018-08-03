@@ -6,97 +6,12 @@
 /*-----reset--------------------------------------------*/
 
 /*-----Common style------------------------------------------*/
-/* .content-container {
-	height: 100%;
-	width: 960px;
-	margin-left: auto;
-	margin-right: auto;
-	position: relative;	
-}
-.clearfix::after{
-	content:".";
-	height:0px;
-	display: block;
-	clear:left;
-	overflow:hidden;
-}	
 
-.menu-container{
-	width: 330px;
-	height: auto;
-	margin-right: 5px;
-	margin-left: 5px;
-}
-
-.cook-container{
-	width: 200px;
-	height: auto;
-	margin-right: 5px;	
-}
-
-.recommend-container{
-	width: 200px;
-	height: auto;
-	margin-right: 5px;
-}
-
-.bookmark-container{
-	width: 200px;
-	height: auto;	
-}
- */
 /*-----styling------------------------------------------*/
 /*-----#header style------------------------------------*/
 
 /*-----#visual style---------------------------------------*/
 
-/*-----#main-menu style------------------------------------*/
-/* #main-menu {
-	height: 80px;			
-	margin-bottom: 20px;
-	
-}
-		
-	#main-menu > h1{
-	display: none;
-	}
-	
-	#main-menu .content-container{
-	}
-	
-		#main-menu-list{
-			text-align: center;
-		}
-	
-	
-			#main-menu-list > ul{
-				overflow: auto;
-				display: flex;
-			}
-		
-		 		#main-menu-list > ul > li {
-					flex-grow: 1;
-					line-height: 80px;
-				}
-				
-				#main-menu-list > ul > li:first-child{
-					padding-left: 0;
-					background: none;
-				
-				}
-			
-					#main-menu-list >ul > li > a{
-						text-decoration: none;
-						color: #000000;
-						font-family: ¸¼Àº µ¸¿ò, µ¸¿ò, Arial, sans-serif; 
-						font-size: 40px;
-						font-weight: bold;
-					}
-					
-					#main-menu-list >ul > li > a:hover{
-						color: orange;	
-					}
-					 */
 /*-----#body style------------------------------------*/					
 #body{
 	min-height: 600px;
@@ -108,35 +23,68 @@
 	background: #ececec;
 	text-align: center;
 }
-
-.menu-container{
-	width: 580px;
-	margin-right: 15px;
+.main-container{
+	width: 590px;
+	margin: 0px 10px;
 }
-
-.cook-container{	
-	width : 140px;
-}
-
-.recommend-container{
-	width : 140px;	
-}
-
-.bookmark-container{	
-	width : 140px;	
-}
-
 	#daily-menu{
 		border: 2px solid orange;
 		background: white;
 		margin-right: 15px;
-		width: inherit;
-		height: 800px;
+		width: 580px;
+		box-sizing: inherit;
+		height: 600px;
 		
 	}
-	#cook{
-		border: 2px solid orange;
-		background: white;	
+	#week-name{
+		display: flex;
+	}
+	#week-name li{
+		width: 82px;
+		style: "word-break:break-all";
+		border: 1px solid #000000;
+		padding: 10px 0px;
+	}
+		
+	
+#table{
+	table-layout: fixed;
+	padding: 0px;
+	margin: 0px;
+}
+#table tr{
+	padding: 0px;
+	margin: 0px;
+}
+		
+#table td{
+	width: 82px;
+	height: 90px;
+	style: "word-break:break-all";
+	border: 1px solid #000000;
+	padding: 0px;
+	margin: 0px;
+}
+
+
+
+.menu-container{	
+	width : 140px;
+	border: 2px solid orange;
+	background: white;
+	margin: 0px 5px;
+	overflow: auto;
+}
+	.menu-container h4{
+		font-size: 13px;
+	}
+		.menu-container li{
+			font-size: 12px;
+			
+		}
+
+	/* #cook{
+			
 		margin-right: 15px;
 		height: 800px;
 	}
@@ -150,10 +98,10 @@
 		border: 2px solid orange;
 		background: white;	
 		height: 800px;
-	}
+	} 
 #calendar{
 	border: 1px solid gray;
 	table-layout: fixed;
 	width: inherit;
-}
+} */
 /*-----#footer style------------------------------------*/

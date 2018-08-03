@@ -4,7 +4,7 @@
 	background: #FFA648;
 }
 
-	#header > .content-container > h1{
+	#header > .main-menu-container > h1{
 		position: absolute;
 		left: 0px;
 		top: 30px;
@@ -80,11 +80,17 @@
 				}
 
 /* -----------------------main-menu----------------------------- */
+.main-menu-container{
+	width: 100%;	
+}	
+	
 	#main-menu{
 		display: inline-block;
-		height: 40px;
-		width: 960px;
-		margin: 20px 0px;
+		height: 70px;
+		width: inherit;
+		margin: 0px 0px;
+		background: #ebebeb;
+		text-align: center;		
 	}
 		#main-menu > h1{
 			display: none;
@@ -97,15 +103,23 @@
 				flex-grow: 1;
 				padding-left: 50px;
 				padding-right: 50px;
-				line-height: 250%;
+				margin-top: 21px;
+				
+				
 			}
-				#main-menu > ul > li > a{
-					text-decoration: none;
-					color: #000000;
-					font-family: 맑은 돋움, 돋움, Arial, sans-serif;
-					font-size: 26px;
-					font-weight: bold;
+				#main-menu > ul > li > .m-menu{
+					padding:18px 5px;
+	                font-size:27px;
+		            color:black;
+		            text-align:center;
+		            text-decoration:none;
+		            font-weight: bold;
+		            font-family: 맑은 돋움, 돋움, Arial, sans-serif;		            
+					
 				}
-				#main-menu > ul > li > a:hover{
-						color: #ff6a00;
+				
+				#main-menu > ul > li > .m-menu:hover{
+						color:#ff6a00;
+						border-bottom : 2px solid #ff6a00;
+						
 					}
