@@ -20,52 +20,61 @@
 #my-food-recipe{
 	border: 1px solid #979797;
 	margin: 10px;
+	text-align: center;
+	height: 100px;
 }
 	#my-food-recipe > h1{
 		text-align: center;
 		padding: 10px 0px;
 	}
-		#my-food-recipe li{
-			text-align: center;
-		}
+	#my-food-recipe table{
+		display: inline-table;
+	}
+
 
 /* -----------------------my-recipe----------------------------- */
 #my-recipe{
 	border: 1px solid #979797;
 	margin: 10px;
+	text-align: center;
+	height: 100px;
 }
 	#my-recipe > h1{
 		text-align: center;
 		padding: 10px 0px;
 	}
-		#my-recipe li{
-			text-align: center;
+		#my-recipe table{
+			display: inline-table;
 		}
 
 /* -----------------------week----------------------------- */
 #week{
 	border: 1px solid #979797;
 	margin: 10px;
+	text-align: center;
+	height: 100px;
 }
 	#week > h1{
 		text-align: center;
 		padding: 10px 0px;
 	}
-		#week li{
-			text-align: center;
+		#week table{
+			display: inline-table;
 		}
 
 /* -----------------------recently----------------------------- */
 #recently{
 	border: 1px solid #979797;
 	margin: 10px;
+	text-align: center;
+	height: 100px;
 }
 	#recently > h1{
 		text-align: center;
 		padding: 10px 0px;
 	}
-		#recently li{
-			text-align: center;
+		#recently table{
+			display: inline-table;
 		}
 
 

@@ -1,0 +1,69 @@
+@import url("reset.css");
+@import url("commonStyle.css");
+@import url("header.css");
+@import url("visual.css");
+@import url("footer.css");
+/* -----------------------reset---------------------------------- */
+
+/* -----------------------styling--------------------------------- */
+/* -----------------------Common Style---------------------------- */
+
+/* -----------------------styling--------------------------------- */
+/* =======================header================================== */
+
+/* =======================visual================================== */
+
+
+/* =======================body================================== */	
+#body{
+	min-height: 600px;
+	overflow: auto;
+	margin-top: 30px;
+}
+	#body > .content-container{
+		display: flex;
+	}
+	
+/* -----------------------aside----------------------------- */		
+
+/* -----------------------main----------------------------- */
+
+	#main{
+		flex-grow: 1;
+		width: 960px;
+		box-sizing: border-box;
+	}
+		#main > h1{
+			display: none;
+		}
+		#recipe-info{
+			width: inherit;
+			text-align: center;
+		}
+			#recipe-info > table {
+				display: inline-table;
+				width: inherit;
+				border: 2px solid gray;
+				
+			}
+			
+			#recipe-info th {
+				width: 200px;
+				
+			}
+			
+			#recipe-info > table:last-child > td > table{
+				width: 100%;
+			}
+			
+			#recipe-info .process-detail {
+				width: 100%;
+			}
+			
+			#recipe-info .process-detail th {
+				width: 50px;
+			}
+/* -----------------------table----------------------------- */
+		
+/* =======================footer================================== */
+
