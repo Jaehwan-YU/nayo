@@ -59,7 +59,7 @@
 							<c:forEach var="s" items="${slist}">
 							<ul>
 								<li><img src="${s.mainImg}"></li>
-								<li>${s.title}</li>
+								<li><a href="detail?id=${s.id}">${s.title}</a></li>
 							</ul>
 							</c:forEach>
 						</td>
@@ -75,7 +75,7 @@
 							<c:forEach var="d" items="${dlist}">
 							<ul>
 								<li><img src="${d.mainImg}"></li>
-								<li>${d.title}</li>
+								<li><a href="detail?id=${d.id}">${d.title}</a></li>
 							</ul>
 							</c:forEach>
 						</td>

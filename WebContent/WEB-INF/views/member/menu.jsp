@@ -122,6 +122,7 @@
 					</tbody>
 				</table> -->
 			</section>
+			<input type="submit" value="저장" />
 		</div>
 
 		<div class="menu-container">
