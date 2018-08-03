@@ -40,14 +40,14 @@
 		</div>
 	</header>
 	
-	<section class="content-container">
+	<section class="main-menu-container">
 		<nav id="main-menu">
 			<h1>메인메뉴</h1>
 				<ul>
-					<li><a href="${ctx}/member/food">나의 식재료</a></li>
-					<li><a href="${ctx}/recipe/list">레시피</a></li>
-					<li><a href="${ctx}/member/shopbag">장바구니</a></li>
-					<li><a href="${ctx}/member/menu">나의 식단</a></li>
+					<li><a href="${ctx}/member/food" class = "m-menu">나의 식재료</a></li>
+					<li><a href="${ctx}/recipe/list" class = "m-menu">레시피</a></li>
+					<li><a href="${ctx}/member/shopbag" class = "m-menu">장바구니</a></li>
+					<li><a href="${ctx}/member/menu" class = "m-menu">나의 식단</a></li>
 				</ul>
 		</nav>			
 	</section>

@@ -35,6 +35,73 @@
 		background: none;
 		}
 			
+
+					#main-menu-list >ul > li > a{
+						text-decoration: none;
+						color: #000000;
+						font-family: ¸¼Àº µ¸¿ò, µ¸¿ò, Arial, sans-serif; 
+						font-size: 40px;
+						font-weight: bold;
+					}
+					
+					#main-menu-list >ul > li > a:hover{
+						color: orange;	
+					} */
+
+/*-----#main-food-list style------------------------------------*/
+	#main-food {
+		height: 100%; /* inherit */
+		width: 960px;
+		margin-left: auto;
+		margin-right: auto;		
+		position: relative;
+		margin-top: 20px;
+		margin-bottom: 20px;	
+		text-align: center;	
+	
+}
+		
+	#main-food > h1{
+		display: none;
+	}
+			#main-food-list{
+				background: #ff5b5b;				
+			}
+		
+			#main-food-list > ul{
+				overflow: auto;
+				display: flex;
+			}
+		
+		 		#main-food-list > ul > li {
+					flex-grow: 1;
+					
+				}
+				
+				#main-food-list > ul > li:first-child{
+					padding-left: 0;
+					background: none;
+				
+				}
+			
+					#main-food-list >ul > li > a{
+						text-decoration: none;
+						color: #ffffff;
+						font-family: ¸¼Àº µ¸¿ò, µ¸¿ò, Arial, sans-serif; 
+						font-size: 20px;
+						font-weight: bold;
+					}
+					
+					#main-food-list >ul > li > a:hover{
+						color: black;	
+					}
+
+
+.main-food-container > h1{
+	display: none;	
+}
+
+
 /*-----#body style------------------------------------*/					
 #body{
 	min-height: 600px;
@@ -44,12 +111,27 @@
 	margin-right: auto;	
 	background: #ececec;
 	overflow-y:auto;  
+	
+	
 }
 	#body > h1{
 		display: none;
 	}
+
+	
+	
+.shopbag-container{
+	width: 960px;
+    height: 200px;
+    position: relative;
+    margin-left: 10px;
+    margin-top: 10px;
+    
+}	
+
 .table{
 	margin: 20px;
+
 }
 	
 #table-list{

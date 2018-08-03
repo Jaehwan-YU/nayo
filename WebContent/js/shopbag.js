@@ -1,4 +1,4 @@
-
+//-------------- shopbag ---------------------------------------------------------------------------
 window.addEventListener("load", function(){
 
     var vegbutton = document.getElementById("veg_button");	 
@@ -12,4 +12,16 @@ window.addEventListener("load", function(){
     
      } , 800);    
  });
-                        
+
+//-------------- shopbagMain ---------------------------------------------------------------------------
+ 
+ window.addEventListener("load", function(){
+    
+   
+    var shopbagbutton = document.querySelector("#shopbag-container");	 
+     
+       shopbagbutton.addEventListener("click", function(){
+        alert("aaaaa");
+    })
+});
+      
