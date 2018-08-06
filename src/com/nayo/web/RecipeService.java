@@ -489,6 +489,8 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 	
 	public List<Recipe> getCookableRecipeList(String memberEmail) throws ClassNotFoundException, SQLException{
 		
+		if(memberEmail == null) return null;
+		
 		List<Recipe> list = new ArrayList<>();
 		
 		/*String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
@@ -504,7 +506,7 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 				"(select recipe_id, main_or_sub, case when main_or_sub =1 then count_f*10 else count_f end point from \r\n" + 
 				"(select count(i.id) count_f, recipe_id, main_or_sub from ingredients i inner join \r\n" + 
 				"(select * from food where reg_email = ? and use_date is null) f on i.name = f.name group by recipe_id, main_or_sub)) \r\n" + 
-				"group by recipe_id) n on m.recipe_id = n.recipe_id order by point";
+				"group by recipe_id) n on m.recipe_id = n.recipe_id where point >= 5 order by point";
 		
 		String sql2 = "select*from recipe where id = ?";
 				
