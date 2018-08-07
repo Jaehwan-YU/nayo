@@ -7,6 +7,7 @@ import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,6 +34,8 @@ public class FoodList extends HttpServlet {
 		RecipeService rs = new RecipeService(getServletContext());
 	/*	PrintWriter out = response.getWriter();*/
 		String email = (String) session.getAttribute("email");
+		String ctx = request.getContextPath();
+		
 		
 		if(session.getAttribute("email") == null) {
 			response.sendRedirect("../login");
@@ -48,8 +51,6 @@ public class FoodList extends HttpServlet {
 		List<Food> list2;
 		List<Food> list3;
 		
-		
-		
 		try {
 			list = fs.getFoodCateList();
 			rList = rs.getCookableRecipeList(email);
@@ -61,6 +62,7 @@ public class FoodList extends HttpServlet {
 			request.setAttribute("list1", list1);
 			request.setAttribute("list2", list2);
 			request.setAttribute("list3", list3);
+			request.setAttribute("ctx", ctx);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

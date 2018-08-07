@@ -23,13 +23,15 @@ public class RecipeList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String ctx = request.getContextPath();
 		request.setAttribute("ctx", ctx);
-
+		HttpSession session = request.getSession();
+		String email = (String)session.getAttribute("email");
 		
 		BookmarkService bs = new BookmarkService(getServletContext());
 		FoodService fs = new FoodService(getServletContext());
 		RecipeService rs = new RecipeService(getServletContext());
 		
 		try {
+			List<Recipe> clist = rs.getCookableRecipeList(email);
 			List<Recipe> slist = rs.getScoreRecipeList();
 			List<Recipe> dlist = rs.getDateRecipeList();
 			

@@ -14,6 +14,7 @@ public class Food {
 	private int foodCateId;
 	private int keepAreaId;
 	private String foodImg;
+	private int restLife;
 	
 	public Food() {
 		
@@ -23,15 +24,16 @@ public class Food {
 		this.foodCateId = foodCateId;
 				
 	}
-	public Food(String id, String name, int foodLife, Date sellLife, int keepAreaId) {
+	public Food(String id, String name, int foodLife, Date sellLife, int keepAreaId, int restLife) {
 		this.id = id;
 		this.name = name;
 		this.foodLife = foodLife;
 		this.sellLife = sellLife;
 		this.keepAreaId = keepAreaId;
+		this.restLife = restLife;
 	}
 	public Food(String id, String name, int foodLife, Date sellLife, Date regDate, Date useDate, String regEmail,
-			int foodCateId, int keepAreaId, String foodImg) {
+			int foodCateId, int keepAreaId, String foodImg, int restLife) {
 		this.id = id;
 		this.name = name;
 		this.foodLife = foodLife;
@@ -42,6 +44,7 @@ public class Food {
 		this.foodCateId = foodCateId;
 		this.keepAreaId = keepAreaId;
 		this.foodImg = foodImg;
+		this.restLife = restLife;
 	}
 	public String getId() {
 		return id;
@@ -103,6 +106,12 @@ public class Food {
 	}
 	public void setFoodImg(String foodImg) {
 		this.foodImg = foodImg;
+	}
+	public int getRestLife() {
+		return restLife;
+	}
+	public void setRestLife(int restLife) {
+		this.restLife = restLife;
 	}
 	@Override
 	public String toString() {

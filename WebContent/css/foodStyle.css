@@ -49,18 +49,22 @@ li{
 }
 
 .food-container{
+	padding-top: 10px;
 	border: 1px solid #ccc;
 	height: 500px;
 	width: 318px;
 	margin: 0px;
 	float: left;
+	display:inline-block;
 	text-align:center;
 }
+.hidden-head{
+	display: none;
+}
 
-	.food-container > form {
-		display:inline-block;
-		text-align: center;
-	}
+.food-check{
+	display: none;
+}
 
 .center-alignment{
 	text-align: center;
@@ -100,8 +104,6 @@ li{
 			padding: 0px;
 			background: none; 
 			}
-	
-	
 	#food-service{
 	text-align: center;		
 	}
@@ -126,4 +128,33 @@ li{
 		padding: 0px;
 		background: none;
 		}
+		
+	.food-container table {
+		display: inline-table;
+	}
+	.food-container td {
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	.food-container td {
+		width: 100px;
+		height: 100px;
+	}
+	
+	.food-container ul{
+		position: relative;
+	}
+	.food-container ul li:first-child {
+		width: 20px;
+		height: 20px;
+		border-radius: 10px;
+		position: absolute;
+		text-align: center;
+		line-height: 20px;
+		font-size: 10px;
+		font-weight: bold;
+		color: white;
+		
+	}
 /*-----#footer style------------------------------------*/
