@@ -34,6 +34,7 @@
 		width: 580px;
 		box-sizing: inherit;
 		height: 600px;
+		overflow: auto;
 		
 	}
 	#week-name{
@@ -47,26 +48,29 @@
 	}
 		
 	
-#table{
-	table-layout: fixed;
-	padding: 0px;
-	margin: 0px;
+#menu-table{
 }
-#table tr{
-	padding: 0px;
-	margin: 0px;
-}
-		
-#table td{
-	width: 82px;
-	height: 90px;
-	style: "word-break:break-all";
-	border: 1px solid #000000;
-	padding: 0px;
-	margin: 0px;
-}
-
-
+	#menu-table tr{
+		width : 550px;
+		border-bottom: 1px solid #979797;
+	}
+	#menu-table th{
+		background: #e9e9e9;
+		width: 70px;
+		height: 50px;
+	}
+		#menu-table td:nth-child(2){
+			width: 170px;
+			background: yellow;
+		}
+		#menu-table td:nth-child(3){
+			width: 170px;
+			background: pink;
+		}
+		#menu-table td:last-child{
+			width: 170px;
+			background: green;
+		}
 
 .menu-container{	
 	width : 140px;

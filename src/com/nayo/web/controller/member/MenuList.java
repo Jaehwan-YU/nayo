@@ -2,6 +2,7 @@ package com.nayo.web.controller.member;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -13,9 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.nayo.web.RecipeService;
+import com.nayo.web.entity.Menu;
 import com.nayo.web.entity.Recipe;
 import com.nayo.web.member.BookmarkService;
 import com.nayo.web.member.FoodService;
+import com.nayo.web.member.MenuService;
 
 
 @WebServlet("/member/menu")
@@ -29,6 +32,7 @@ public class MenuList extends HttpServlet {
 		BookmarkService bs = new BookmarkService(getServletContext());
 		FoodService fs = new FoodService(getServletContext());
 		RecipeService rs = new RecipeService(getServletContext());
+		MenuService ms = new MenuService(getServletContext());
 	
 		String email = (String)session.getAttribute("email");
 		
@@ -37,14 +41,29 @@ public class MenuList extends HttpServlet {
 			return;
 		}
 		
+		Calendar tDay = Calendar.getInstance();
+		int year = tDay.get(Calendar.YEAR);
+		int month = tDay.get(Calendar.MONTH);
+		int day = tDay.get(Calendar.DATE);
+		
+		Calendar dSet = Calendar.getInstance();
+		dSet.set(year, month, 1);
+		int last_day = tDay.getActualMaximum(Calendar.DATE);
+		
 		try {
 			List<Recipe> blist = bs.getBookmarkList(email);
 			List<Recipe> rlist = rs.getCookableRecipeList(email);
 			List<Recipe> slist = rs.getScoreRecipeList();
+			List<Menu> mlist = ms.getMenu(email);
 			
 			request.setAttribute("blist", blist);
 			request.setAttribute("rlist", rlist);
 			request.setAttribute("slist", slist);
+			request.setAttribute("mlist", mlist);
+			request.setAttribute("year", year);
+			request.setAttribute("month", month);
+			request.setAttribute("day", day);
+			request.setAttribute("last", last_day);
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/member/menu.jsp");
 			dispatcher.forward(request, response);
