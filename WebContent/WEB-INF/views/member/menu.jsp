@@ -42,6 +42,7 @@
 
 				</div>
 				<h1>${year}년 ${month}월</h1>
+				<form method="post">
 				<table id="menu-table">
 					<thead>
 						<tr>
@@ -52,18 +53,17 @@
 						</tr>
 					</thead>
 					<tbody>
-					<c:forEach var="m" items="${mlist}">
-							<c:forEach var="d" begin="1" end="${last}">
-								<c:set var="date" value="${m.menuDate}"/>
-								<c:set var="md" value="${fn:split('2018-08-04','-')}"/>
+						<c:forEach var="d" begin="1" end="${last}">	
+						<c:forEach var="m" items="${mlist}">
+							<c:set var="md" value="${fn:split(m.menuDate,'-')}"/>
 							<tr>
 								<th>${d}</th>
 								<td value="${d}" name="1" ondrop="drop(event)" ondragover="dragover(event)"><c:if test="${md[2]==d}"><c:if test="${m.mill==1}">${m.title}</c:if></c:if></td>
 								<td value="${d}" name="2" ondrop="drop(event)" ondragover="dragover(event)"><c:if test="${md[2]==d}"><c:if test="${m.mill==2}">${m.title}</c:if></c:if></td>
 								<td value="${d}" name="3" ondrop="drop(event)" ondragover="dragover(event)"><c:if test="${md[2]==d}"><c:if test="${m.mill==3}">${m.title}</c:if></c:if></td>
 							</tr>
-								</c:forEach>
-							</c:forEach>
+						</c:forEach>
+						</c:forEach>
 					</tbody>
 					<%-- <tbody>
 					<c:if test="${mill}==1"></c:if>
@@ -75,8 +75,9 @@
 					</c:forEach>
 					</tbody> --%>
 				</table>
-			</section>
 			<input type="submit" value="저장" />
+			</form>
+			</section>
 		</div>
 
 		<div class="menu-container">

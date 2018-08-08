@@ -1,6 +1,7 @@
 package com.nayo.web.controller.member;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.List;
@@ -23,7 +24,29 @@ import com.nayo.web.member.MenuService;
 
 @WebServlet("/member/menu")
 public class MenuList extends HttpServlet {
-	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		String regEmail = (String)session.getAttribute("email");
+		MenuService ms = new MenuService(getServletContext());
+		
+		String date_ = request.getParameter("");
+		Date date = Date.valueOf(date_);
+		String mill_ = request.getParameter("mill");
+		int mill = Integer.parseInt(mill_);
+		String recipeId_ = request.getParameter("id");
+		int recipeId = Integer.parseInt(recipeId_);
+		
+		Menu menu = new Menu(regEmail, date, mill, recipeId);
+		
+		try {
+			ms.addMenu(menu);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		response.sendRedirect("");
+	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String ctx = request.getContextPath();
 		request.setAttribute("ctx", ctx);
