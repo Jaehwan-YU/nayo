@@ -99,49 +99,65 @@ public class FoodService {
 		return list;
 	}
 	
-	public void addFood(String memberEmail, String foodName) throws SQLException, ClassNotFoundException {
+	public void addFood(String memberEmail, String foodName){
 
 		int foodLife = 90;
 		int foodCateId = 1;
 		int keepAreaId = 1;
 		String foodImg = "default img";
 
-		String addSql = "INSERT INTO FOOD(ID, NAME, FOOD_LIFE, REG_EMAIL, FOOD_CATE_ID, KEEP_AREA_ID, FOOD_IMG)"
-				+ " VALUES(FOOD_SEQ.nextval, ?, ?, ?, ?, ?, ?)";
+		String addSql = "INSERT INTO FOOD(ID, NAME, FOOD_LIFE, REG_EMAIL, FOOD_CATE_ID, KEEP_AREA_ID, FOOD_IMG, FOOD_DEAD_LINE)"
+				+ " VALUES(FOOD_SEQ.nextval, ?, ?, ?, ?, ?, ?, sysdate+?)";
 
 		String selectSql = "SELECT * FROM KEEP_TIP WHERE NAME = ?";
 
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection con = DriverManager.getConnection(url, user, password);
-		PreparedStatement selectStmt = con.prepareStatement(selectSql);
-		PreparedStatement addStmt = con.prepareStatement(addSql);
-
-		selectStmt.setString(1, foodName);
-
-		ResultSet selectRs = selectStmt.executeQuery();
-
-		if (selectRs.next()) {
-			foodLife = selectRs.getInt("FOOD_LIFE");
-			foodCateId = selectRs.getInt("FOOD_CATE_ID");
-			keepAreaId = selectRs.getInt("KEEP_AREA_ID");
-			foodImg = selectRs.getString("FOOD_IMG");
+		Connection con = null;
+		PreparedStatement selectStmt = null;
+		PreparedStatement addStmt = null;
+		ResultSet selectRs = null;
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, user, password);
+			selectStmt = con.prepareStatement(selectSql);
+			addStmt = con.prepareStatement(addSql);
+			selectStmt.setString(1, foodName);
+	
+			selectRs = selectStmt.executeQuery();
+	
+			if (selectRs.next()) {
+				foodLife = selectRs.getInt("FOOD_LIFE");
+				foodCateId = selectRs.getInt("FOOD_CATE_ID");
+				keepAreaId = selectRs.getInt("KEEP_AREA_ID");
+				foodImg = selectRs.getString("FOOD_IMG");
+			}
+	
+			addStmt.setString(1, foodName);
+			addStmt.setInt(2, foodLife);
+			addStmt.setString(3, memberEmail);
+			addStmt.setInt(4, foodCateId);
+			addStmt.setInt(5, keepAreaId);
+			addStmt.setString(6, foodImg);
+			addStmt.setInt(7, foodLife);
+	
+			int cnt = addStmt.executeUpdate();
+	
+			System.out.println(cnt > 0 ? "등록 되었습니다." : "등록 실패했습니다.");
+	
+			selectRs.close();
+			addStmt.close();
+			selectStmt.close();
+			con.close();
+		}catch(SQLException | ClassNotFoundException e){
+				try {
+					selectRs.close();
+					addStmt.close();
+					selectStmt.close();
+					con.close();
+				} catch (SQLException e1) {
+					System.out.println(e1);
+				}
+				System.out.println(e);
 		}
-
-		addStmt.setString(1, foodName);
-		addStmt.setInt(2, foodLife);
-		addStmt.setString(3, memberEmail);
-		addStmt.setInt(4, foodCateId);
-		addStmt.setInt(5, keepAreaId);
-		addStmt.setString(6, foodImg);
-
-		int cnt = addStmt.executeUpdate();
-
-		System.out.println(cnt > 0 ? "등록 되었습니다." : "등록 실패했습니다.");
-
-		selectRs.close();
-		addStmt.close();
-		selectStmt.close();
-		con.close();
 	}
 
 	public void setFood(int foodId, Date sellLife, int foodLife, int keepAreaId)

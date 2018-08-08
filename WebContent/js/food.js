@@ -1,6 +1,7 @@
 window.addEventListener("load", function() {
 	var section = document.querySelector("#food-show-area");
 	var lis = section.querySelectorAll(".rest-life");
+	var foodOverlayBlock = section.querySelector(".food-overlay-block");
     var foodService = document.querySelector("#food-service");
     var foodForm = section.querySelector("form");
     var multipleButton = foodService.querySelector(".multiple-button");
@@ -8,10 +9,12 @@ window.addEventListener("load", function() {
     var useButton = foodService.querySelector(".use-button");
     var delButton = foodService.querySelector(".del-button");
 	var foodOverlay = document.querySelector(".food-overlay");
+	var blackOverlay = document.querySelector(".black-overlay");
 	var foodAddSection = foodOverlay.querySelector(".food-add-section");
 	var foodNameInput = foodAddSection.querySelector("#food-name-input");
 	var foodNameAddButton = foodAddSection.querySelector('input[type="button"]');
 	var ul = foodAddSection.querySelector("ul");
+	var exitOverlayButton = foodOverlay.querySelector("img");
 	
 	for (var i = 0; i < lis.length; i++) {
 		if (lis[i].textContent <= 15 && lis[i].textContent > 7) 
@@ -87,7 +90,8 @@ window.addEventListener("load", function() {
 	
 	foodNameAddButton.onclick = function(){
 		var foodName = foodNameInput.value;
-		var addHTML = '<li>'+foodName+'<img src="/nayo/images/x_button.png"></li>'
+		var addHTML = '<li>'+foodName+'<img src="/nayo/images/x_button.png">'
+						+'<input type="checkbox" checked="true" name="food-name" value="'+foodName+'"/></li>'
 
 		ul.innerHTML += addHTML;
 
@@ -100,8 +104,26 @@ window.addEventListener("load", function() {
 		
 		if(el.nodeName == "IMG" )
 			 el = el.parentElement;
-
+		
 		 el.remove();
 	}
+	
+	exitOverlayButton.onclick = function(){
+		var nameLis = ul.querySelectorAll("li");
+
+		for(var i=0; i<nameLis.length; i++)
+			nameLis[i].remove();
+		
+		foodNameInput.value = null;
+		
+		blackOverlay.style.display = "none";
+		foodOverlay.style.display = "none";
+	}
+
+	foodOverlayBlock.onclick = function(){
+		blackOverlay.style.display = "block";
+		foodOverlay.style.display = "block";
+	}
+
 
 });

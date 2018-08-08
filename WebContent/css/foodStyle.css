@@ -146,7 +146,7 @@ input[name="food-check"]{
 	.food-overlay{
 		display: none;
         position: absolute;
-        top: 25%;
+        top: 20%;
         left: 15%;
         width: 600px;
         height: 500px;
@@ -160,6 +160,12 @@ input[name="food-check"]{
 	.food-overlay section{
 		text-align: center;
 
+	}
+	.food-overlay section > img{
+		position: absolute;
+		left: auto;
+		right: 2%;
+		top: 2%;
 	}
 	.food-overlay section h1{
 		margin-bottom: 10px;
@@ -193,6 +199,10 @@ input[name="food-check"]{
 	.food-overlay section ul li{
 		margin-right: 25px;
 		margin-top: 15px;
+	}
+	
+	.food-overlay section ul li input{
+		display: none;
 	}
 	.food-overlay section ul img{
 		max-height: 10px;
