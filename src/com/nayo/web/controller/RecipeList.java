@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.nayo.web.RecipeService;
 import com.nayo.web.entity.Recipe;
@@ -22,12 +23,15 @@ public class RecipeList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String ctx = request.getContextPath();
 		request.setAttribute("ctx", ctx);
+		HttpSession session = request.getSession();
+		String email = (String)session.getAttribute("email");
 		
 		BookmarkService bs = new BookmarkService(getServletContext());
 		FoodService fs = new FoodService(getServletContext());
 		RecipeService rs = new RecipeService(getServletContext());
 		
 		try {
+			List<Recipe> clist = rs.getCookableRecipeList(email);
 			List<Recipe> slist = rs.getScoreRecipeList();
 			List<Recipe> dlist = rs.getDateRecipeList();
 			
@@ -40,7 +44,6 @@ public class RecipeList extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 
 }

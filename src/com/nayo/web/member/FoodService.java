@@ -55,7 +55,8 @@ public class FoodService {
 					rs.getString("NAME"), 
 					rs.getInt("FOOD_LIFE"), 
 					rs.getDate("SELL_LIFE"),
-					rs.getInt("KEEP_AREA_ID"));
+					rs.getInt("KEEP_AREA_ID"),
+					rs.getInt("REST_LIFE"));
 			// System.out.println(shop);
 			list.add(food);
 		}
@@ -69,7 +70,9 @@ public class FoodService {
 	public List<Food> getFoodList(String memberEmail, int keepAreaId) throws ClassNotFoundException, SQLException {
 		List<Food> list = new ArrayList<Food>();
 
-		String sql = "SELECT * FROM FOOD WHERE REG_EMAIL = ? AND KEEP_AREA_ID = ? AND USE_DATE IS NULL";
+		String sql = "SELECT FOOD_DEAD_LINE-sysdate rest_life, food.* FROM FOOD WHERE REG_EMAIL = ? "
+				+ "AND KEEP_AREA_ID = ? AND USE_DATE IS NULL "
+				+ "order by rest_life";
 
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, user, password);
@@ -84,7 +87,8 @@ public class FoodService {
 					rs.getString("NAME"), 
 					rs.getInt("FOOD_LIFE"), 
 					rs.getDate("SELL_LIFE"),
-					rs.getInt("KEEP_AREA_ID"));
+					rs.getInt("KEEP_AREA_ID"),
+					rs.getInt("REST_LIFE"));
 			// System.out.println(shop);
 			list.add(food);
 		}

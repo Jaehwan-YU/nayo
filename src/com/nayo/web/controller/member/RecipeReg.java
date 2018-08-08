@@ -30,6 +30,14 @@ public class RecipeReg extends HttpServlet {
 			throws ServletException, IOException {
 		String ctx = request.getContextPath();
 		request.setAttribute("ctx", ctx);
+		HttpSession session = request.getSession();
+		String email = (String)session.getAttribute("email");
+		
+		if(email == null || !email.equals("")) {
+			response.sendRedirect("/nayo/login");
+			return;
+		}
+		
 		
 		RecipeService rs = new RecipeService(getServletContext());
 		
@@ -54,7 +62,7 @@ public class RecipeReg extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		String regEmail = (String) session.getAttribute("email");
-		String savePath = request.getServletContext().getRealPath("\\images\\recipe\\processImage");
+		String savePath = "C:\\Users\\youu\\git\\nayo\\WebContent\\images\\recipe\\processImage";
 		int sizeLimit = 1024*1024*15;
 		MultipartRequest multi = new MultipartRequest(request, savePath, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
 		RecipeService rs = new RecipeService(getServletContext());
@@ -131,11 +139,11 @@ public class RecipeReg extends HttpServlet {
 		
 		
 		
-		String mainImg = savePath+"\\"+multi.getOriginalFileName("main-img");
+		String mainImg = "/nayo/images/recipe/processImage/"+multi.getFilesystemName("main-img");
 		
 		for(String[] s : processNames) {
 			String processText = (String)multi.getParameter(s[0]);
-			String processImgDir = savePath+"\\"+multi.getOriginalFileName(s[1]);
+			String processImgDir ="/nayo/images/recipe/processImage/"+multi.getFilesystemName(s[1]);
 
 			String[] process = {processText,processImgDir};
 			

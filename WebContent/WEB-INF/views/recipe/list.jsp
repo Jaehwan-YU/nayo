@@ -7,10 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>나도 요리사 - 나요</title>
+<script type="text/javascript" src="${ctx}/js/recipeList.js"></script>
 <link href="../css/recipeStyle.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-
+	<span type="hidden">$</span>
 <!-- header영역 -->
 	<jsp:include page="../inc/header.jsp"/>
 	
@@ -29,8 +30,7 @@
 					<tr>
 						<td>
 							<ul>
-								<li><img src="">로그인 정보 없을 시 : 해당 서비스를 이용하시려면 로그인</li>
-								<li>로그인 정보 있을 시 : 식재료로 가능한 레시피 출력</li>
+								<li><a href="/nayo/login">지금 로그인 하시고 냉장고에 있는 재료로 조리 가능한 레시피를 확인해보세요!</a></li>
 							</ul>
 						</td>
 					</tr>
@@ -43,8 +43,8 @@
 					<tr>
 						<td>
 							<ul>
-								<li><img src="">로그인 정보 없을 시 : 해당 서비스를 이용하시려면 로그인</li>
-								<li>로그인 정보 있을 시 : 내가 등록한 레시피 출력 / 등록된요리 없으면 공유해보세요</li>
+								<li><a href="/nayo/login">어떤 레시피를 등록했을까요? 로그인 해서 확인해보세요.</a></li>
+			
 							</ul>
 						</td>
 					</tr>
