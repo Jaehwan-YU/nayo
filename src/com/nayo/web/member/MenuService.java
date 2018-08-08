@@ -119,17 +119,16 @@ public class MenuService {
 		String user = "c##nayoadmin";
 		String password = "skdy0514";*/
 		
-		String sql = "INSERT INTO MENU(ID, MENU_DATE, MILL, RECIPE_ID, REG_EMAIL) "
-				+ "VALUES(?,?,?,?,?)";
+		String sql = "INSERT INTO MENU(MENU_DATE, MILL, RECIPE_ID, REG_EMAIL)\r\n" + 
+					"VALUES(?,?,?,?)";
 
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, user, password);
 		PreparedStatement pstmt = con.prepareStatement(sql);
-		pstmt.setInt(1, menu.getId());
-		pstmt.setDate(2, menu.getMenuDate());
-		pstmt.setInt(3, menu.getMill());
-		pstmt.setInt(4, menu.getRecipeId());
-		pstmt.setString(5, menu.getRegEmail());
+		pstmt.setDate(1, menu.getMenuDate());
+		pstmt.setInt(2, menu.getMill());
+		pstmt.setInt(3, menu.getRecipeId());
+		pstmt.setString(4, menu.getRegEmail());
 		
 		int cnt = pstmt.executeUpdate();
 		
