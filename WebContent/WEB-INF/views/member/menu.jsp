@@ -33,94 +33,48 @@
 		<div class="main-container">
 			<section id="daily-menu">
 				<div class="select-monthly">
-					<div class ="monthly-head">
-						<select class="select-type" name="sel-year">
-							<option value="2018">년도</option>
+
+						<select class="sel-year">
 						</select>년
-						<select class="select-type" name="sel-month">
-							<option value="01">월</option>
+						<select class="sel-month">
+							<option>월</option>
 						</select>월
-					</div>
+
 				</div>
-				<table id="table">
+				<h1>${year}년 ${month}월</h1>
+				<table id="menu-table">
 					<thead>
 						<tr>
-							<td>일</td>
-							<td>월</td>
-							<td>화</td>
-							<td>수</td>
-							<td>목</td>
-							<td>금</td>
-							<td>토</td>
+							<th>일</th>
+							<td>아침</td>
+							<td>점심</td>
+							<td>저녁</td>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>	
-						</tr>
-						<tr>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>	
-						</tr>
-						<tr>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>	
-						</tr>
-						<tr>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>	
-						</tr>
-						<tr>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>
-							<td><div></div></td>	
-						</tr>
+					<c:forEach var="m" items="${mlist}">
+							<c:forEach var="d" begin="1" end="${last}">
+								<c:set var="date" value="${m.menuDate}"/>
+								<c:set var="md" value="${fn:split('2018-08-04','-')}"/>
+							<tr>
+								<th>${d}</th>
+								<td value="${d}" name="1" ondrop="drop(event)" ondragover="dragover(event)"><c:if test="${md[2]==d}"><c:if test="${m.mill==1}">${m.title}</c:if></c:if></td>
+								<td value="${d}" name="2" ondrop="drop(event)" ondragover="dragover(event)"><c:if test="${md[2]==d}"><c:if test="${m.mill==2}">${m.title}</c:if></c:if></td>
+								<td value="${d}" name="3" ondrop="drop(event)" ondragover="dragover(event)"><c:if test="${md[2]==d}"><c:if test="${m.mill==3}">${m.title}</c:if></c:if></td>
+							</tr>
+								</c:forEach>
+							</c:forEach>
 					</tbody>
-				</table>
-				<!-- <table>
-					<tr>
-						<td><input name="fromDt" type="text" id="fromDt" size="8"
-							maxlength="8" value=""></td>
-					</tr>
-				</table>
-				<table id="calendar">
-					<tbody>
+					<%-- <tbody>
+					<c:if test="${mill}==1"></c:if>
+					<c:forEach var="m" items="${mlist}">
 						<tr>
-							<td>일</td>
-							<td>월</td>
-							<td>화</td>
-							<td>수</td>
-							<td>목</td>
-							<td>금</td>
-							<td>토</td>
+							<th>${m.menuDate}</th>
+							<td>${m.title}</td>
 						</tr>
-					</tbody>
-				</table> -->
+					</c:forEach>
+					</tbody> --%>
+				</table>
 			</section>
 			<input type="submit" value="저장" />
 		</div>
@@ -130,7 +84,7 @@
 				<ul>
 				<c:forEach var="r" items="${rlist}">
 					<li><img src="${r.mainImg}"></li>
-					<li>${r.title}</li>
+					<li draggable="true" ondragstart="drag(event)" data-name="${r.id}">${r.title}</li>
 				</c:forEach>
 				</ul>
 		</div>
@@ -140,17 +94,17 @@
 				<ul>
 				<c:forEach var="s" items="${slist}">
 					<li><img src="${s.mainImg}">}</li>
-					<li>${s.title}</li>
+					<li draggable="true" ondragstart="drag(event)" data-name="${s.id}">${s.title}</li>
 				</c:forEach>
 				</ul>
 		</div>
 
 		<div class="menu-container">
 				<h4>즐겨먹기</h4>
-				<ul draggable="true">
+				<ul>
 				<c:forEach var="b" items="${blist}">
 					<li><img src="${b.mainImg}"></li>
-					<li>${b.title}</li>
+					<li draggable="true" ondragstart="drag(event)" data-name="${b.id}">${b.title}</li>
 				</c:forEach>
 				</ul>
 		</div>
