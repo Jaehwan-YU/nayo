@@ -497,16 +497,16 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 		String user = "c##nayoadmin";
 		String password = "skdy0514";*/
 		
-		String sql = "select (m.point-n.point2) point, m.recipe_id from \r\n" + 
-				"(select recipe_ID, sum(point) point from\r\n" + 
-				"(select recipe_id, case when main_or_sub = 1 then count*10 else count end point from \r\n" + 
+		String sql = "select (m.point1-n.point2) point, m.recipe_id from \r\n" + 
+				"(select recipe_ID, sum(point1) point1 from\r\n" + 
+				"(select recipe_id, case when main_or_sub = 1 then count*10 else count end point1 from \r\n" + 
 				"(select recipe_id, main_or_sub, count(ID) count from ingredients group by recipe_id, main_or_sub)) \r\n" + 
 				"group by recipe_id) m inner join \r\n" + 
-				"(select sum(point) point2, recipe_id from \r\n" + 
-				"(select recipe_id, main_or_sub, case when main_or_sub =1 then count_f*10 else count_f end point from \r\n" + 
+				"(select sum(point2) point2, recipe_id from \r\n" + 
+				"(select recipe_id, main_or_sub, case when main_or_sub =1 then count_f*10 else count_f end point2 from \r\n" + 
 				"(select count(i.id) count_f, recipe_id, main_or_sub from ingredients i inner join \r\n" + 
 				"(select * from food where reg_email = ? and use_date is null) f on i.name = f.name group by recipe_id, main_or_sub)) \r\n" + 
-				"group by recipe_id) n on m.recipe_id = n.recipe_id where point >= 5 order by point";
+				"group by recipe_id) n on m.recipe_id = n.recipe_id where (m.point1-n.point2) <= 5 order by point";
 		
 		String sql2 = "select*from recipe where id = ?";
 				

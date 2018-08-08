@@ -64,10 +64,8 @@ public class FoodList extends HttpServlet {
 			request.setAttribute("list3", list3);
 			request.setAttribute("ctx", ctx);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -78,7 +76,7 @@ public class FoodList extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 	}
 
 }

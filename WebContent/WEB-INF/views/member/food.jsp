@@ -13,6 +13,7 @@
 </head>
 <body>
 
+
 	<!-- header영역 -->
 	<jsp:include page="../inc/header.jsp" />
 
@@ -39,7 +40,7 @@
 				<h1 class="hidden-head">식재료 카테고리 영역</h1>
 				<form>
 					<c:forEach var="fc" items="${list}">
-						<input type="checkbox" class="food-cate-${fc.id}" value="${fc.id}" />
+						<input type="checkbox" id="food-cate-${fc.id}" value="${fc.id}" />
 						<label for="food-cate-${fc.id}">${fc.name}</label>
 					</c:forEach>
 				</form>
@@ -47,78 +48,102 @@
 
 			<section id="food-service">
 				<h1 class="hidden-head">식재료 서비스 버튼</h1>
-				<input type="button" value="식재료 다중선택"/>
-				<input type="button" value="선택 식재료를 이용한 레시피" /> <input
-					type="button" value="선택 식재료 사용완료" /> <input type="button"
-					value="선택 식재료 버리기" />
+				<input type="button" value="식재료 다중선택" class="multiple-button" /> <input
+					type="submit" value="선택 식재료를 이용한 레시피" class="recipe-button" /> <input
+					type="submit" value="선택 식재료 사용완료" class="use-button" /> <input
+					type="submit" value="선택 식재료 버리기" class="del-button" />
 			</section>
-			<section class="food-show-area">
+			<div class="black-overlay"></div>
+			<div class="food-overlay">
+				<section class="food-add-section">
+					<h1>식재료 추가</h1>
+					<div>
+						<label for="food-name-input">식재료명 입력</label> <input
+							id="food-name-input" type="text" placeholder="식재료명을 입력하세요." /> <input
+							type="button" value="추가" />
+					</div>
+					<form>
+						<ul>
+						</ul>
+					</form>
+				</section>
+				<section class="food-show-section">
+					<h1>식재료 정보 확인</h1>
+				</section>
+				<section class="food-set-section">
+					<h1>식재료 정보 수정</h1>
+				</section>
+			</div>
+			<section id="food-show-area">
 				<h1 class="hidden-head">보유 식재료 출력 영역</h1>
-				<form>
-				<section class="food-container">
-					<h1 class="area-name">냉장</h1>
-					<table>
-						<c:forEach var="f" items="${list1}" varStatus="st">
-							<c:if test="${st.index%3 == 0}">
-								<tr>
-							</c:if>
-							<td>
-								<ul>
-									<li class="rest-life">${f.restLife}</li>
-									<li><img alt="" src="../images/ajax-loader.gif"></li>
-									<li>${f.name}</li>
-									<li><input type="checkbox" class="food-check" value="${f.id}" /></li>
-								</ul>
-							</td>
-							<c:if test="${st.index%3 == 2}">
-								</tr>
-							</c:if>
-						</c:forEach>
-					</table>
-				</section>
-				<section class="food-container">
-					<h1 class="area-name">냉동</h1>
-					<table>
-						<c:forEach var="f" items="${list2}" varStatus="st">
-							<c:if test="${st.index%3 == 0}">
-								<tr>
-							</c:if>
-							<td>
-								<ul>
-									<li class="rest-life">${f.restLife}</li>
-									<li><img alt="" src="../images/ajax-loader.gif"></li>
-									<li>${f.name}</li>
-									<li><input type="checkbox" class="food-check" value="${f.id}" /></li>
-								</ul>
-							</td>
-							<c:if test="${st.index%3 == 2}">
-								</tr>
-							</c:if>
-						</c:forEach>
-					</table>
-				</section>
-				<section class="food-container">
-					<h1 class="area-name">상온</h1>
-					<table>
-						<c:forEach var="f" items="${list3}" varStatus="st">
-							<c:if test="${st.index%3 == 0}">
-								<tr>
-							</c:if>
-							<td>
-								<ul>
-									<li class="rest-life">${f.restLife}</li>
-									<li><img alt="" src="../images/ajax-loader.gif"></li>
-									<li>${f.name}</li>
-									<li><input type="checkbox" class="food-check" value="${f.id}"/></li>
-								</ul>
-							</td>
-							<c:if test="${st.index%3 == 2}">
-								</tr>
-							</c:if>
-						</c:forEach>
-					</table>
-				</section>
-			</form>
+				<form method="post">
+					<section class="food-container">
+						<h1 class="area-name">냉장</h1>
+						<table>
+							<c:forEach var="f" items="${list1}" varStatus="st">
+								<c:if test="${st.index%3 == 0}">
+									<tr>
+								</c:if>
+								<td>
+									<ul>
+										<li class="rest-life">${f.restLife}</li>
+										<li><img alt="" src="../images/ajax-loader.gif"></li>
+										<li>${f.name}</li>
+										<li><input type="checkbox" name="food-check"
+											value="${f.id}" /></li>
+									</ul>
+								</td>
+								<c:if test="${st.index%3 == 2}">
+									</tr>
+								</c:if>
+							</c:forEach>
+						</table>
+					</section>
+					<section class="food-container">
+						<h1 class="area-name">냉동</h1>
+						<table>
+							<c:forEach var="f" items="${list2}" varStatus="st">
+								<c:if test="${st.index%3 == 0}">
+									<tr>
+								</c:if>
+								<td>
+									<ul>
+										<li class="rest-life">${f.restLife}</li>
+										<li><img alt="" src="../images/ajax-loader.gif"></li>
+										<li>${f.name}</li>
+										<li><input type="checkbox" name="food-check"
+											value="${f.id}" /></li>
+									</ul>
+								</td>
+								<c:if test="${st.index%3 == 2}">
+									</tr>
+								</c:if>
+							</c:forEach>
+						</table>
+					</section>
+					<section class="food-container">
+						<h1 class="area-name">상온</h1>
+						<table>
+							<c:forEach var="f" items="${list3}" varStatus="st">
+								<c:if test="${st.index%3 == 0}">
+									<tr>
+								</c:if>
+								<td>
+									<ul>
+										<li class="rest-life">${f.restLife}</li>
+										<li><img alt="" src="../images/ajax-loader.gif"></li>
+										<li>${f.name}</li>
+										<li><input type="checkbox" name="food-check"
+											value="${f.id}" /></li>
+									</ul>
+								</td>
+								<c:if test="${st.index%3 == 2}">
+									</tr>
+								</c:if>
+							</c:forEach>
+						</table>
+					</section>
+				</form>
 			</section>
 		</div>
 	</section>

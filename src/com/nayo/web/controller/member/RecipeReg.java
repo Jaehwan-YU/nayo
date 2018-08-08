@@ -33,7 +33,7 @@ public class RecipeReg extends HttpServlet {
 		HttpSession session = request.getSession();
 		String email = (String)session.getAttribute("email");
 		
-		if(email == null || !email.equals("")) {
+		if(email == null) {
 			response.sendRedirect("/nayo/login");
 			return;
 		}

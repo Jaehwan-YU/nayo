@@ -106,10 +106,6 @@ public class FoodService {
 		int keepAreaId = 1;
 		String foodImg = "default img";
 
-	/*	String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
-		String user = "c##nayoadmin";
-		String password = "skdy0514";*/
-
 		String addSql = "INSERT INTO FOOD(ID, NAME, FOOD_LIFE, REG_EMAIL, FOOD_CATE_ID, KEEP_AREA_ID, FOOD_IMG)"
 				+ " VALUES(FOOD_SEQ.nextval, ?, ?, ?, ?, ?, ?)";
 
@@ -151,10 +147,6 @@ public class FoodService {
 	public void setFood(int foodId, Date sellLife, int foodLife, int keepAreaId)
 			throws SQLException, ClassNotFoundException {
 
-/*		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
-		String user = "c##nayoadmin";
-		String password = "skdy0514";*/
-
 		String sql = "UPDATE FOOD SET SELL_LIFE = ?, FOOD_LIFE = ?, KEEP_AREA_ID = ? WHERE ID = ?";
 
 		Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -179,34 +171,46 @@ public class FoodService {
 
 	}
 
-	public void deleteFood(int foodId) throws SQLException, ClassNotFoundException {
-
-/*		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
-		String user = "c##nayoadmin";
-		String password = "skdy0514";*/
+	public void deleteFood(String[] values) {
 
 		String sql = "DELETE FROM FOOD WHERE ID = ?";
 
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection con = DriverManager.getConnection(url, user, password);
-		PreparedStatement pstmt = con.prepareStatement(sql);
-		pstmt.setInt(1, foodId);
-		int cnt = pstmt.executeUpdate();
-
-		System.out.println(cnt > 0 ? "식재료를 삭제했습니다" : "삭제실패");
-
-		pstmt.close();
-		con.close();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, user, password);
+			pstmt = con.prepareStatement(sql);
+			
+			for(String v : values) {
+				
+				pstmt.setString(1, v);
+				int cnt = pstmt.executeUpdate();
+		
+				System.out.println(cnt > 0 ? "식재료를 삭제했습니다" : "삭제실패");
+			
+			}
+			
+			pstmt.close();
+			con.close();
+			
+		}catch(ClassNotFoundException | SQLException e) {
+			System.out.println(e);
+			try {
+				pstmt.close();
+				con.close();
+			} catch (SQLException e1) {
+				System.out.println(e);
+			}
+		}
 
 	}
 
 	public Food getFoodDetail(int foodId) throws SQLException, ClassNotFoundException {
 
 		Food food = new Food();
-/*
-		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
-		String user = "c##nayoadmin";
-		String password = "skdy0514";*/
 
 		String sql = "SELECT * FROM FOOD WHERE ID = ?";
 
@@ -235,10 +239,6 @@ public class FoodService {
 			
 			List<FoodCate> list = new ArrayList<>();
 			
-	/*		String url = "jdbc:oracle:thin:@211.238.142.251:1521:orcl";
-			String user = "c##nayoadmin";
-			String password = "skdy0514";
-*/
 			String sql = "SELECT * FROM FOOD_CATE";
 			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -287,5 +287,38 @@ public class FoodService {
 		rs.close();
 		
 		return list;
+	}
+	
+	public void setFoodUse(String[] values){
+		
+		String sql = "update food set use_date = sysdate where id = ?";
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, user, password);
+			pstmt = con.prepareStatement(sql);
+			
+			for(String v : values) {
+			
+				pstmt.setString(1, v);
+	
+				int cnt = pstmt.executeUpdate();
+	
+				System.out.println(cnt > 0 ? "수정완료" : "수정실패");
+				
+			}
+			pstmt.close();
+			con.close();
+		}catch(ClassNotFoundException | SQLException e) {
+			try {
+				pstmt.close();
+				con.close();
+			} catch (SQLException e1) {
+				System.out.println(e1);
+			}
+			System.out.println(e);
+		}
+		
 	}
 }
