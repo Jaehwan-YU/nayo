@@ -8,7 +8,7 @@ public class Menu {
 	private int mill;
 	private int recipeId;
 	private int id;
-	private String menuTitle;
+	private String title;
 	private String menuPic;
 	
 
@@ -16,14 +16,13 @@ public class Menu {
 		
 	}
 
-	public Menu(String regEmail, Date menuDate, int mill, int recipeId, int id, String menuTitle, String menuPic) {
-		super();
+	public Menu(String regEmail, Date menuDate, int mill, int recipeId, int id, String title, String menuPic) {
 		this.regEmail = regEmail;
 		this.menuDate = menuDate;
 		this.mill = mill;
 		this.recipeId = recipeId;
 		this.id = id;
-		this.menuTitle = menuTitle;
+		this.title = title;
 		this.menuPic = menuPic;
 	}
 	
@@ -67,12 +66,12 @@ public class Menu {
 		this.id = id;
 	}
 	
-	public String getMenuTitle() {
-		return menuTitle;
+	public String getTitle() {
+		return title;
 	}
 	
-	public void setMenuTitle(String menuTitle) {
-		this.menuTitle = menuTitle;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	
 	public String getMenuPic() {
@@ -86,7 +85,9 @@ public class Menu {
 	@Override
 	public String toString() {
 		return "Menu [regEmail=" + regEmail + ", menuDate=" + menuDate + ", mill=" + mill + ", recipeId=" + recipeId
-				+ ", id=" + id + "]";
+				+ ", id=" + id + ", title=" + title + ", menuPic=" + menuPic + "]";
 	}
+
+	
 	
 }
