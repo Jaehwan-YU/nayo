@@ -64,14 +64,14 @@ public class MenuList extends HttpServlet {
 			return;
 		}
 		
-		Calendar tDay = Calendar.getInstance();
+/*		Calendar tDay = Calendar.getInstance();
 		int year = tDay.get(Calendar.YEAR);
 		int month = tDay.get(Calendar.MONTH);
 		int day = tDay.get(Calendar.DATE);
 		
 		Calendar dSet = Calendar.getInstance();
 		dSet.set(year, month, 1);
-		int last_day = tDay.getActualMaximum(Calendar.DATE);
+		int last_day = tDay.getActualMaximum(Calendar.DATE);*/
 		
 		try {
 			List<Recipe> blist = bs.getBookmarkList(email);
@@ -83,10 +83,10 @@ public class MenuList extends HttpServlet {
 			request.setAttribute("rlist", rlist);
 			request.setAttribute("slist", slist);
 			request.setAttribute("mlist", mlist);
-			request.setAttribute("year", year);
+			/*request.setAttribute("year", year);
 			request.setAttribute("month", month);
 			request.setAttribute("day", day);
-			request.setAttribute("last", last_day);
+			request.setAttribute("last", last_day);*/
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/member/menu.jsp");
 			dispatcher.forward(request, response);
