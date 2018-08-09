@@ -382,8 +382,8 @@ public List<Recipe> getRecipeList(String memberEmail) throws ClassNotFoundExcept
 		try {
 		con = DriverManager.getConnection(url, user, password);
 		con.setAutoCommit(false);
-		Class.forName("oracle.jdbc.driver.OracleDriver");
 		sp = con.setSavepoint();
+		Class.forName("oracle.jdbc.driver.OracleDriver");
 		
 		pstmt1 = con.prepareStatement(sql1);
 		pstmt2 = con.prepareStatement(sql2);

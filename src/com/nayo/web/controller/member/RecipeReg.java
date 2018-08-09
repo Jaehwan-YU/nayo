@@ -69,21 +69,22 @@ public class RecipeReg extends HttpServlet {
 				
 		String title = (String) multi.getParameter("title");
 		String simpleIntro = (String) multi.getParameter("simple-intro");
+		
 		int nationalId = 0;
-		String nationalId_= ((String)multi.getParameter("national")).trim();
+		String nationalId_= ((String)multi.getParameter("national")).replaceAll("[^0-9]","");
 		if(nationalId_ != null && !nationalId_.equals(""))
 			nationalId = Integer.parseInt(nationalId_);
 		int situationId = 0;
-		String situationId_= ((String)multi.getParameter("situation")).trim();
+		String situationId_= ((String)multi.getParameter("situation")).replaceAll("[^0-9]","");
 		if(situationId_ != null && !situationId_.equals(""))
 			situationId = Integer.parseInt(situationId_);
 		int recipeTypeId = 0; 
-		String recipeTypeId_= ((String)multi.getParameter("recipe-type")).trim();
+		String recipeTypeId_= ((String)multi.getParameter("recipe-type")).replaceAll("[^0-9]","");
 		if(recipeTypeId_ != null && !recipeTypeId_.equals(""))
 			recipeTypeId = Integer.parseInt(recipeTypeId_);
 				
 		int kcalory = 0; 
-		String kcalory_= multi.getParameter("kcal").trim();
+		String kcalory_= multi.getParameter("kcal").replaceAll("[^0-9]","");
 		if(kcalory_ != null && !kcalory_.equals(""))
 			kcalory = Integer.parseInt(kcalory_);
 		

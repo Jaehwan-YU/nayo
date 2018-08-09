@@ -71,7 +71,9 @@ public class MenuList extends HttpServlet {
 		
 		Calendar dSet = Calendar.getInstance();
 		dSet.set(year, month, 1);
+
 		int last_day = tDay.getActualMaximum(Calendar.DATE);*/
+
 		
 		try {
 			List<Recipe> blist = bs.getBookmarkList(email);

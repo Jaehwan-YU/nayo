@@ -56,15 +56,17 @@
 			<div class="black-overlay"></div>
 			<div class="food-overlay">
 				<section class="food-add-section">
+					<img src="../images/overlay_x_button.png"/>
 					<h1>식재료 추가</h1>
 					<div>
 						<label for="food-name-input">식재료명 입력</label> <input
 							id="food-name-input" type="text" placeholder="식재료명을 입력하세요." /> <input
 							type="button" value="추가" />
 					</div>
-					<form>
+					<form action="/nayo/addfood" method="post">
 						<ul>
 						</ul>
+						<input type="submit" value="저장">
 					</form>
 				</section>
 				<section class="food-show-section">
@@ -144,6 +146,7 @@
 						</table>
 					</section>
 				</form>
+				<input type="button" class="food-overlay-block" value="새로운 식재료 등록" />
 			</section>
 		</div>
 	</section>
