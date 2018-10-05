@@ -1,6 +1,7 @@
 package com.nayo.web.controller.member;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.List;
@@ -23,7 +24,29 @@ import com.nayo.web.member.MenuService;
 
 @WebServlet("/member/menu")
 public class MenuList extends HttpServlet {
-	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		String regEmail = (String)session.getAttribute("email");
+		MenuService ms = new MenuService(getServletContext());
+		
+		String date_ = request.getParameter("");
+		Date date = Date.valueOf(date_);
+		String mill_ = request.getParameter("mill");
+		int mill = Integer.parseInt(mill_);
+		String recipeId_ = request.getParameter("id");
+		int recipeId = Integer.parseInt(recipeId_);
+		
+		Menu menu = new Menu(regEmail, date, mill, recipeId);
+		
+		try {
+			ms.addMenu(menu);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		response.sendRedirect("");
+	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String ctx = request.getContextPath();
 		request.setAttribute("ctx", ctx);
@@ -41,14 +64,16 @@ public class MenuList extends HttpServlet {
 			return;
 		}
 		
-		Calendar tDay = Calendar.getInstance();
+/*		Calendar tDay = Calendar.getInstance();
 		int year = tDay.get(Calendar.YEAR);
 		int month = tDay.get(Calendar.MONTH);
 		int day = tDay.get(Calendar.DATE);
 		
 		Calendar dSet = Calendar.getInstance();
 		dSet.set(year, month, 1);
-		int last_day = tDay.getActualMaximum(Calendar.DATE);
+
+		int last_day = tDay.getActualMaximum(Calendar.DATE);*/
+
 		
 		try {
 			List<Recipe> blist = bs.getBookmarkList(email);
@@ -60,10 +85,10 @@ public class MenuList extends HttpServlet {
 			request.setAttribute("rlist", rlist);
 			request.setAttribute("slist", slist);
 			request.setAttribute("mlist", mlist);
-			request.setAttribute("year", year);
+			/*request.setAttribute("year", year);
 			request.setAttribute("month", month);
 			request.setAttribute("day", day);
-			request.setAttribute("last", last_day);
+			request.setAttribute("last", last_day);*/
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/member/menu.jsp");
 			dispatcher.forward(request, response);

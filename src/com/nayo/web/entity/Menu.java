@@ -15,6 +15,7 @@ public class Menu {
 	public Menu() {
 		
 	}
+	
 
 	public Menu(String regEmail, Date menuDate, int mill, int recipeId, int id, String title, String menuPic) {
 		this.regEmail = regEmail;
@@ -24,6 +25,12 @@ public class Menu {
 		this.id = id;
 		this.title = title;
 		this.menuPic = menuPic;
+	}
+	public Menu(String regEmail, Date menuDate, int mill, int recipeId) {
+		this.regEmail = regEmail;
+		this.menuDate = menuDate;
+		this.mill = mill;
+		this.recipeId = recipeId;
 	}
 	
 	public String getRegEmail() {
